@@ -1,0 +1,2238 @@
+2001-01-16  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* (Everything)
+	Updated copyright to include 2001.
+
+	* src/image.c, src/image.h, configure.in:
+	Integrated patch from Jay Estabrook <Jay.Estabrook@compaq.com> to fix
+	some 32-bit-isms and enable compiling on 64-bit machines (like Alphas).
+
+2001-01-13  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/game_config.c, src/game_config.h, src/joystick.c:
+	- Joystick axes for turning and accel/braking can now be mapped to any
+	  joystick axis (based on suggestion and patch from Julie Brandon
+	  <julie@computergeeks.co.uk>)
+
+	* src/tex_font_metrics.c, src/audio_data.c:
+	- Changes to suppress warnings when assertions turned off
+
+	* src/debug.c, src/debug.h, src/gl_util.c, src/main.c, src/tuxracer.h, configure.in:
+	- Moved some code that was in main.c into setup_diagnostic_log in
+	  debug.c
+	- Renamed TUXRACER_NO_DEBUG to TUXRACER_NO_ASSERT
+	- Debugging messages are now printed even if TUXRACER_NO_ASSERT is
+	  defined (so that we can generated diagnostic logs in release builds)
+
+	* configure.in: - Changed version to 0.61
+	- Assertion checks now disabled in non-debug build.
+
+2001-01-13  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/game_config.c, src/game_config.h, src/joystick.c:
+	- Joystick axes for turning and accel/braking can now be mapped to any
+	  joystick axis (based on suggestion and patch from Julie Brandon
+	  <julie@computergeeks.co.uk>)
+
+	* src/tex_font_metrics.c, src/audio_data.c:
+	- Changes to suppress warnings when assertions turned off
+
+	* src/debug.c, src/debug.h, src/gl_util.c, src/main.c, src/tuxracer.h, configure.in:
+	- Moved some code that was in main.c into setup_diagnostic_log in
+	  debug.c
+	- Renamed TUXRACER_NO_DEBUG to TUXRACER_NO_ASSERT
+	- Debugging messages are now printed even if TUXRACER_NO_ASSERT is
+	  defined (so that we can generated diagnostic logs in release builds)
+
+	* configure.in: - Changed version to 0.61
+	- Assertion checks now disabled in non-debug build.
+
+2000-12-09  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/keyboard.c, src/loop.h, src/main.c, src/tcl_util.h, src/ui_mgr.c:
+	Added some missing prototypes and #includes.
+
+	* src/tcl_util.c:
+	Tcl channels now only modified under Win32 (not needed under Linux,
+	apparently.)
+
+	* configure.in:
+	Added X libs to TR_LIBS so that glut links properly on all systems.
+
+2000-12-07  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/loading.c: - Removed unused variables
+	- Added missing #includes
+
+	* src/Makefile.am: Added loading.[ch]
+
+2000-12-05  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/fog.c:
+	- fog is not enabled if disable_fog parameter is true.
+
+	* src/game_config.c, src/game_config.h:
+	- Added disable_fog parameter to work around bug in Rage 128 linux drivers.
+	- fullscreen and capture_mouse now default to "true".
+
+	* src/tux.c:
+	Changed "./tux.tcl" to "tux.tcl".
+
+	
+2000-12-01  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/tuxracer.h:
+	Added entry in game_mode_t for LOADING mode.
+
+	* src/tcl_util.c:
+	Added setup_tcl_std_channels().
+
+	* src/race_select.c:
+	- We now always go through the loading screen before starting a race.
+	- We force a mode change at the end of the start button click callback
+	  to ensure that no more event callbacks are processed before the mode
+	  changes.
+
+	* src/loading.c:
+	State regarding what course has been loaded is now stored in this mode.
+
+	* src/loop.c, src/loop.h:
+	Added force_immediate_mode_change().  This is necessary for the race
+	select screen, where we want to make sure that no further event
+	callbacks are processed after the start button is clicked.
+
+	* src/race_select.c:
+	Modified so that courses are now loaded in LOADING mode.
+
+	* src/loading.c, src/loading.h:
+	Initial checkin.
+
+	* src/loading.c, src/loading.h:
+	New file.
+
+	* src/main.c: - Registered new loading mode
+	- Fixed up Tcl stdout and stderr channels under Windows
+
+
+2000-11-19  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/tuxracer.h:
+	Disabled some pedantic warnings in MSVC++.
+
+	* src/quadgeom.hpp:
+	Added #include "tuxracer.h"
+
+	* src/os_util.c:
+	Added missing declaration of len in win32 version.
+
+	* src/tuxracer.h:
+	Disabled some pedantic warnings in MSVC++.
+
+	* src/quadgeom.hpp:
+	Added #include "tuxracer.h"
+
+	* src/os_util.c:
+	Added missing len variable declaration in win32 version.
+
+2000-11-09  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/os_util.c:
+	A few fixes for Linux: got rid of snprintf since it may have
+	portability problems (and isn't defined by including stdio.h for some
+	strange reason); added missing utsname declaration.
+
+	* src/file_util.c:
+	Added hack to define MAX_PATH if it isn't defined (which is the case under
+	Linux).
+
+2000-11-02  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/list.c: Fixed a memory allocation bug.
+
+	* src/splash_screen.c, src/string_util.c, src/tuxracer.h, src/course_load.c, src/credits.c, src/event_select.c, src/game_over.c, src/game_type_select.c, src/intro.c, src/main.c, src/os_util.c, src/paused.c, src/quadtree.hpp, src/race_select.c, src/racing.c, src/reset.c:
+	Fixes for clean compilation under VC++.
+
+2000-10-31  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/pic.c, src/pic.h, src/quadgeom.cpp, src/quadgeom.hpp, src/quadtree.cpp, src/quadtree.hpp, src/race_select.c, src/racing.c, src/reset.c, src/save.c, src/screenshot.c, src/splash_screen.c, src/textarea.c, src/textures.c, src/track_marks.c, src/tux_types.h, src/tuxracer.h, src/ui_mgr.c, src/Makefile.am, src/alglib.c, src/audio.c, src/button.c, src/course_load.h, src/course_mgr.c, src/course_quad.cpp, src/course_render.c, src/debug.c, src/error_util.c, src/file_util.c, src/file_util.h, src/fog.c, src/fonts.c, src/fps.c, src/game_config.c, src/game_over.c, src/gauss.c, src/gl_util.c, src/hash.c, src/hier.c, src/intro.c, src/main.c, src/paused.c, src/phys_sim.c:
+	Fixes for clean compilation under Codewarrior 4.0 (Win32).
+
+	* src/os_util.c, src/os_util.h:
+	Initial checkin
+
+	* src/os_util.h, src/os_util.c:
+	New file.
+
+2000-10-30  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/main.c:
+	Added code to generate diagnostic log.
+
+	* src/game_config.c, src/game_config.h:
+	Changed "bug_report" to "diagnostic_log".
+
+2000-10-27  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/save.c:
+	Expanded my silly abbreviation of `difficulty'.
+
+	* src/debug.c, src/debug.h:
+	Added debug_mode_set_active to manually activate debug modes (for use
+	in bug report)
+
+2000-10-24  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/render_util.h, src/render_util.c:
+	Removed some routines that are no longer used
+
+	* src/phys_sim.c: Removed health code
+
+	* src/main.c:
+	- Moved initialization code to audio, joystick, and winsys modules
+	- Updated to use new winsys functions
+
+	* src/loop.c:
+	- Modified to use winsys functions
+
+	* src/keyboard.c, src/keyboard_util.c:
+	- Modified to use winsys functions and constants
+	- Added keysyms for shift, alt, and control keys.
+
+	* src/joystick.c:
+	- Moved SDL joystick initialization to init_joystick().
+
+	* src/gl_util.c, src/gl_util.h:
+	- Modified extension check to use SDL_GL_GetProcAddress if available
+	- Fallback to setting extension func ptrs to NULL if no method for
+	  getting proc addresses is available
+	- Added print_gl_info() method
+
+	* src/game_config.c, src/game_config.h:
+	Added bpp_mode and generate_bug_report configuration variables.
+
+	* src/error_util.c:
+	Updated to use winsys_exit instead of exit.
+
+	* src/debug.c, src/debug.h:
+	- Removed health debug mode
+	- Added gl_info debug mode (prints information about OpenGL renderer)
+
+	* src/credits.c, src/event_select.c, src/game_over.c, src/game_type_select.c, src/image.c, src/intro.c, src/paused.c, src/race_select.c, src/racing.c, src/reset.c, src/splash_screen.c, src/tuxracer.h, src/ui_mgr.c, src/ui_mgr.h, src/button.c:
+	- Updated to use winsys functions and constants (instead of GLUT)
+
+	* src/audio.c, src/audio.h:
+	- Moved SDL sound initialization to init_audio().
+	- Added shutdown_audio()
+
+	* src/winsys.c, src/winsys.h:
+	Initial checkin
+
+	* src/winsys.c, src/winsys.h:
+	New file.
+
+	* src/Makefile.am: Added winsys.[ch]
+
+	* configure.in: - Changed version to 0.61pre
+	- Added check for libm and libdl (needed to detect Tcl on some
+	  platforms)
+	- Added --disable-sdl flag
+	- glXGetProcAddress no longer required
+	- Check for glx only if have glXGetProcAddress
+	- GLUT only required if SDL isn't detected
+
+
+2000-10-16  Jasmin Patry  <jfpatry@sunspirestudios.com>
+	* Making version 0.60.3
+
+	* tuxracer/Makefile.am:
+	Removed 'html/images/manual' directory (causes it to be included twice).
+
+	* tuxracer/configure.in:
+	Fixes for building with Cygwin.
+	Updated version to 0.60.3.
+	
+2000-10-15  Jasmin Patry  <jfpatry@sunspirestudios.com>
+	* Making version 0.60.2
+
+	* tuxracer/configure.in:
+	Now check for Tcl 8.3 first, then 8.2, then 8.0.
+
+	* tuxracer/configure.in: More configure fixes.
+	- Fixed some problems with Tcl and GL checks
+	- Now check in /usr/include/tcl{8.0,8.2,8.3,} for tcl headers.
+
+2000-10-13  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* tuxracer/configure.in:
+	- If GL libs and headers not found in standard location, then search under
+	  /usr/X11R6/{lib,include}
+	- Tweaked "checking" messages.
+
+	* tuxracer/doconfig: Initial checkin
+
+	* tuxracer/doconfig: New file.
+
+	* tuxracer/src/func_template.txt:
+	Tweaks to function comment template.
+
+	* tuxracer/src/hash.c, tuxracer/src/tuxracer.h:
+	Changed #include <tcl.h> to #include TCL_HEADER, since the name of
+	the Tcl header is different on different systems.
+
+	* tuxracer/src/event_select.c, tuxracer/src/game_type_select.c, tuxracer/src/race_select.c:
+	Use <widget>_simulate_button_click functions in keyboard callbacks.
+
+	* tuxracer/src/button.c, tuxracer/src/button.h, tuxracer/src/listbox.c, tuxracer/src/ssbutton.c, tuxracer/src/ssbutton.h:
+	Added <widget>_simulate_button_click() functions, for use by keyboard
+	callbacks that wish to act as shortcuts for button presses.
+
+	* tuxracer/src/Makefile.am:
+	CFLAGS, CXXFLAGS now set in configure.in.
+
+	* tuxracer/configure.in: Added check for ranlib
+
+2000-10-11  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* tuxracer/configure.in:
+	Near total-rewrite of configure script.  Checks for more Tcl header files,
+	and ensures that the OpenGL headers and libraries are up to date.
+	Still needs more testing on different configurations.
+
+2000-10-08  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* tuxracer/configure.in:
+	Fixed problem with check for glx.h and glext.h.
+
+2000-10-05  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* tuxracer/src/game_config.c:
+	Reduced size of audio buffer
+
+2000-10-03  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* tuxracer/ChangeLog: *** empty log message ***
+
+	* tuxracer/README: Updated for version 0.60.
+
+	* tuxracer/Makefile.am:
+	Added web files for inclusion in dist tarball.
+
+	* tuxracer/src/gl_util.h:
+	Added hack to work around compile problems with old gl.h files.
+
+	* tuxracer/configure.in: Added check for glext.h
+
+2000-10-03  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* Making version 0.60.1.
+	
+	* README: Updated for version 0.60.
+
+	* Makefile.am:
+	Added web files for inclusion in dist tarball.
+
+	* src/gl_util.h:
+	Added hack to work around compile problems with old gl.h files.
+
+	* configure.in: Added check for glext.h
+
+2000-10-02  Jasmin Patry  <jfpatry@sunspirestudios.com>
+	
+	* Making version 0.60.
+
+	* Makefile.am: Removed tools directory
+
+	* configure.in:
+	Removed tools directory Makefiles
+
+	* src/main.c:
+	Made sure saved games module is initialized before tux is loaded
+
+	* src/race_select.c: Removed "cheat" key.
+
+	* src/ui_snow.c:
+	- Added proper initialization check
+	- Added maximum push velocity
+
+	* src/game_config.c:
+	- On Win32 options file is now options.txt
+	- Tweaks to options file comments
+
+	* src/save.c:
+	Removed warning when config directory can't be read since this is normal
+	the first time program is run.
+
+	* AUTHORS: Updated for 0.60 release.
+
+2000-10-01  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/reset.c:
+	Fixed bug in reset code in which array would be indexed at -1 if no
+	reset points existed behind player.
+
+	* src/joystick.c, src/joystick.h:
+	Initial checkin
+
+	* configure.in:
+	Added check for SDL joystick support.
+
+	* src/ui_mgr.c, src/ui_snow.c, src/ui_snow.h:
+	Added generation of snow particles using middle and right mouse buttons.
+
+	* src/splash_screen.c:
+	Added snow to splash screen.
+
+	* src/game_type_select.c:
+	Include joystick.h for future joystick support.
+
+	* src/game_config.c, src/game_config.h:
+	Added parameter for joystick continue button mapping.
+
+	* src/racing.c, src/tuxracer.h:
+	Added support for analog joysticks for turning.
+
+	* src/credits.c, src/event_select.c, src/game_over.c, src/intro.c, src/paused.c, src/race_select.c:
+	Added joystick support to selected screens.  Can now press the
+	continue button to move past intro, paused screen, and game over
+	screen.  Other screens will have to wait for better joystick
+	infrastructure (need joystick buttonpress callbacks).
+
+	* src/event_select.c, src/game_type_select.c, src/race_select.c:
+	Tweaked UI snow calls.
+
+	* src/credits.c:
+	- Added UI snow to credits screen
+
+	* src/weather.c, src/weather.h:
+	Renamed to ui_snow.[ch]
+
+	* src/splash_screen.c:
+	Tab key now turns UI snow on/off
+
+	* src/racing.c: Updates for joystick support
+
+	* src/ui_mgr.c:
+	UI snow is now "pushed" from UI mouse motion callback -- this is
+	necessary to avoid jumpiness in the snow when the mouse moves outside of the
+	window and then back in
+
+	* src/ui_snow.c, src/ui_snow.h:
+	Initial checkin (renamed from weather.[ch])
+
+	* src/loop.c, src/main.c, src/tuxracer.h:
+	Added a field secs_since_start to game_data_t struct -- counts the
+	seconds since the game was started.
+
+	* src/game_config.c, src/game_config.h:
+	Added joystick button mappings
+
+	* src/event_select.c, src/game_type_select.c, src/race_select.c:
+	Modifications to deal with renaming of "weather" functions to "ui_snow"
+
+	* src/debug.c, src/debug.h:
+	Added joystick debugging mode
+
+	* src/Makefile.am: - Added joystick.[ch]
+	- Renamed weather.[ch] to ui_snow.[ch]
+
+2000-10-01  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/weather.c:
+	SUPER 3D MAGIC WEATHER SYSTEM!!!
+	   - variable particle size and velocity
+	   - front particles are pushed harder than back
+	   - replaced when leaving window boundaries
+	   - decay of lateral velocity
+
+	* src/Makefile.am, src/event_select.c, src/game_config.c, src/game_config.h, src/game_type_select.c, src/gl_util.c, src/race_select.c, src/tux_types.h, src/weather.c, src/weather.h:
+	SUPER MAGIC WEATHER SYSTEM
+	Snow in menus that can be pushed around with the mouse. game_config
+	parameter ui_snow can be used to disable.
+
+2000-09-30  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/main.c:
+	Changes to window title and startup message.
+
+	* configure.in:
+	Changes for cross-compiling with mingw32.
+
+2000-09-30  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/button.h, src/race_select.c, src/button.c:
+	Race button is highlighted when "Enter" key is pressed.
+
+2000-09-30  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/ui_mgr.c, src/ui_mgr.h:
+	Added logic to keep track of and draw mouse cursor
+
+	* src/tuxracer.h:
+	Removed START mode (no longer exists)
+
+	* src/splash_screen.c:
+	Draw mouse cursor in splash screen
+
+	* src/render_util.c:
+	START mode no longer exists, so removed some code that checked for it.
+
+	* src/race_select.c:
+	Added keyboard callbacks for all widgets
+
+	* src/game_type_select.c:
+	Added extra keyboard callbacks
+
+	* src/main.c:
+	Now hide windowing system cursor (we draw our own)
+
+	* src/loop.c:
+	- If parameter capture_mouse is true, then mouse is confined within
+	  Tux Racer window
+
+	* src/listbox.c, src/listbox.h:
+	- Added listbox_goto_next_item, listbox_goto_prev_item
+
+	* src/game_config.c, src/game_config.h:
+	- Fixed some comments to config parameters
+	- Cleaned up some parameters: removed a few obsolete ones and added
+	  capture_mouse for Voodoo1/2 owners.
+
+	* src/game_config.c:
+	- Added comments to config parameters; comments are printed in options file.
+	- Cleaned up some parameters: removed a few obsolete ones and added
+	  capture_mouse for Voodoo1/2 owners.
+
+	* src/event_select.c:
+	Can now use arrow buttons to move through cups and events.
+	Left/Right is used to change event; Up/Down is used to change cup.
+
+2000-09-29  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/game_config.c:
+	Changes to compile under mingw32
+
+	* src/save.c:
+	Minor cleanup (set save_stream to NULL after close file
+
+	* src/race_select.c:
+	- Fixed bug in which a score entered during a failed cup attempt would
+	  still be used if better than score during successful cup attempt
+	- Modified messages displayed above score
+	- Move to next race after race is won
+	- Enter starts race, Esc goes back
+
+	* src/phys_sim.c:
+	- Increased max. frictional force so that rock slows down Tux more
+	  (and max speed is probably also reduced).
+
+	* src/game_type_select.c:
+	- Enter enters cup mode, Esc quits.
+
+	* src/game_config.c:
+	Made backspace default reset key.
+
+	* src/event_select.c:
+	- Added labels to event and cup listboxes
+	- Enter moves forward, Esc moves back
+
+	* src/credits.c: Added fade-in/fade-out.
+
+2000-09-27  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/textures.c:
+	Check maximum texture size supported by card and scale textures to
+	that size if necessary.
+
+	* src/credits.c:
+	Added Alan Levy to credits (donated original background images, no
+	longer used)
+
+	* configure.in: Changed version number
+
+	* src/Makefile.am: Added credits.[ch]
+
+	* src/credits.c, src/credits.h:
+	Initial checkin
+
+	* src/tuxracer.h:
+	Modifications for credits screen, new jumping/flying code
+
+	* src/tux.c:
+	- Changed for new jumping/flying code
+	- Removed conditional based on value of tux_slides_on_belly parameter
+	  (which has been removed)
+
+	* src/tcl_util.h:
+	- Added CHECK_ARG macro to check for existence of argument
+
+	* src/racing.c:
+	- Jumping/flying code re-written; jumping is now it's own key, with
+	  flying (flapping) tied to paddling key.
+
+	* src/phys_sim.c, src/phys_sim.h:
+	- Modified flying behaviour (now attached to paddle key)
+	- Removed dependencies on value of tux_slides_on_belly parameter
+	  (which has been eliminated)
+
+	* src/main.c:
+	Added call to register credits screen callback
+
+	* src/game_type_select.c:
+	Added a credits button
+
+	* src/game_logic_util.c:
+	Doubled point value of herring
+
+	* src/game_config.c, src/game_config.h:
+	Removed "tux_slides_on_belly" parameter (now always slides on belly),
+	changed default sound and music volumes.
+
+	* src/course_render.c:
+	Changed rendering of items to use normal vector, if specified.
+
+	* src/course_load.h, src/course_load.c:
+	Rewrote item_spec_cb, added -normal option to tux_item_spec (specifies
+	normal vector for object)
+
+2000-09-26  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/ui_theme.c:
+	Brightened disabled colour a bit
+
+	* src/ssbutton.c:
+	Button is draw with ui_disabled_colour if disabled
+
+	* src/render_util.c:
+	Now clear screen with ui_background_colour
+
+	* src/race_select.c:
+	- Par time now set for open course
+	- Race options disabled in course mode if cup complete
+
+	* src/phys_sim.c: Added wind
+
+	* src/paused.c:
+	Paused message now drawn in texture-mapped font
+
+	* src/gl_util.c:
+	Disabled fog when drawing GUI
+
+	* src/game_over.c:
+	Modified message and tweaked positioning
+
+	* src/game_logic_util.c, src/game_logic_util.h:
+	Added a few utility functions
+
+	* src/event_select.c:
+	Added event and cup icons
+
+	* src/course_mgr.c, src/course_mgr.h:
+	Added par time to open course data
+
+	* src/event_select.c:
+	If coming back from race select, we now leave the current cup where it
+	was instead of changing it to the first incomplete cup.
+
+	* src/tuxracer.h:
+	Removed #include <xmesa.h> (not needed AFAIK)
+
+	* src/gl_util.h:
+	Added a check for version of glext.h
+
+	* configure.in:
+	- Fixed bug that prevent X lib paths from being added to LIBS.
+	- Now set CFLAGS to TUXRACER_EXTRA_COMPILEFLAGS before check for glx
+	  (based on suggestion by Kevin Moule) -- allows glx.h to be found in
+	  non-standard locations
+
+	* src/race_select.c:
+	Modified so that course options can be set in completed cups.
+
+2000-09-25  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/race_select.c:
+	- Added display of life counter
+	- Added game logic to deal with running out of lives
+
+	* src/button.c, src/listbox.c, src/ssbutton.c, src/textarea.c:
+	Added lots of debugging assertions.
+
+2000-09-25  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/paused.c, src/phys_sim.c, src/racing.c, src/reset.c:
+	Added racing_term call to kill sounds and break track marks.
+	Added sound "item_collect" when herring collected (needs to be
+	added to courses.)
+
+2000-09-25  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/race_select.c:
+	Now make sure that course is loaded anew when entering mode.
+
+	* src/tuxracer.h:
+	- Added a DIR_SEPARATOR #define.
+	- Added a INIT_NUM_LIVES #define.
+	- Added new EVENT_SELECT mode
+	- Added name, lives, and score fields to player_data_t
+	- Added race_aborted field to g_game.
+
+	* src/tex_font_metrics.c:
+	- Modified substitution routine to try substituting space first
+
+	* src/ssbutton.c:
+	-Implemented routine to set state of button
+
+	* src/save.c, src/save.h:
+	-Debugged
+	-Added a magic 4-byte header to save game file
+	-Added a new save game data type (race results)
+
+	* src/reset.c:
+	Fixed camera wonkiness (again), hopefully correctly this time.
+
+	* src/render_util.c:
+	Added normal vectors in draw_billboard()
+
+	* src/racing.c:
+	Set g_game.race_aborted if player hits q during a race.
+
+	* src/race_select.c:
+	Extensive changes to make new game logic work in cup mode.
+
+	* src/mirror_course.c:
+	Track marks now reset when course is mirrored.
+
+	* src/main.c:
+	- Now write saved games file at program exit
+	- Initialize player name to "noname"
+	- Initialize difficulty to "Normal"
+
+	* src/listbox.c, src/listbox.h:
+	- Fixed bug in which item change callback wasn't being called
+	- Added a method to set the current item
+
+	* src/intro.c:
+	Initialize player's score to zero at start of race.
+
+	* src/hud.c:
+	Modified to use get_time_components() to split time into min:sec:hundredths
+
+	* src/game_type_select.c:
+	Activated the "Enter an event" button
+
+	* src/game_over.c:
+	Almost completely re-written to deal with new game logic code
+
+	* src/fonts.c:
+	The origin is now advance to end of string after a textured string is
+	drawn.
+
+	* src/debug.c, src/debug.h:
+	Added game_logic and save debug modes
+
+	* src/course_mgr.c, src/course_mgr.h:
+	Added several useful functions for use in game logic.
+
+	* src/course_load.c, src/course_load.h:
+	Changed load_course so that it only requires the directory name of the
+	course.  Course options (mirroring, conditions, etc.) will be handled
+	separately.
+
+	* src/button.c:
+	- Fixed a bug in which the disabled font binding wasn't being
+	initialized
+	- Call ui_set_dirty() whenever enabled state of button changes
+
+	* src/Makefile.am: Added some files.
+
+	* src/textarea.c, src/textarea.h, src/game_logic_util.c, src/game_logic_util.h, src/event_select.c, src/event_select.h:
+	Initial checkin
+
+2000-09-23  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/track_marks.c:
+	Track marks no longer broken due to distance or time between marks.
+
+2000-09-22  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/start_screen.c, src/start_screen.h:
+	Old start screen is no longer needed.
+
+	* src/Makefile.am:
+	Added a bunch of new files, removed start_screen.[ch]
+
+	* src/game_over.c:
+	Now return to race select screen after race is over.
+
+	* src/ui_theme.c, src/ui_theme.h:
+	Added routine to draw menu decorations.
+
+	* src/ui_mgr.c:
+	Ortho viewport now places at integer coordinates (seems to give better
+	results despite what Red Book says)
+
+	* src/tuxracer.h:
+	Various changes to support new UI and course directory structure
+
+	* src/tcl_util.c, src/tcl_util.h:
+	Added routine to get list of ints.
+
+	* src/ssbutton.c, src/ssbutton.h:
+	Initial checkin
+
+	* src/splash_screen.c:
+	- Can now click mouse to get past splash screen.
+	- Goes to new game type select mode.
+
+	* src/reset.c:
+	- Eliminated camera interpolation update during reset.
+	- Reinitialized the camera after position is changed to eliminate
+	  weird transitions.
+
+	* src/render_util.c:
+	Changed the clear colour to match Mark's mock-ups.
+
+	* src/race_select.c, src/race_select.h:
+	Initial checkin.
+
+	* src/main.c:
+	Added registration code for new modes.
+
+	* src/listbox.c, src/listbox.h:
+	Several tweaks to listbox.
+	- Moved arrows flush right
+	- Added method for setting current list item
+	- Changed constructor to require a function to convert from list item
+	  to label
+
+	* src/gl_util.c, src/gl_util.h:
+	Added GUI rendering mode.
+
+	* src/game_type_select.c, src/game_type_select.h:
+	Initial checkin
+
+	* src/audio_data.c, src/fonts.c, src/list.c, src/list.h, src/textures.c:
+	Changed get_list_elem_data so that it doesn't require the list
+	anymore.  Several files were affected.
+
+	* src/course_load.c, src/course_load.h:
+	Changed course loader to deal with new course system.
+	Still to do: handle course options (mirror, conditions, etc.) &
+	provide callbacks so that they can be queried from Tcl.
+
+	* src/course_mgr.c, src/course_mgr.h:
+	Initial checkin
+
+2000-09-22  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/game_config.h:
+	Made get_config_dir_name an external function.
+
+	* src/Makefile.am, src/save.c, src/save.h:
+	Saved game stuff compiling but not tested or integrated.
+
+2000-09-21  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/save.c, src/save.h:
+	In progress versions of code to save scores and progress.
+
+2000-09-19  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/tuxracer.h:
+	Modifications to support new event/cup course structure.
+
+	* src/phys_sim.c:
+	Attempt to increase shock absorption of Tux: added a springer first
+	stage to his belly.
+
+	* src/fonts.h, src/fonts.c:
+	Added colours to font bindings.
+
+	* src/course_load.c:
+	Fixed some memory corruption bugs caused by the fact that not all
+	fields in tree_type_t were being initialized.
+
+2000-09-19  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/main.c, src/start_screen.c, src/tux.c:
+	Changed some old references to config file to:
+	    ~/.tuxracer/options
+
+	* src/start_screen.c, src/tux.c, src/game_config.c, src/main.c:
+	Changed location of config file to:
+	   ~/.tuxracer/options under Linux
+	   config/options under Windows
+	Will read and replace deprecated file.
+
+2000-09-19  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/Makefile.am: Added new files.
+
+	* src/tex_font_metrics.c:
+	Fixed but in get_tex_font_string_bbox().
+
+	* src/phys_sim.c:
+	Cleaned up particle generation code.
+
+	* src/game_config.c, src/game_config.h, src/part_sys.c, src/part_sys.h:
+	Removed code to draw particle shadows (was broken since particles were
+	turned into billboards)
+
+2000-09-18  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/mirror_course.c:
+	item_t objects are now mirrored properly.
+
+	* src/main.c:
+	Added call to initialize UI manager
+
+	* src/hud.c:
+	Now uses ui_setup_display to setup OpenGL settings.
+
+	* src/button.c, src/button.h, src/listbox.c, src/listbox.h, src/ui_mgr.c, src/ui_mgr.h, src/ui_theme.c, src/ui_theme.h:
+	Initial checkin
+
+	* src/fps.c, src/game_over.c, src/hier.c, src/intro.c, src/loop.c, src/loop.h, src/paused.c, src/racing.c, src/render_util.c, src/render_util.h, src/reset.c, src/splash_screen.c, src/start_screen.c, src/tcl_util.c, src/tcl_util.h, src/track_marks.c, src/tux_shadow.c, src/tux_types.h:
+	- Added alpha channel to colour_t.
+	- Added mode termination callback to loop.c.
+
+	* src/debug.c, src/debug.h:
+	Added UI debug mode.
+
+2000-09-17  snoop  <pogilhul@cgl.uwaterloo.ca>
+
+	* src/course_load.c, src/course_load.h, src/course_render.c, src/reset.c, src/tux_types.h:
+	Added reset points.  If no reset points are listed then use previous
+	code.  Also modified previous code for slower flashing during reset.
+
+	Create reset points in your course.tcl file with a line like:
+	    tux_item_spec -name float -nocollision -colour {0 0 255} -reset_point
+
+	* src/Makefile.am:
+	Changed texfont.[ch] to tex_font_metrics.[ch] at Jaz's request.
+
+2000-09-16  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* tools/txf/Makefile.am:
+	Modified so that gentexfont.c.orig is now patched into gentexfont.c
+	before compilation.
+
+	* tools/txf/gentexfont.c.orig:
+	Initial checkin.
+
+	* tools/txf/gentexfont.c:
+	Removed patched version to avoid potential licensing issues.
+
+	* tools/txf/gentexfont.c.patch:
+	Initial checkin
+
+	* src/tuxracer.h:
+	Added some macros to swap bytes from little-endian to big-endian order
+	(or vice versa)
+
+	* src/textures.c, src/textures.h:
+	Added a routine to query the dimensions of the current texture.
+
+	* src/game_config.c:
+	Changed some default values to give better framerates.
+
+	* src/fonts.c, src/fonts.h, src/hud.c:
+	Changes to work with re-implemented font code.
+
+	* src/tex_font_metrics.c, src/tex_font_metrics.h:
+	Initial checkin
+
+	* src/texfont.c, src/texfont.h:
+	These files are no longer used (their functionality has been
+	re-implemented to avoid possible licensing issues)
+
+	* src/view.c:
+	Reduced camera interpolation time constants so that camera tracks
+	player more closely (helpful in "S" bends)
+
+	* src/phys_sim.c:
+	- Changed mode changing code
+	- Placed a cap on frictional force to help reduce erratic turning when
+	  landing
+	- Minor code cleanups
+
+	* src/main.c: - Changed mode initialization
+	- Changed SDL initialization so that sound is only initialized if the
+	  no_audio parameter is false.
+
+	* src/game_over.c, src/intro.c, src/keyframe.c, src/loop.c, src/loop.h, src/paused.c, src/racing.c, src/reset.c, src/splash_screen.c, src/start_screen.c:
+	To ensure that the mode init funcs don't get skipped (which can happen
+	if a keyboard callback is called that changes the mode before the init
+	func gets a chance to run), is now necessary to change modes using
+	set_game_mode().  This checkin makes the changes required to conform
+	to this requirement.
+
+	* src/course_load.c, src/course_load.h:
+	- Fixed bug in which collectable flag wasn't being initialized
+	- Some clean up: s/numtrees/num_tress/, s/numitems/num_items/, etc.
+
+	* src/track_marks.c:
+	Lowered the track marks closer to the terrain
+
+	* src/racing.c:
+	Changed roll_modifier to turn_modifier, removed roll callbacks
+
+	* src/hud.c:
+	Minor clean-ups in draw_herring_count
+
+	* src/game_config.h:
+	- Removed roll keys, changed roll_modifier to trick_modifier
+
+	* src/game_config.c:
+	- Removed roll keys, changed roll_modifier to trick_modifier
+	- Added arrow keys as extra key bindings for turn, paddle, and brake
+
+	* src/course_load.c:
+	-Fixed a couple of cut-and-paste bugs (change tree to item in a
+	 couple places)
+	-Added some newlines at the end of warning messages
+
+2000-09-15  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/course_render.c:
+	Removed some obsolete code
+
+2000-09-15  snoop  <pogilhul@cgl.uwaterloo.ca>
+
+	* src/course_load.c, src/course_load.h, src/intro.c, src/phys_sim.c:
+	Added no collision flag to course.tcl.  Add '-nocollision' to item
+	specification to make billboards that you can slide through and won't
+	collect.
+
+	* src/audio.c, src/course_load.c, src/course_load.h, src/course_render.c, src/hud.c, src/intro.c, src/phys_sim.c, src/tux_types.h, src/tuxracer.h:
+	Added item type.  Terrible hack which will be removed when trees and items
+	are merged into a more general handler.  Not too sure about the collision
+	code I wrote in phys_sim either.  Anyway, its something that the art team
+	can play with at least.
+
+	Fish can be collected and fish count is displayed in hud.
+
+	Also added two missing audio stubs.
+
+2000-09-15  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/reset.c, src/reset.h:
+	Oops. Initial checkin of reset files. Forgot the first time.
+
+	* src/Makefile.am, src/game_config.c, src/game_config.h, src/loop.c, src/loop.h, src/main.c, src/paused.c, src/racing.c, src/track_marks.c, src/track_marks.h, src/tuxracer.h:
+	Reset position with "r"
+	   - flashes tux for .5 sec in place
+	   - moves 10m up course and to center
+	   - flashes for .5 sec and then continues racing
+
+2000-09-15  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/racing.c:
+	- Initialized last_terrain to 0; this fixes bug in which terrain
+	  sounds sometimes wouldn't play at start of level
+	- Moved turning and paddling code so that turning and paddling
+	  animations are still performed in the air (even though they don't
+	  currently do anything)
+
+	* src/phys_sim.c: Tweaking of turning code:
+	- Reduced brake force to make brake+turning more useful
+	- Reduced MAX_TURN_PENALTY so that turning doesn't slow player down as
+	  much
+	- Increased IDEAL_ROLL_SPEED so that turning is less erratic at low
+	  speed.
+	- Decreased BRAKING_ROLL_ANGLE a bit to make brake+turn less dramatic
+
+	* src/game_config.c:
+	Added "space" to the default keybinding for braking.
+
+2000-09-15  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/audio.c, src/audio.h, src/audio_data.h, src/game_over.c, src/phys_sim.c, src/racing.c, src/track_marks.c, src/tuxracer.h:
+	- fixed choppy track marks
+	   - now continue unless time and distance constraints
+	    are not met
+	- added continuous sounds and inserted calls in racing code
+	- adjusted turning so that regular turn keys now roll and turn
+
+2000-09-14  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/texfont.c:
+	Fix for compiling under Win32.
+
+	* src/part_sys.c: Removed unused variable.
+
+	* src/gl_util.c:
+	Now check if have glx.h before including.
+
+	* src/start_screen.c:
+	We now always go into intro mode, even if we're skipping intro animations.
+
+	* src/render_util.h:
+	Removed some obsolete code, add a routine to draw a billboarded quad.
+
+	* src/render_util.c:
+	Removed some obsolete code, added a routine to draw a billboarded quad
+	(facing the viewer)
+
+	* src/racing.c:
+	Re-structured some of the player initialization code.
+
+	* src/gl_util.c:
+	Changed some settings for particle drawing.
+
+	* src/quadtree.cpp:
+	Fixed bug that was causing an "invalid value" OpenGL error.
+
+	* src/preview.c, src/tuxracer.h, src/view.c, src/view.h, src/viewfrustum.c:
+	View matrix is now created manually and it's inverse is stored in
+	player data; this is useful for billboarding and constructing the view
+	frustum.
+
+	* src/phys_sim.h:
+	Moved some constants from phys_sim.c to phys_sim.h.
+
+	* src/phys_sim.c:
+	- Tweaked particle generation code
+	- Added more initialization code to init_physical_simulation
+	- Removed warping of player to start position in
+	  init_physical_simulation (there may be a lurking bug because of
+	  this...)
+
+	* src/paused.c:
+	Particles are now drawn when game is paused.
+
+	* src/part_sys.c:
+	Modified particle system code to draw texture-mapped billboarded quads
+	instead of triangles
+
+	* src/main.c: Restored SDL parachute
+
+	* src/intro.c:
+	Moved player initialization code to init_physical_simulation().
+
+	* src/hud.c, src/hud.h:
+	- Fixed hud drawing code to correctly handle font sizes now associated
+	  with font bindings
+	- Added code to draw FPS counter with texture-mapped fonts
+
+	* src/game_over.c:
+	Removed call to print_fps()
+
+	* src/game_config.c:
+	Changed default keybindings for camera keys.
+
+	* src/fps.c, src/fps.h:
+	Removed print_fps() (now in hud.c)
+
+	* src/fonts.c, src/fonts.h:
+	Font bindings now have an associated font size.
+
+	* src/fog.c: Fixed typo in warning
+
+	* src/error_util.h:
+	Added DEPRECATION_WARNING warning type.
+
+2000-09-11  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* Makefile.am: Added tools subdir
+
+	* tools/txf/gentexfont.c, tools/txf/Makefile.am, tools/Makefile.am:
+	Initial checkin.
+
+	* configure.in:
+	Makefiles in tools directory are now created
+
+	* src/gl_util.c, src/gl_util.h:
+	Added settings for textuer fonts and the HUD gauge
+
+	* src/game_over.c, src/intro.c, src/paused.c, src/racing.c:
+	- Modified to draw HUD.
+	- Initialization of player data now takes place in intro mode so that
+	  HUD display is correct.
+
+	* src/main.c: - Initialize font module
+	- Initial mode is now SPLASH
+
+	* src/image.c:
+	Modified to return NULL instead of exiting program if image cannot be
+	loaded.
+
+	* src/error_util.h:
+	Added "missing file" warning level
+
+	* src/debug.c, src/debug.h:
+	Added "font" debugging mode
+
+	* src/Makefile.am: Added some files
+
+	* src/fonts.c, src/fonts.h, src/hud.c, src/hud.h, src/texfont.c, src/texfont.h, src/splash_screen.c, src/splash_screen.h:
+	Initial checkin.
+
+	* src/tuxracer.h:
+	Added SPLASH to game_mode_t
+
+	* src/textures.c:
+	Minor fix-ups for exceptional/error cases.
+
+2000-09-11  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/game_config.c, src/game_config.h, src/track_marks.c:
+	Made track marks an option in .tuxracer
+
+	* src/racing.c, src/track_marks.c, src/gl_util.c:
+	Fixed up track marks:
+	   - normals are precalculated instead of at draw time
+	   - regular marks are rendered as quadstrips
+
+2000-09-09  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/quadtree.cpp:
+	Added a workaround for an apparent bug in some drivers that
+	incorrectly renders the colours in a vertex array if element 0 in the
+	array is locked.  Enabled when "cva_hack" is true.
+
+	* src/gl_util.c, src/gl_util.h:
+	Changes to allow Win32 compilation.
+
+	* src/game_config.c, src/game_config.h:
+	Added cva_hack parameter.
+
+	* src/lights.c:
+	Removed global ambient light (set to zero).
+
+	* src/quadtree.cpp, src/quadtree.hpp:
+	Added a "perfect_terrain_blending" mode, which blends triangles with
+	three different terrain types correctly.
+
+	Also added a first cut at environment mapping for ice.  Eventually
+	this will have to be made more controllable via Tcl.
+
+	* src/course_quad.cpp:
+	For simplicity, removed the triangle count return value from
+	quadsquare::Render, so we can't display terrain triangle counts
+	anymore.  I may add this back later.
+
+	* src/render_util.c:
+	Fixed gauges to work on my Voodoo3 (needed z value of -1 == far clip
+	plane, must be a driver bug)
+
+	* src/tuxracer.h:
+	Now include glx.h if system has it.
+
+	* src/start_screen.c:
+	Removed key callback to turn off course lighting.
+
+	* src/course_render.c, src/course_render.h:
+	Course is now always lit.
+
+	* src/part_sys.c:
+	Particles are now always lit.
+
+	* src/phys_sim.c:
+	Modified calculation of jump force.
+
+	* src/racing.c:
+	Fixed bug in jumping logic: basically, we increment the jump_amt when
+	charging, leave it alone when jumping, and set it to zero when not
+	jumping or charging.
+
+	* src/main.c:
+	Now only open audio device if "no_audio" config parameter is False.
+
+	* src/gl_util.c, src/gl_util.h:
+	Added code to check for OpenGL extensions.
+	Tweaked settings for TEXT, OVERLAY, and COURSE mdoes.
+
+	* src/game_config.c, src/game_config.h:
+	Added several new config parameters.
+
+	* src/fog.c:
+	Added routine is_fog_on() to query current state of fog (enabled/disabled).
+
+	* src/debug.c, src/debug.h:
+	Added "gl_ext" debugging mode, for debugging GL extensions.
+
+	* src/audio.h, src/audio_data.c:
+	Now only try to load sounds/music if audio device is open.
+
+	* configure.in:
+	Removed check for CVA extension (now done at runtime),
+	added check for glx.h.
+
+	* autogen.sh: Added call to autoheader.
+
+	* acinclude.m4:
+	Using more recent version from SDL.
+
+2000-09-07  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/Makefile.am, src/alglib.c, src/alglib.h, src/course_load.c, src/course_render.c, src/game_config.c, src/gl_util.c, src/gl_util.h, src/phys_sim.c, src/phys_sim.h, src/racing.c, src/render_util.c, src/render_util.h, src/track_marks.c, src/track_marks.h, src/tux_types.h, src/tuxracer.h:
+	- track marks
+	- speed and charge guage
+	- tricks
+	- different default keys (nintendo style)
+	     - j(left), k(brake), l(right), i(paddle)
+	     - s(roll_left), d(roll_mod), f(roll_right), e(jump)
+
+2000-09-07  snoop  <pogilhul@cgl.uwaterloo.ca>
+
+	* src/course_load.c:
+	Altered tree test for deprecated tree calls.  Also altered tree_types.texture
+	to hold the texture name instead of the texture filename.  Textures are
+	bound to tree_types.name.
+
+2000-09-06  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/textures.c:
+	Moved call to gluBuild2DMipmaps after textuer parameters are set (may
+	help solve problem that I experience under win32).
+
+	* src/phys_sim.c, src/phys_sim.h:
+	Changed get_surface_type so that it now sets an array of weights
+	representing the combination of the different terrains at the current
+	point.  Therefore terrain properties are now smoothly blended across
+	the surface of the terrain.
+
+	Made Tux ride a little higher on snow and ice, to make it more evident
+	that he can sink into the snow.
+
+	* src/course_quad.cpp, src/course_render.c, src/gl_util.c, src/quadtree.cpp, src/quadtree.hpp:
+	Use multipass rendering on triangles with different terrain types at
+	the vertices to achieve smooth transitions between terrain textuers.
+	Transitions aren't perfectly smooth if a triangle has a different
+	terrain type at each vertex, but this happens sufficiently
+	infrequently that we're not worrying about it now.  Possible solutions
+	are to render these triangles with four passes (one black + one for
+	each vertex), or preprocessing the terrain map to ensure that all
+	triangles have at most two different terrain types.
+
+	* src/course_load.c, src/course_load.h:
+	- Changed interleaved vertex/normal array into an interleaved
+	  vertex/normal/color array, to support terrain blending.
+	- Added a COURSE_VERTEX macro that creates heightmap vertices
+
+	* src/alglib.c, src/alglib.h, src/tux_types.h:
+	Created index2d_t, a 2D point with integer coordinates (useful for
+	indexing into a 2D array)
+
+2000-09-05  snoop  <pogilhul@cgl.uwaterloo.ca>
+
+	* src/course_load.c, src/course_load.h, src/course_render.c, src/gl_util.c, src/phys_sim.c, src/tux_types.h:
+	Added multiple tree types.  A sample line for a tree type in a course.tcl
+	file is:
+
+	    tux_tree_props -name tree1 -diameter 1.4 -height 3.2 \
+	      -texture ../common/tree.rgb -colour {255 0 0} -polyhedron $tree_poly \
+	      -size_varies 0.5
+
+	Tree types must be defined before the 'tux_trees' call is made in the
+	course.tcl file.  The width and diameter are the middle of a range, and
+	'size_varies' indicates how wide the range is.  0.5 indicates the actual
+	size is +/- 50% of the listed size.  The texture is currently listed as
+	a filename but will soon be altered to be a texture loaded with the
+	'tux_load_texture' call.  In the call, '$tree_poly' is a variable, defined
+	as follows:
+
+	    set tree_poly  { {           \
+		{ 0 0 0 }                \
+		{ 0.0 0.15  0.5 }        \
+		{ 0.5 0.15  0.0 }        \
+		{ 0.0 0.15 -0.5 }        \
+		{-0.5 0.15  0.0 }        \
+		{ 0 1 0 }                \
+	    } {                          \
+		{ 0 1 4 }                \
+		{ 0 2 1 }                \
+		{ 0 3 2 }                \
+		{ 0 4 3 }                \
+		{ 1 5 4 }                \
+		{ 2 5 1 }                \
+		{ 3 5 2 }                \
+		{ 4 5 3 }                \
+	    } }
+
+	As you can see it is a list of two items.  The first item is a list of
+	vertices.  The second item is a list of polygons (specified as indices
+	into the list of vertices).
+
+	Modifications ensure that tree types are grouped in the tree_loc array
+	so that texture swapping is less frequent when drawing trees.
+
+2000-09-05  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/audio_data.c:
+	Fixed callbacks in the case where tuxracer is compiled without
+	SDL. (untested)
+
+2000-09-02  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/course_render.c:
+	Set glColour before drawing sky cube (necessary so that we don't
+	inherit transparent alphas)
+
+	* configure.in:
+	Moved -lSDL_mixer before -lSDL (seems to be necessary when
+	cross-compiling with mingw32)
+
+	* src/phys_sim.c, src/phys_sim.h:
+	- Changed physics so that player's distance below surface is measure
+	  along surface normal, instead of along y axis.
+	- Constrained a player's distance below surface to
+	  MAX_SURFACE_PENETRATION (20 cm currently)
+
+	* src/alglib.c, src/alglib.h:
+	Added routine to compute the distance of a point from a plane.
+
+	* src/phys_sim.c:
+	Placed limit on turning force; this fixes the wacky turning behaviour
+	on rock.
+
+	* src/alglib.c, src/alglib.h, src/course_load.c, src/course_render.c, src/preview.c, src/view.c, src/viewfrustum.c:
+	Created ANGLES_TO_RADIANS and RADIANS_TO_ANGLES macros; changed all
+	such conversions to use these macros.
+
+	* src/main.c:
+	Fixed bug that would cause segfault when audio device not successfully
+	opened.
+
+	* src/audio_data.c:
+	tux_load_sound/tux_load_music callbacks now return true/false to
+	indicate if sound/music was loaded successfully.  Tcl code needs to check
+	result and only call tux_bind_sounds/tux_bind_music on successfully
+	loaded sounds/music
+
+	* src/audio.c:
+	play_sound, play_music, and update_audio now make sure the audio
+	device is open before doing anything.
+
+2000-09-01  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/course_render.c, src/racing.c, src/textures.c, src/textures.h:
+	- made sky cube boundaries seemless
+	- fixed jump code so holding down the button doesn't cause flying when
+	  trying to jump or vice versa
+
+2000-08-31  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/start_screen.c:
+	Added call to reshape() in start_screen_init() so that far clip plane is
+	moved back before any rendering occures.
+
+	* src/game_over.c, src/intro.c, src/paused.c, src/racing.c:
+	Added calls to draw_fog_plane().
+
+	* src/course_render.c, src/course_render.h:
+	- Added routine to draw the fog plane
+	- Cleaned up the rest of the code a bit
+
+	* src/viewfrustum.h, src/viewfrustum.c:
+	Added functions to access the far, left, right, and bottom VFC planes.
+
+	* src/view.c:
+	Placed a limit on the camera interpolation speed to try to minimize
+	camera "jumps" during the occaisonal long frame.
+
+	* src/gl_util.c, src/part_sys.c, src/tux.c:
+	Centralized setting of glShadeModel in gl_util.c
+
+	* src/render_util.c:
+	Adjusted position of far clip plane.
+
+	* src/main.c: Disabled the SDL parachute.
+
+	* src/gl_util.c, src/gl_util.h:
+	Added FOG_PLANE rendering mode.
+
+	* src/fog.c, src/fog.h:
+	- Changed default fog colour
+	- Added routines to query fog state (on/off), colour of fog
+
+	* src/course_load.c, src/course_load.h:
+	Added routines to find the minimum and maximum height of the terrain
+	at a specified distance down the course.
+
+	* src/alglib.c, src/alglib.h:
+	Added routine to find intersection point of three planes.
+
+	* src/gauss.c, src/gauss.h:
+	Initial checkin.
+
+	* src/Makefile.am: Added gauss.[ch]
+
+2000-08-28  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/view.c:
+	Camera position interpolation is now slowed down (or stopped) when
+	player is moving slowly.  This helps to prevent the camera from
+	swinging erratically when Tux hits a tree, etc.
+
+	* src/phys_sim.c:
+	Decreased the hard turn force that slows Tux down by 20%.
+
+	* src/loop.c:
+	Use SDL_GetTicks() to get time if gettimeofday() isn't available.
+
+2000-08-28  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/phys_sim.c, src/racing.c, src/tux.c, src/tux.h, src/tuxracer.h:
+	- animation for jumping
+	- "flying" with jump button
+
+2000-08-27  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/course_load.c, src/course_load.h, src/game_config.c, src/game_config.h, src/phys_sim.c, src/racing.c, src/render_util.c, src/render_util.h, src/tuxracer.h:
+	- Jumping added. Jump can be charged up by holding "i".
+	- Inner boundaries to course added. Tux movement restricted to inner
+	 region.
+
+2000-08-27  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/racing.c:
+	Added code to initialize view in racing_init() (needed if course
+	doesn't have an introductory animation).
+
+2000-08-26  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/game_over.c, src/paused.c:
+	Fixed time step size (should be EPS when time is stopped).
+
+	* src/view.c, src/view.h:
+	Extensive changes made.
+	- Almost completely rewrote update_view; all camera modes look higher
+	off of the course, which gives a better view of the background in the
+	sky cube
+	- Added two "floating camera" modes; "behind" replaces the old
+	"behind" mode which was too jerky, and "follow" is like "above" but
+	the camera stays behind the player.  Both of these modes use
+	quaternion interpolation to give smooth camera movements.
+
+	* src/tuxracer.h:
+	- Changed view_mode_t to add new view mode ("follow") and removed
+	  first-person view
+	- Changed view_t to add fields required by camera interpolation
+	  algorithms
+
+	* src/racing.c: Updated for new view modes:
+	- View callbacks now set view_mode parameter so view mode is
+	maintained between games
+
+	* src/intro.c: Updated for new view modes:
+	- view marked as uninitialized at beginning of mode
+	- if mode aborted (by hitting key), view again marked as unitialized
+	to avoid weird jumps
+
+	* src/paused.c, src/game_over.c:
+	update_view() now requires time step size.
+
+	* src/game_config.c, src/game_config.h:
+	- Changed eye_view_key to follow_view_key (to reflect change in camera
+	modes)
+	- Added a view_mode parameter so that camera modes are remembered
+	between games
+
+	* src/debug.c, src/debug.h:
+	Added "view" debug mode.
+
+	* src/course_render.c:
+	Removed upward translation of camera in sky cube (no longer necessary
+	with new camera modes).
+
+	* src/alglib.c:
+	Minor change to use code_not_reached() assertion.
+
+2000-08-23  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/phys_sim.c:
+	- Adjusted physics for rolling (hard turn)
+	- Tweaked particle generation
+	- Fixed paddling (was too fast on rock) by capping paddling force
+	- Turned friction off at low speed (to make acceleration faster and turning
+	  less wacky)
+	- Fixed bug in which orientation wasn't being reset at start of race
+
+	* src/racing.c:
+	Added handling of roll (hard turn) controls.
+
+	* src/game_config.c, src/game_config.h:
+	Added roll (hard turn) controls.
+
+	* src/tuxracer.h:
+	Added roll_factor to control_t (used for hard turns).
+
+	* src/audio.c:
+	Loop values for music (specified with tux_bind_music) now honoured.
+
+	* src/main.c:
+	Added a call to glutIgnoreKeyRepeat() to avoid seeing repeated KeyUp
+	messages.
+
+2000-08-17  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* README: Testing syncmail again.
+
+	* README: Testing syncmail.
+
+2000-08-15  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/Makefile.am, src/course_load.c, src/course_render.c, src/course_render.h, src/debug.c, src/debug.h, src/game_over.c, src/gl_util.c, src/gl_util.h, src/intro.c, src/main.c, src/part_sys.c, src/paused.c, src/quadtree.cpp, src/quadtree.hpp, src/racing.c, src/textures.c, src/textures.h:
+	Texture mapping additions for double hash table, load and bind paradigm. Sky
+	cube replaces base and background.
+
+2000-08-15  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* AUTHORS: *** empty log message ***
+
+	* src/main.c:
+	Added code to read tuxracer_init.tcl
+
+	* src/audio_data.c, src/audio.c:
+	Added some extra assertions, clean up some variable names
+
+	* acinclude.m4: Initial checkin.
+
+	* configure.in: Added checks for SDL
+
+	* src/course_load.c:
+	Added a call to delete_unused_audio_data() at end of select_course().
+
+	* src/audio.c, src/audio_data.c, src/audio_data.h:
+	Renamed some functions, updated names of stub functions to match names
+	of real functions.
+
+2000-08-14  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/audio.c, src/audio.h, src/audio_data.c, src/audio_data.h:
+	Initial checkin.
+
+	* src/main.c:
+	Added code to setup SDL and audio.
+
+	* src/list.c, src/list.h:
+	Documentation updates.
+
+	* src/hash.c, src/hash.h:
+	- Added checks to next_hash_entry so that key and value are set only if
+	  non-NULL.
+	- Emacs reformated/reindented almost everything.
+
+	* src/game_over.c, src/intro.c, src/paused.c, src/racing.c, src/start_screen.c:
+	Added calls into sound module to support playing of music.
+
+	* src/game_config.c, src/game_config.h:
+	Added sound_enabled, music_enabled, sound_volume, music_volume,
+	audio_freq_mode, audio_format_mode, audio_stereo, and
+	audio_buffer_size configuration variables.
+
+	* src/func_template.txt:
+	Removed \brief (never use it)
+
+	* src/debug.c, src/debug.h:
+	Added DEBUG_SOUND debuggin mode.
+
+	* src/Makefile.am:
+	Added audio.[ch], audio_data.[ch], list.[ch], hash.[ch]
+
+	* src/func_template.txt:
+	Changed to use doxygen (http://www.stack.nl/~dimitri/doxygen/) commenting
+	conventions.
+
+2000-08-13  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/func_template.txt:
+	Function description template -- Initial checkin.
+
+	* src/list.h: Added some comments.
+
+	* src/list.c, src/list.h:
+	Doubly-linked list ADT -- Initial checkin.
+
+2000-08-13  ehall  <ehall@cgl.uwaterloo.ca>
+
+	* src/hash.c, src/hash.h:
+	Hash table routines added for use with textures and sound. Currently just
+	a simple interface on top of the TCL hash table routines.
+
+2000-08-13  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/tux_types.h: Minor code reorganization
+
+	* src/loop.c: Added addditional comments
+
+	* src/keyboard.c:
+	Deleted some obsolete commented-out code
+
+	* src/gl_util.c, src/game_config.c, src/course_render.c:
+	Added some more comments
+
+	* src/course_load.c:
+	Extra documentation, changed variable names to match convention in
+	other files.
+
+	* src/alglib.c: Fixed doc typo
+
+	* README: Updated development system.
+
+2000-08-12  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* configure.in: Fixed a typo.
+
+2000-08-09  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/viewfrustum.c:
+	Changed near & far variable names since those are reserved on WIN32.
+
+	* src/tuxracer.h:
+	- #include <windows.h> on WIN32 & cygwin
+	- Created FINITE(x) macro since isnan & friends isn't portable
+
+	* src/quadgeom.cpp:
+	Changed non-portable isnan() to FINITE() macro (defined in tuxracer.h)
+
+	* configure.in:
+	Added checks for non-standard math functions (finite, isnan, etc.)
+
+2000-08-08  Jasmin Patry  <jfpatry@sunspirestudios.com>
+
+	* src/hier.c: Changes values.h to float.h
+
+	* src/game_config.c:
+	Changes to support cygwin/win32 builds.
+
+	* src/file_util.c, src/file_util.h:
+	Initial checkin.
+
+	* src/Makefile.am:
+	Separated out TUXRACER_EXTRA_CFLAGS into TUXRACER_EXTRA_COMPILEFLAGS (common
+	to C and C++ code), TUXRACER_EXTRA_CFLAGS, and TUXRACER_EXTRA_CXXFLAGS.
+
+	* configure.in:
+	Changes to allow tuxracer to compile under Cygwin.
+
+2000-04-18  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+	
+	* Making version 0.12.1
+
+	* /src/main.c:
+	Register game_config Tcl callbacks
+	Added error check when create Tcl interp
+
+	* /src/lights.c:
+	Minor fix in argument list for course_light callback
+
+	* /src/game_config.h:
+	Added prototype for Tcl callback registration
+
+	* /src/game_config.c:
+	Added routines for getting and setting parameters from Tcl
+	Added additional assertion checks
+
+	* /src/course_load.c:
+	Increased maximum number of trees to 8192
+
+	* /configure.in, /README:
+	Incremented version number
+
+	* /Makefile.am:
+	Added contrib directory to distribution
+
+2000-04-02  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* /contrib/script-fu/README, /contrib/script-fu/tuxracer-create-level.scm, /contrib/script-fu/tuxracer-load-level-1.1.scm, /contrib/script-fu/tuxracer-save-as-rgbs-1.0.scm, /contrib/script-fu/tuxracer-save-as-rgbs-1.1.scm:
+	Initial checkin
+	
+	* Making version 0.12
+
+	* src/phys_sim.c, src/tux.c, src/tux.h:
+	Added code to move Tux's legs in response to force exterted
+
+	* src/alglib.c, src/alglib.h:
+	Added quaternion_conjugate()
+
+	* src/tuxracer.h:
+	- Added prev_mode field to g_game
+	- Added PAUSED game mode
+
+	* src/tux.c, src/tux.h:
+	- Added new joints to Tux model
+	- Added extra animation when Tux slides on belly
+
+	* src/start_screen.c:
+	Added message indicating where configuration parameters can be
+	changed.
+
+	* src/racing.c: Added pause key and callback
+
+	* src/phys_sim.c:
+	Changes because of name change of tux_slides_on_belly parameter.
+
+	* src/paused.c, src/paused.h:
+	Initial checkin
+
+	* src/main.c: - Initialize g_game.prev_mode
+	- Initialize paused mode callbacks
+
+	* src/loop.c:
+	g_game.prev_mode is now updated so that mode initialization routines
+	can know what the previous mode was.
+
+	* src/keyframe.c:
+	Player orientation is updated during keyframe sequence to
+	improve "smoothness" of transition to racing mode
+
+	* src/intro.c:
+	Intro animation now skipped if a key is pressed
+
+	* src/game_config.c, src/game_config.h:
+	- Added pause_key
+	- Removed compile_course
+	- Changed tux_slides_on_stomach to tux_slides_on_belly
+
+	* src/debug.h:
+	- Added debug_mode_is_active()
+	- Added "health" debug mode (DEBUG_HEALTH)
+
+	* src/debug.c:
+	- Fixed handling of "all" keyword in debug config. variable
+	- Added debug_mode_is_active()
+
+	* src/course_render.c:
+	Removed code to deal with course when compiled into display list
+	(obsolete)
+
+	* src/course_load.c:
+	Removed call to reset_course_list() (obsolete)
+
+	* src/Makefile.am: Added paused.[ch]
+
+	* configure.in: Changed version to 0.12
+
+	* README: Updates for 0.12
+
+2000-04-01  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* src/phys_sim.c:
+	Changed Tux orientation calculation code to handle sliding on stomach.
+
+	* src/keyframe.c:
+	All Tux joints are now reset before each key frame.
+
+	* src/game_config.c, src/game_config.h:
+	Added tux_slides_on_stomach parameter.
+
+	* src/phys_sim.c:
+	Damage is now calculated based on *unclamped* force exterted on player
+	by terrain.  Damage parameters still need to be tuned to give
+	reasonable gameplay.
+
+	* src/nmrcl.c: Minor documentation change.
+
+2000-03-25  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* src/tuxracer.h:
+	Added fields to control_t and player_data_t to support paddling and
+	health/damage.
+
+	* src/tux.h:
+	Added paddling animation to adjust_tux_joints
+
+	* src/render_util.c, src/render_util.h:
+	Added print_health()
+
+	* src/racing.c:
+	Added paddling keyboard handlers.
+	Initialize health to full on race start.
+
+	* src/quadtree.hpp, src/quadtree.cpp:
+	Changed vertex array indices to GLuint to support larger elevation
+	datasets.
+
+	* src/phys_sim.c: Added paddling code.
+	Added health/damage code.
+
+	* src/main.c: Added version to window title.
+	Print version and copyright to console on startup.
+
+	* src/game_config.c, src/game_config.h:
+	Added paddle_key parameter.
+
+	* src/debug.c, src/debug.h:
+	Added "control" debugging mode.
+
+	* src/tux.c:
+	Added code for paddling animation, improved error handling in Tcl
+	callbacks.
+
+	* src/hier_cb.c:
+	Improved error handling in Tcl callbacks.
+
+	* src/course_load.c:
+	Added better error handling for Tcl callbacks.
+
+2000-03-18  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* src/game_config.c:
+	Increased default tree_detail_distance value.
+
+	* src/start_screen.c:
+	Added better bounds checking to detail callbacks
+
+	* src/render_util.c, src/screenshot.c:
+	Minor changes to suppress warnings
+
+	* src/quadtree.hpp:
+	*** empty log message ***
+
+	* src/quadtree.cpp:
+	Fixed bug in terrain type error code (could index outside of
+	Terrain array)
+
+	* src/phys_sim.c:
+	Changed find_barycentric_coords() to reflect meshing of terrain used
+	by quadtree
+
+	* src/game_config.c:
+	Changed defaults for course_detail_level and forward_clip_distance.
+
+	* src/course_load.c: Fixed get_gl_arrays().
+
+	* src/part_sys.h:
+	Removed extra declaration of draw_particles()
+
+	* src/mirror_course.c:
+	Minor fix (was using a float as temporary storage for interchanging
+	two ints)
+
+	* src/game_over.c, src/intro.c, src/racing.c:
+	Corrected calls to draw_trees().
+
+	* src/course_render.c, src/course_render.h:
+	Changed normal generation code to match new terrain meshing of
+	quadtree code.
+
+	* src/course_load.h, src/course_load.c:
+	Changed from separate vertex and normal arrays to a single interleaved
+	vertex/normal array.
+
+2000-03-15  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* src/start_screen.c:
+	Minor change to callback for decreasing level of detail
+
+	* src/quadtree.cpp, src/quadtree.hpp:
+	- Terrain is now rendered with 3 calls to glDrawElements (one for each
+	  terrain type) -- this speeds things up quite a bit.
+
+	- Terrain type errors were incorporated into the Error[] array for
+	  each square -- this signifcantly improves the handling of different
+	  terrain types by the algorithm.
+
+	* src/mirror_course.c:
+	Fixed mirroring bug (vertex arrays weren't being updated)
+
+	* src/course_render.c:
+	Vertex array locking is now disabled (seemed to actually slow things
+	down)
+
+	* src/course_quad.cpp:
+	Re-activated culling code (this works now since terrain is incorporated into
+	error)
+
+	* src/course_load.c, src/course_load.h:
+	Removed array locking code
+
+2000-03-14  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* src/quadtree.cpp, src/viewfrustum.c, src/viewfrustum.h:
+	Replaced AABB VFC algorithm with a significantly more efficient
+	version
+
+	* src/quadtree.hpp, src/quadtree.cpp:
+	- Now use (compiled) vertex arrays for vertices and normals
+
+	- Terrain error checks now use a terrain error metric instead of just
+	  being yes/no; this allows preview screens to be rendered more
+	  quickly
+
+	* src/quadgeom.cpp:
+	Minor change to suppress warnings
+
+	* src/course_render.c:
+	Cleaned up render_course()
+
+	* src/course_quad.cpp:
+	Added some documentation
+
+	* src/course_load.c:
+	Activated compiled vertex array code
+
+	* configure.in:
+	Added check for glLockArraysEXT
+
+	* AUTHORS: Added Thatcher Ulrich
+
+2000-03-13  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* src/tuxracer.h:
+	Added ALL_MODES to game_mode_t enum.
+
+	* src/tux_types.h: Added plane_t type
+
+	* src/error_util.h, src/fog.h, src/fps.h, src/hier.h, src/hier_cb.h, src/hier_util.h, src/image.h, src/keyboard_util.h, src/keyframe.h, src/lights.h, src/loop.h, src/multiplayer.h, src/nmrcl.h, src/part_sys.h, src/phys_sim.h, src/pic.h, src/preview.h, src/screenshot.h, src/string_util.h, src/tcl_util.h, src/textures.h, src/tux.h, src/tux_shadow.h, src/view.h:
+	Wrapped in extern "C" { } for inclusion in C++ code.
+
+	* src/Makefile.am: Several files added
+
+	* configure.in: Added checks for C++
+
+	* src/viewfrustum.c, src/viewfrustum.h:
+	Initial checkin
+
+	* src/start_screen.c, src/start_screen.h:
+	Added global keyboard callbacks: f11 activates wireframe mode; f9
+	decreases the detail level, and f10 increases it.
+
+	* src/render_util.c, src/render_util.h:
+	Made near clip distance a #define constant (so that it can be used
+	when updating view frustum)
+
+	* src/preview.c:
+	Player view data structure now updated
+
+	* src/part_sys.c:
+	Changes to use automatic texture coordinate generation
+
+	* src/mirror_course.c, src/mirror_course.h:
+	Changes to support mirroring with quadtrees
+
+	* src/main.c:
+	Initialized view position so that quadtree has a reasonable initial estimate
+
+	* src/keyboard.c, src/keyboard.h:
+	Added support for keyboard callbacks that work in all modes.
+
+	* src/intro.c, src/intro.h, src/racing.c, src/racing.h:
+	Added code to update view frustum
+
+	* src/gl_util.c, src/gl_util.h:
+	Added code to automatically generated texture coordinates
+
+	* src/game_over.c, src/game_over.h:
+	Added code to update view frustum
+
+	* src/game_config.c, src/game_config.h:
+	Added course_detail_level configuration parameter
+
+	* src/debug.c, src/debug.h:
+	Added DEBUG_QUADTREE category
+
+	* src/course_render.c, src/course_render.h:
+	Added automatic texture coordinate generation setup code, quadtree
+	rendering code.
+
+	* src/course_load.c, src/course_load.h:
+	Added quadtree initialization code, some CVA code (not currently used)
+
+	* src/alglib.c, src/alglib.h:
+	Added make_plane function.
+
+	* src/course_quad.cpp, src/course_quad.h, src/quadgeom.cpp, src/quadgeom.hpp, src/quadtree.cpp, src/quadtree.hpp:
+	Initial checkin
+
+2000-03-10  Ingo Ruhnke  <grumbel@users.sourceforge.net>
+
+	* src/Makefile.in:
+	Removed some more automatic generated files from CVS
+
+	* src/Makefile.in:
+	Removed Makefile, Makefile.in, configure, since they are automatical generated my automake/autoconf
+	Added autogen.sh script, which generates these files by running automake, autoconf and co.
+
+2000-03-10  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* course_render.c, game_config.c, game_config.h:
+	Added forward_clip_distance, backward_clip_distance, and
+	tree_detail_distance configuration parameters.
+
+2000-03-09  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* config.h.in, configure, configure.in:
+	Added options to specify GL paths, debug mode (default now -02),
+	profile mode (untested)
+
+	* tuxracer.h:
+	Now include config.h (created by autoconf)
+
+	* phys_sim.c:
+	Changed ODE parameters to increase speed (at the cost of some
+	accuracy); increased distance that Tux moves before collisions are
+	recalculated to speed up movement through areas with lots of trees.
+
+	* main.c:
+	Removed some unecessary #includes
+
+	* hier.c, hier.h, hier_cb.c, hier_util.c, tux_types.h:
+	Changed tux_sphere callback; now requires a third "resolution"
+	argument.  A value of 1.0 means the sphere is rendered using the
+	number of divisions specified by the tux_sphere_divisions parameter;
+	values less than 1 use less divisions, while values greater than 1 use
+	more.
+
+	* alglib.h: Added ROUND_TO_NEAREST macro
+
+	* Makefile.am, Makefile.in:
+	Removed -g and redundant -I specifications from CFLAGS
+
+2000-03-08  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* configure.in: Integrated patch from Tuomas Jormola <tj@sgic.fi>
+	to add Tcl 8.3 check to configure
+
+2000-03-06  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* Making version 0.11.1. 
+
+	* string_util.c: Added better assertions and error checking
+
+	* game_config.c (fetch_param_bool): Fixed bug reported by Sten
+	Eriksson <sten.eriksson@udac.se> (wasn't checking for NULL)
+
+	* Making version 0.11.
+
+	* game_config.c: "true" and "false" now accepted as values for
+	boolean configuration variables.
+
+2000-03-05  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* course_load.c: Added a tux_base_height_value callback which sets
+	the reference grey value in the heightmap image.  Currently this
+	only affects the placement of the white rectangle at the bottom of
+	the course.
+
+	* lights.c: moved light configuration code from 2000-03-04 to this
+	file.
+
+	* fog.c: fog can now be configured on a course-by-course basis
+
+	* start_screen.c: Added "mirror course" item, cleaned up menu
+	display code 
+	
+
+2000-03-04  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* mirror_course.c: (new file) Tracks can now be mirrored (i.e.,
+	what was left is now right, and vice versa)
+
+	* part_sys.c (draw_particle_shadows): Added particle shadows
+
+	* course_load.c (select_course): Fixed error reporting from Tcl
+	callbacks.
+
+	* course_load.c (course_light_cb): Added callback so that course
+	designer can customize course lighting.  
+
+	* start_screen.c: Added "reload course" item to make it easier for
+	course designers to adjust courses
+	
+	* preview.c (update_preview): fixed preview so that course in
+	centered in screen and symmetric wrt to center of course
+
+	* course_render.c (draw_background): tweaks to drawing of
+	background image and "floor"
+
+2000-03-03  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* course_load.c (course_name_cb): added callback so that
+	course name can be displayed on start screen
+	
+	* course_load.c (course_author_cb): added callback so that
+	course author's name can be displayed on start screen
+
+	* render_util.c (print_string_centered): created routine so that
+	strings are now properly centered.  Fixed start screen and game
+	over screens to use this.
+
+	* game_config.c: changed parameter get_* and set_* routines to
+	getparam_* and setparam_*.  Obviously a whole bunch of other files
+	were changed too as a consequence.
+
+	* keyboard_util.c (translate_key): made alphabetic keys
+	case-insensitive.
+
+	* keyboard.c (keyboard_handler): made alphabetic keys
+	case-insensitive. 
+
+	* keyframe.c (key_frame_cb): made Tux's position relative to
+	starting point (suggested by Steve Baker) 
+
+	* cleaned up error handling in lots of places (course loading in
+	particular), changed all assertions, warning messages, and error
+	messages to use routines in debug.c and error_util.c
+
+	* error_util.c: file created (error_util.h also)
+
+	* game_config.c: debug, warning_level parameters added
+
+	* debug.c: file created (debug.h also)
+
+2000-03-02  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+	
+	* phy_simc.c: Adjusted Tux's damping parameters to reduce
+	bouncing.  Also adjusted ODE solver minimum step size and
+	tolerances to increase accuracy of physical simulation.
+	
+	* phys_sim.c (solve_ode_system): Clamping of step size placed in
+	its own function to ensure that its performed consistently.
+	
+	* phys_sim.c (calc_spring_force): In some cases the spring force
+	was negative -- fixed.
+
+	* main.c (main): Initialize g_game.course.num variable to initial
+	course number -- fixes a bug where the first time 'n' is pressed
+	on the start screen does nothing
+	
+	* loop.c (main_loop): Warp pointer to middle of window at every
+	time step, for the convenience of Voodoo users (thanks to Steve
+	Baker for the tip)
+
+	* main.c (main): Now set initial window position in non-fullscreen
+	mode if force_window_position is true.  This is mainly for the
+	convenience of Voodoo users (thanks to Steve Baker for the tip)
+
+	* game_config.c: Added force_window_position and warp_pointer
+	parameters.
+
+2000-03-01  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* Making version 0.10.1
+
+	* configure.in: Added checks for libtcl8.0 and libtcl8.2, in
+	addition to the library name specified by --with-tcl-lib-name
+	option (which defaults to "tcl") (suggested by Ingo Ruhnke)
+
+2000-02-29  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* loop.c (main_loop): time steps are initialized when a new
+	mode is entered; the size of the time step is now passed to the
+	loop functions
+
+	* course_render.c (render_course): Prompted by a patch from Michael
+	Dale Long, fixed up lighting code to make dark areas of terrain
+	less dark (now more reasonable for a snowfield).
+	
+	* tux.c (draw_tux): Cleaned up lighting code
+
+	* racing.c (racing_loop): Fixed bug that was causing an unlimited
+	number of particles to be generated (problem with centering of
+	steering) (thanks to Ingo Ruhnke and Steve Baker for reporting
+	this, and to Ingo for helping to debug it)
+	
+2000-02-28  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* part_sys.c (create_new_particles): Now keep track of number of
+	particles; abort if maximum number of particles exceeded (as this
+	signals a bug)
+
+2000-02-27  Jasmin Patry  <jfpatry@cgl.uwaterloo.ca>
+
+	* Making version 0.10.
+

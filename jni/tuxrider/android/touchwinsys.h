@@ -1,0 +1,4 @@
+extern winsys_display_func_t display_func;
+extern winsys_idle_func_t idle_func;
+extern winsys_keyboard_func_t keyboard_func;
+extern winsys_mouse_func_t mouse_func;

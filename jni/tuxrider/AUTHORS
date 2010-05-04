@@ -1,0 +1,71 @@
+Tux Racer is a Sunspire Studios production.  
+http://www.sunspirestudios.com
+
+Core Development Team (alphabetical order):
+-------------------------------------------
+Patrick Gilhuly <pogilhul@sunspirestudios.com>
+	* Programmer
+
+Eric Hall <ehall@sunspirestudios.com>
+        * Programmer 
+
+Rick Knowles <rdknowle@sunspirestudios.com>
+	* Designer, artist    
+
+Vincent Ma <vma@sunspirestudios.com>
+	* Programmer
+
+Jasmin Patry <jfpatry@sunspirestudios.com>
+	* Game creator and programmer
+
+Mark Riddell <mrriddel@sunspirestudios.com>
+        * Designer, artist
+
+Past Contributors (chronological order):
+----------------------------------------
+Alan Levy <alanlevy@pcug.org.au>
+	* Snowy mountain backdrops in versions < 0.60 used with permission
+          (http://www.pcug.org.au/~alanlevy/)
+
+Ingo Ruhnke <grumbel@gmx.de>
+	* Helped to track down nasty particle generation bug
+	* Designed several courses
+	* Wrote several Gimp script-fu scripts to help with course
+	design
+
+Michael Dale Long <mlong@long.custom.net>
+	* Lighting patch to make dark areas of terrain brighter
+
+Steve Baker <sjbaker1@airmail.net>
+	* LOTS of very helpful suggestions, tips for supporting
+	Voodoo{1,2} cards
+	* Designed a track
+
+Sten Eriksson <sten.eriksson@udac.se>
+        * Patch to fix coredump in 0.11
+
+Tuomas Jormola <tj@sgic.fi>
+	* Patch to add Tcl 8.3 check to configure
+
+Thatcher Ulrich <tu@tulrich.com>
+	* Code for quadtree adaptive LOD terrain algorithm
+	(see http://www.gamasutra.com/features/20000228/ulrich_01.htm) 
+
+Julien Canet <jools@free.fr>
+	* Designed two courses
+
+Joseph Toscano <scarjt@pcom.net>
+        * Composed 5 music tracks
+
+James Barnard <james@barnard666.freeserve.co.uk>
+        * Contributed several Tux sounds
+        * Created several 3D model that haven't made it into the game yet
+          (since engine is still lacking support)
+
+Julie Brandon <julie@computergeeks.co.uk>
+	* Patch for configuring which joystick axes are used to
+	control Tux
+
+Jay Estabrook <Jay.Estabrook@compaq.com>
+	* Patch to fix some 32-bit-isms that enable compiling on 64-bit
+	architectures (like the Alpha).

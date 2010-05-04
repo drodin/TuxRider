@@ -1,0 +1,28 @@
+This directory contains Gimp script-fu scripts that aid in designing courses.
+To install these scripts, place them in your ~/.gimp/scripts or
+~/.gimp-1.1/scripts directory and restart Gimp.  Note that some scripts have
+separate Gimp 1.0 and 1.1 versions.
+
+All scripts are by Ingo Ruhnke <grumbel@gmx.de>.
+
+Script Descriptions:
+--------------------
+
+tuxracer-create-level.scm: creates a new image of the specified size with the
+    correct layer names and useful default colours. This is especially useful
+    when combined with the following script. The script is accessed using the
+    <right-click on image> -> Script-Fu -> Tuxracer -> Save Image as RGBs menu
+    item. 
+
+tuxracer-save-as-rgbs-1.0.scm: takes a multi-layer image and saves it as a set
+    of RGB images, using the layer names as filenames (e.g., elev, trees,
+    terrain). This is very useful for maintaining levels (i.e., create and
+    maintain the level as a multi-level .xcf file, and export the separate RGB
+    images using this script). There is also a Gimp 1.1 version:
+    tuxracer-save-as-rgbs-1.1.scm. The script is accessed using the Xtns ->
+    Script-Fu -> Tuxracer -> New Level menu item. 
+
+tuxracer-load-level-1.1.scm: loads an existing level (assuming filenames
+    elev.rgb, trees.rgb, terrain.rgb) into a multi-layered image.  
+    The script is accessed using the Xtns -> Script-Fu -> Tuxracer -> 
+    Load Level menu item.  Note: this script only works with Gimp 1.1.

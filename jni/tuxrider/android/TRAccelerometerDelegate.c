@@ -1,0 +1,4 @@
+double accelerometerTurnFact() {
+    return turnFact;
+}
+

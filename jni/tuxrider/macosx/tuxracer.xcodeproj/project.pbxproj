@@ -1,0 +1,1340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* TRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TRAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
+		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		32197A120EB686730077F189 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32197A0C0EB686730077F189 /* AudioManager.m */; };
+		32197A2A0EB687630077F189 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32197A290EB687630077F189 /* AudioToolbox.framework */; };
+		32318B130EC7B48600109044 /* TRAccelerometerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32318B120EC7B48600109044 /* TRAccelerometerDelegate.m */; };
+		32318B140EC7B48600109044 /* TRAccelerometerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32318B120EC7B48600109044 /* TRAccelerometerDelegate.m */; };
+		32321AF10EDEF3A000B28FC6 /* ConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32321AF00EDEF3A000B28FC6 /* ConnectionController.m */; };
+		32321AF20EDEF3A000B28FC6 /* ConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32321AF00EDEF3A000B28FC6 /* ConnectionController.m */; };
+		32348A560EED818F00D38AC7 /* TRSlopeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32348A550EED818F00D38AC7 /* TRSlopeInfoCell.m */; };
+		32348A570EED818F00D38AC7 /* TRSlopeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32348A550EED818F00D38AC7 /* TRSlopeInfoCell.m */; };
+		32348AE90EEDBB6200D38AC7 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 32348AE60EEDBB6200D38AC7 /* flag.png */; };
+		32348AEA0EEDBB6200D38AC7 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 32348AE70EEDBB6200D38AC7 /* friends.png */; };
+		32348AEB0EEDBB6200D38AC7 /* worldicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32348AE80EEDBB6200D38AC7 /* worldicon.png */; };
+		32348AEC0EEDBB6200D38AC7 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 32348AE60EEDBB6200D38AC7 /* flag.png */; };
+		32348AED0EEDBB6200D38AC7 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 32348AE70EEDBB6200D38AC7 /* friends.png */; };
+		32348AEE0EEDBB6200D38AC7 /* worldicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32348AE80EEDBB6200D38AC7 /* worldicon.png */; };
+		325CF41B0EF4929B00E227FA /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 325CF41A0EF4929B00E227FA /* license.html */; };
+		325CF41C0EF4929B00E227FA /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 325CF41A0EF4929B00E227FA /* license.html */; };
+		3260774A0EF0A3D9004D6A77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326077490EF0A3D9004D6A77 /* CoreGraphics.framework */; };
+		3260774B0EF0A3D9004D6A77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326077490EF0A3D9004D6A77 /* CoreGraphics.framework */; };
+		32624B990ED5A8D2004A0E60 /* countries.txt in Resources */ = {isa = PBXBuildFile; fileRef = 32624B980ED5A8D2004A0E60 /* countries.txt */; };
+		32624B9A0ED5A8D2004A0E60 /* countries.txt in Resources */ = {isa = PBXBuildFile; fileRef = 32624B980ED5A8D2004A0E60 /* countries.txt */; };
+		3266064B0EE4B0DD00E2D9F4 /* scoresController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3266064A0EE4B0DD00E2D9F4 /* scoresController.m */; };
+		3266064C0EE4B0DD00E2D9F4 /* scoresController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3266064A0EE4B0DD00E2D9F4 /* scoresController.m */; };
+		326CA6F60EFEA3B100981DD1 /* html_images in Resources */ = {isa = PBXBuildFile; fileRef = 326CA6F30EFEA3B100981DD1 /* html_images */; };
+		326CA6F70EFEA3B100981DD1 /* html_images in Resources */ = {isa = PBXBuildFile; fileRef = 326CA6F30EFEA3B100981DD1 /* html_images */; };
+		326CF6CE0F0EE3AE00A1587D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 326CF6CD0F0EE3AE00A1587D /* Default.png */; };
+		326CF6CF0F0EE3AE00A1587D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 326CF6CD0F0EE3AE00A1587D /* Default.png */; };
+		32709DE30EBE796A0089B4D5 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32709DE20EBE796A0089B4D5 /* AudioPlayer.m */; };
+		32767FE30F0065E500A0CD26 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32767FE20F0065E500A0CD26 /* icon.png */; };
+		32767FE40F0065E500A0CD26 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32767FE20F0065E500A0CD26 /* icon.png */; };
+		327BD5970EC398A600B96C3E /* TRWC-data in Resources */ = {isa = PBXBuildFile; fileRef = 327BD4C50EC398A600B96C3E /* TRWC-data */; };
+		32895C730EE9EAF30016BADF /* TRRankingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32895C720EE9EAF30016BADF /* TRRankingDelegate.m */; };
+		32895C740EE9EAF30016BADF /* TRRankingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32895C720EE9EAF30016BADF /* TRRankingDelegate.m */; };
+		32A1EB4A0EB0A4810058A29D /* iphoneglu.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A1EB490EB0A4810058A29D /* iphoneglu.m */; };
+		32A373B30EC5C29600142BBA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		32A373B40EC5C29600142BBA /* TRWC-data in Resources */ = {isa = PBXBuildFile; fileRef = 327BD4C50EC398A600B96C3E /* TRWC-data */; };
+		32A373B60EC5C29600142BBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		32A373B70EC5C29600142BBA /* TRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TRAppDelegate.m */; };
+		32A373B80EC5C29600142BBA /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		32A373B90EC5C29600142BBA /* alglib.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968420EAFB79B007977C1 /* alglib.c */; };
+		32A373BA0EC5C29600142BBA /* audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968450EAFB79B007977C1 /* audio.c */; };
+		32A373BB0EC5C29600142BBA /* button.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968470EAFB79B007977C1 /* button.c */; };
+		32A373BC0EC5C29600142BBA /* course_load.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968490EAFB79B007977C1 /* course_load.c */; };
+		32A373BD0EC5C29600142BBA /* course_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9684B0EAFB79B007977C1 /* course_mgr.c */; };
+		32A373BE0EC5C29600142BBA /* course_quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B9684D0EAFB79B007977C1 /* course_quad.cpp */; };
+		32A373BF0EC5C29600142BBA /* course_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9684F0EAFB79B007977C1 /* course_render.c */; };
+		32A373C00EC5C29600142BBA /* credits.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968510EAFB79B007977C1 /* credits.c */; };
+		32A373C10EC5C29600142BBA /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968530EAFB79B007977C1 /* debug.c */; };
+		32A373C20EC5C29600142BBA /* error_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968550EAFB79B007977C1 /* error_util.c */; };
+		32A373C30EC5C29600142BBA /* event_select.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968570EAFB79B007977C1 /* event_select.c */; };
+		32A373C40EC5C29600142BBA /* file_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968590EAFB79B007977C1 /* file_util.c */; };
+		32A373C50EC5C29600142BBA /* fog.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9685B0EAFB79B007977C1 /* fog.c */; };
+		32A373C60EC5C29600142BBA /* fonts.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9685D0EAFB79B007977C1 /* fonts.c */; };
+		32A373C70EC5C29600142BBA /* fps.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9685F0EAFB79B007977C1 /* fps.c */; };
+		32A373C80EC5C29600142BBA /* game_config.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968610EAFB79B007977C1 /* game_config.c */; };
+		32A373C90EC5C29600142BBA /* game_logic_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968630EAFB79B007977C1 /* game_logic_util.c */; };
+		32A373CA0EC5C29600142BBA /* game_over.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968650EAFB79B007977C1 /* game_over.c */; };
+		32A373CB0EC5C29600142BBA /* game_type_select.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968670EAFB79B007977C1 /* game_type_select.c */; };
+		32A373CC0EC5C29600142BBA /* gauss.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968690EAFB79B007977C1 /* gauss.c */; };
+		32A373CD0EC5C29600142BBA /* gl_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9686B0EAFB79B007977C1 /* gl_util.c */; };
+		32A373CE0EC5C29600142BBA /* hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9686D0EAFB79B007977C1 /* hash.c */; };
+		32A373CF0EC5C29600142BBA /* hier_cb.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9686F0EAFB79B007977C1 /* hier_cb.c */; };
+		32A373D00EC5C29600142BBA /* hier_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968710EAFB79B007977C1 /* hier_util.c */; };
+		32A373D10EC5C29600142BBA /* hier.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968730EAFB79B007977C1 /* hier.c */; };
+		32A373D20EC5C29600142BBA /* hud.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968750EAFB79B007977C1 /* hud.c */; };
+		32A373D30EC5C29600142BBA /* image.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968770EAFB79B007977C1 /* image.c */; };
+		32A373D40EC5C29600142BBA /* intro.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968790EAFB79B007977C1 /* intro.c */; };
+		32A373D50EC5C29600142BBA /* joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9687B0EAFB79B007977C1 /* joystick.c */; };
+		32A373D60EC5C29600142BBA /* keyboard_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9687D0EAFB79B007977C1 /* keyboard_util.c */; };
+		32A373D70EC5C29600142BBA /* keyboard.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9687F0EAFB79B007977C1 /* keyboard.c */; };
+		32A373D80EC5C29600142BBA /* keyframe.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968810EAFB79B007977C1 /* keyframe.c */; };
+		32A373D90EC5C29600142BBA /* lights.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968830EAFB79B007977C1 /* lights.c */; };
+		32A373DA0EC5C29600142BBA /* list.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968850EAFB79B007977C1 /* list.c */; };
+		32A373DB0EC5C29600142BBA /* listbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968870EAFB79B007977C1 /* listbox.c */; };
+		32A373DC0EC5C29600142BBA /* loading.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968890EAFB79B007977C1 /* loading.c */; };
+		32A373DD0EC5C29600142BBA /* loop.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9688B0EAFB79B007977C1 /* loop.c */; };
+		32A373DE0EC5C29600142BBA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9688D0EAFB79B007977C1 /* main.c */; };
+		32A373DF0EC5C29600142BBA /* mirror_course.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968910EAFB79B007977C1 /* mirror_course.c */; };
+		32A373E00EC5C29600142BBA /* multiplayer.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968930EAFB79B007977C1 /* multiplayer.c */; };
+		32A373E10EC5C29600142BBA /* nmrcl.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968950EAFB79B007977C1 /* nmrcl.c */; };
+		32A373E20EC5C29600142BBA /* os_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968970EAFB79B007977C1 /* os_util.c */; };
+		32A373E30EC5C29600142BBA /* part_sys.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968990EAFB79B007977C1 /* part_sys.c */; };
+		32A373E40EC5C29600142BBA /* paused.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9689B0EAFB79B007977C1 /* paused.c */; };
+		32A373E50EC5C29600142BBA /* phys_sim.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9689D0EAFB79B007977C1 /* phys_sim.c */; };
+		32A373E60EC5C29600142BBA /* pic.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9689F0EAFB79B007977C1 /* pic.c */; };
+		32A373E70EC5C29600142BBA /* preview.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A10EAFB79B007977C1 /* preview.c */; };
+		32A373E80EC5C29600142BBA /* quadgeom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A30EAFB79B007977C1 /* quadgeom.cpp */; };
+		32A373E90EC5C29600142BBA /* quadtree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A50EAFB79B007977C1 /* quadtree.cpp */; };
+		32A373EA0EC5C29600142BBA /* race_select.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A70EAFB79B007977C1 /* race_select.c */; };
+		32A373EB0EC5C29600142BBA /* racing.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A90EAFB79B007977C1 /* racing.c */; };
+		32A373EC0EC5C29600142BBA /* render_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968AB0EAFB79B007977C1 /* render_util.c */; };
+		32A373ED0EC5C29600142BBA /* reset.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968AD0EAFB79B007977C1 /* reset.c */; };
+		32A373EE0EC5C29600142BBA /* save.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968AF0EAFB79B007977C1 /* save.c */; };
+		32A373EF0EC5C29600142BBA /* screenshot.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B10EAFB79B007977C1 /* screenshot.c */; };
+		32A373F00EC5C29600142BBA /* splash_screen.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B30EAFB79B007977C1 /* splash_screen.c */; };
+		32A373F10EC5C29600142BBA /* ssbutton.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B50EAFB79B007977C1 /* ssbutton.c */; };
+		32A373F20EC5C29600142BBA /* string_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B70EAFB79B007977C1 /* string_util.c */; };
+		32A373F30EC5C29600142BBA /* tcl_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B90EAFB79B007977C1 /* tcl_util.c */; };
+		32A373F40EC5C29600142BBA /* tex_font_metrics.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968BB0EAFB79B007977C1 /* tex_font_metrics.c */; };
+		32A373F50EC5C29600142BBA /* textarea.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968BD0EAFB79B007977C1 /* textarea.c */; };
+		32A373F60EC5C29600142BBA /* textures.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968BF0EAFB79B007977C1 /* textures.c */; };
+		32A373F70EC5C29600142BBA /* track_marks.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968C10EAFB79B007977C1 /* track_marks.c */; };
+		32A373F80EC5C29600142BBA /* tux_shadow.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968C30EAFB79B007977C1 /* tux_shadow.c */; };
+		32A373F90EC5C29600142BBA /* tux.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968C60EAFB79B007977C1 /* tux.c */; };
+		32A373FA0EC5C29600142BBA /* ui_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968CA0EAFB79B007977C1 /* ui_mgr.c */; };
+		32A373FB0EC5C29600142BBA /* ui_snow.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968CC0EAFB79B007977C1 /* ui_snow.c */; };
+		32A373FC0EC5C29600142BBA /* ui_theme.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968CE0EAFB79C007977C1 /* ui_theme.c */; };
+		32A373FD0EC5C29600142BBA /* view.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968D00EAFB79C007977C1 /* view.c */; };
+		32A373FE0EC5C29600142BBA /* viewfrustum.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968D20EAFB79C007977C1 /* viewfrustum.c */; };
+		32A373FF0EC5C29600142BBA /* winsys.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968D40EAFB79C007977C1 /* winsys.c */; };
+		32A374000EC5C29600142BBA /* audio_data.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968D60EAFB79C007977C1 /* audio_data.c */; };
+		32A374010EC5C29600142BBA /* touchwinsys.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B9697A0EAFC2F4007977C1 /* touchwinsys.m */; };
+		32A374020EC5C29600142BBA /* iphonegl.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A7A72B0EAFE33E006DFEDB /* iphonegl.m */; };
+		32A374030EC5C29600142BBA /* iphoneglu.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A1EB490EB0A4810058A29D /* iphoneglu.m */; };
+		32A374040EC5C29600142BBA /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32197A0C0EB686730077F189 /* AudioManager.m */; };
+		32A374060EC5C29600142BBA /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32709DE20EBE796A0089B4D5 /* AudioPlayer.m */; };
+		32A374070EC5C29600142BBA /* TransitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D2637C0EC0EE8A008554EF /* TransitionView.m */; };
+		32A374090EC5C29600142BBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		32A3740A0EC5C29600142BBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		32A3740B0EC5C29600142BBA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
+		32A3740C0EC5C29600142BBA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		32A3740D0EC5C29600142BBA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32197A290EB687630077F189 /* AudioToolbox.framework */; };
+		32A3742F0EC5C58F00142BBA /* libtcl8.6-simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A3742E0EC5C58F00142BBA /* libtcl8.6-simulator.a */; };
+		32A7A72C0EAFE33E006DFEDB /* iphonegl.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A7A72B0EAFE33E006DFEDB /* iphonegl.m */; };
+		32B896DD0F0443B200FFE564 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32B896DC0F0443B200FFE564 /* Entitlements.plist */; };
+		32B896DE0F0443B200FFE564 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32B896DC0F0443B200FFE564 /* Entitlements.plist */; };
+		32B968D70EAFB79C007977C1 /* alglib.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968420EAFB79B007977C1 /* alglib.c */; };
+		32B968D80EAFB79C007977C1 /* audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968450EAFB79B007977C1 /* audio.c */; };
+		32B968D90EAFB79C007977C1 /* button.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968470EAFB79B007977C1 /* button.c */; };
+		32B968DA0EAFB79C007977C1 /* course_load.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968490EAFB79B007977C1 /* course_load.c */; };
+		32B968DB0EAFB79C007977C1 /* course_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9684B0EAFB79B007977C1 /* course_mgr.c */; };
+		32B968DC0EAFB79C007977C1 /* course_quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B9684D0EAFB79B007977C1 /* course_quad.cpp */; };
+		32B968DD0EAFB79C007977C1 /* course_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9684F0EAFB79B007977C1 /* course_render.c */; };
+		32B968DE0EAFB79C007977C1 /* credits.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968510EAFB79B007977C1 /* credits.c */; };
+		32B968DF0EAFB79C007977C1 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968530EAFB79B007977C1 /* debug.c */; };
+		32B968E00EAFB79C007977C1 /* error_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968550EAFB79B007977C1 /* error_util.c */; };
+		32B968E10EAFB79C007977C1 /* event_select.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968570EAFB79B007977C1 /* event_select.c */; };
+		32B968E20EAFB79C007977C1 /* file_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968590EAFB79B007977C1 /* file_util.c */; };
+		32B968E30EAFB79C007977C1 /* fog.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9685B0EAFB79B007977C1 /* fog.c */; };
+		32B968E40EAFB79C007977C1 /* fonts.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9685D0EAFB79B007977C1 /* fonts.c */; };
+		32B968E50EAFB79C007977C1 /* fps.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9685F0EAFB79B007977C1 /* fps.c */; };
+		32B968E60EAFB79C007977C1 /* game_config.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968610EAFB79B007977C1 /* game_config.c */; };
+		32B968E70EAFB79C007977C1 /* game_logic_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968630EAFB79B007977C1 /* game_logic_util.c */; };
+		32B968E80EAFB79C007977C1 /* game_over.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968650EAFB79B007977C1 /* game_over.c */; };
+		32B968E90EAFB79C007977C1 /* game_type_select.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968670EAFB79B007977C1 /* game_type_select.c */; };
+		32B968EA0EAFB79C007977C1 /* gauss.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968690EAFB79B007977C1 /* gauss.c */; };
+		32B968EB0EAFB79C007977C1 /* gl_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9686B0EAFB79B007977C1 /* gl_util.c */; };
+		32B968EC0EAFB79C007977C1 /* hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9686D0EAFB79B007977C1 /* hash.c */; };
+		32B968ED0EAFB79C007977C1 /* hier_cb.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9686F0EAFB79B007977C1 /* hier_cb.c */; };
+		32B968EE0EAFB79C007977C1 /* hier_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968710EAFB79B007977C1 /* hier_util.c */; };
+		32B968EF0EAFB79C007977C1 /* hier.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968730EAFB79B007977C1 /* hier.c */; };
+		32B968F00EAFB79C007977C1 /* hud.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968750EAFB79B007977C1 /* hud.c */; };
+		32B968F10EAFB79C007977C1 /* image.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968770EAFB79B007977C1 /* image.c */; };
+		32B968F20EAFB79C007977C1 /* intro.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968790EAFB79B007977C1 /* intro.c */; };
+		32B968F30EAFB79C007977C1 /* joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9687B0EAFB79B007977C1 /* joystick.c */; };
+		32B968F40EAFB79C007977C1 /* keyboard_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9687D0EAFB79B007977C1 /* keyboard_util.c */; };
+		32B968F50EAFB79C007977C1 /* keyboard.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9687F0EAFB79B007977C1 /* keyboard.c */; };
+		32B968F60EAFB79C007977C1 /* keyframe.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968810EAFB79B007977C1 /* keyframe.c */; };
+		32B968F70EAFB79C007977C1 /* lights.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968830EAFB79B007977C1 /* lights.c */; };
+		32B968F80EAFB79C007977C1 /* list.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968850EAFB79B007977C1 /* list.c */; };
+		32B968F90EAFB79C007977C1 /* listbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968870EAFB79B007977C1 /* listbox.c */; };
+		32B968FA0EAFB79C007977C1 /* loading.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968890EAFB79B007977C1 /* loading.c */; };
+		32B968FB0EAFB79C007977C1 /* loop.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9688B0EAFB79B007977C1 /* loop.c */; };
+		32B968FC0EAFB79C007977C1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9688D0EAFB79B007977C1 /* main.c */; };
+		32B969000EAFB79C007977C1 /* mirror_course.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968910EAFB79B007977C1 /* mirror_course.c */; };
+		32B969010EAFB79C007977C1 /* multiplayer.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968930EAFB79B007977C1 /* multiplayer.c */; };
+		32B969020EAFB79C007977C1 /* nmrcl.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968950EAFB79B007977C1 /* nmrcl.c */; };
+		32B969030EAFB79C007977C1 /* os_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968970EAFB79B007977C1 /* os_util.c */; };
+		32B969040EAFB79C007977C1 /* part_sys.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968990EAFB79B007977C1 /* part_sys.c */; };
+		32B969050EAFB79C007977C1 /* paused.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9689B0EAFB79B007977C1 /* paused.c */; };
+		32B969060EAFB79C007977C1 /* phys_sim.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9689D0EAFB79B007977C1 /* phys_sim.c */; };
+		32B969070EAFB79C007977C1 /* pic.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B9689F0EAFB79B007977C1 /* pic.c */; };
+		32B969080EAFB79C007977C1 /* preview.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A10EAFB79B007977C1 /* preview.c */; };
+		32B969090EAFB79C007977C1 /* quadgeom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A30EAFB79B007977C1 /* quadgeom.cpp */; };
+		32B9690A0EAFB79C007977C1 /* quadtree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A50EAFB79B007977C1 /* quadtree.cpp */; };
+		32B9690B0EAFB79C007977C1 /* race_select.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A70EAFB79B007977C1 /* race_select.c */; };
+		32B9690C0EAFB79C007977C1 /* racing.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968A90EAFB79B007977C1 /* racing.c */; };
+		32B9690D0EAFB79C007977C1 /* render_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968AB0EAFB79B007977C1 /* render_util.c */; };
+		32B9690E0EAFB79C007977C1 /* reset.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968AD0EAFB79B007977C1 /* reset.c */; };
+		32B9690F0EAFB79C007977C1 /* save.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968AF0EAFB79B007977C1 /* save.c */; };
+		32B969100EAFB79C007977C1 /* screenshot.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B10EAFB79B007977C1 /* screenshot.c */; };
+		32B969110EAFB79C007977C1 /* splash_screen.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B30EAFB79B007977C1 /* splash_screen.c */; };
+		32B969120EAFB79C007977C1 /* ssbutton.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B50EAFB79B007977C1 /* ssbutton.c */; };
+		32B969130EAFB79C007977C1 /* string_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B70EAFB79B007977C1 /* string_util.c */; };
+		32B969140EAFB79C007977C1 /* tcl_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968B90EAFB79B007977C1 /* tcl_util.c */; };
+		32B969150EAFB79C007977C1 /* tex_font_metrics.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968BB0EAFB79B007977C1 /* tex_font_metrics.c */; };
+		32B969160EAFB79C007977C1 /* textarea.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968BD0EAFB79B007977C1 /* textarea.c */; };
+		32B969170EAFB79C007977C1 /* textures.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968BF0EAFB79B007977C1 /* textures.c */; };
+		32B969180EAFB79C007977C1 /* track_marks.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968C10EAFB79B007977C1 /* track_marks.c */; };
+		32B969190EAFB79C007977C1 /* tux_shadow.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968C30EAFB79B007977C1 /* tux_shadow.c */; };
+		32B9691A0EAFB79C007977C1 /* tux.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968C60EAFB79B007977C1 /* tux.c */; };
+		32B9691C0EAFB79C007977C1 /* ui_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968CA0EAFB79B007977C1 /* ui_mgr.c */; };
+		32B9691D0EAFB79C007977C1 /* ui_snow.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968CC0EAFB79B007977C1 /* ui_snow.c */; };
+		32B9691E0EAFB79C007977C1 /* ui_theme.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968CE0EAFB79C007977C1 /* ui_theme.c */; };
+		32B9691F0EAFB79C007977C1 /* view.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968D00EAFB79C007977C1 /* view.c */; };
+		32B969200EAFB79C007977C1 /* viewfrustum.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968D20EAFB79C007977C1 /* viewfrustum.c */; };
+		32B969210EAFB79C007977C1 /* winsys.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968D40EAFB79C007977C1 /* winsys.c */; };
+		32B969220EAFB79C007977C1 /* audio_data.c in Sources */ = {isa = PBXBuildFile; fileRef = 32B968D60EAFB79C007977C1 /* audio_data.c */; };
+		32B9697B0EAFC2F4007977C1 /* touchwinsys.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B9697A0EAFC2F4007977C1 /* touchwinsys.m */; };
+		32D2637D0EC0EE8A008554EF /* TransitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D2637C0EC0EE8A008554EF /* TransitionView.m */; };
+		32E10AF50ED46F3A002BF1CB /* prefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E10AF40ED46F3A002BF1CB /* prefsController.m */; };
+		32E10AF60ED46F3A002BF1CB /* prefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E10AF40ED46F3A002BF1CB /* prefsController.m */; };
+		32E37FE10EFC058200B1BCC3 /* timeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E37FDE0EFC058200B1BCC3 /* timeicon.png */; };
+		32E37FE20EFC058200B1BCC3 /* herringicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E37FDF0EFC058200B1BCC3 /* herringicon.png */; };
+		32E37FE30EFC058200B1BCC3 /* calculatriceicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E37FE00EFC058200B1BCC3 /* calculatriceicon.png */; };
+		32E37FE40EFC058200B1BCC3 /* timeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E37FDE0EFC058200B1BCC3 /* timeicon.png */; };
+		32E37FE50EFC058200B1BCC3 /* herringicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E37FDF0EFC058200B1BCC3 /* herringicon.png */; };
+		32E37FE60EFC058200B1BCC3 /* calculatriceicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E37FE00EFC058200B1BCC3 /* calculatriceicon.png */; };
+		32E3814D0EFC51A000B1BCC3 /* friendsBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E3814A0EFC51A000B1BCC3 /* friendsBig.png */; };
+		32E3814E0EFC51A000B1BCC3 /* flagBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E3814B0EFC51A000B1BCC3 /* flagBig.png */; };
+		32E3814F0EFC51A000B1BCC3 /* worldiconBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E3814C0EFC51A000B1BCC3 /* worldiconBig.png */; };
+		32E381500EFC51A000B1BCC3 /* friendsBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E3814A0EFC51A000B1BCC3 /* friendsBig.png */; };
+		32E381510EFC51A000B1BCC3 /* flagBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E3814B0EFC51A000B1BCC3 /* flagBig.png */; };
+		32E381520EFC51A000B1BCC3 /* worldiconBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E3814C0EFC51A000B1BCC3 /* worldiconBig.png */; };
+		32FC97E20EEAC90700AAB40E /* TRRankingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC97E10EEAC90700AAB40E /* TRRankingTableViewCell.m */; };
+		32FC97E30EEAC90700AAB40E /* TRRankingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC97E10EEAC90700AAB40E /* TRRankingTableViewCell.m */; };
+		32FC98F60EEB0CA200AAB40E /* TRFriendsManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC98F50EEB0CA200AAB40E /* TRFriendsManagerDelegate.m */; };
+		32FC98F70EEB0CA200AAB40E /* TRFriendsManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC98F50EEB0CA200AAB40E /* TRFriendsManagerDelegate.m */; };
+		32FDB0260EC504D600A3A34A /* libtcl8.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FDB0250EC504D600A3A34A /* libtcl8.6.a */; };
+		631350120F0E733400E94AF7 /* how_to_play.html in Resources */ = {isa = PBXBuildFile; fileRef = 631350110F0E733400E94AF7 /* how_to_play.html */; };
+		631350130F0E733400E94AF7 /* how_to_play.html in Resources */ = {isa = PBXBuildFile; fileRef = 631350110F0E733400E94AF7 /* how_to_play.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* TRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* TRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAppDelegate.m; sourceTree = "<group>"; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28FD14FC0DC6FC130079059D /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		28FD14FD0DC6FC130079059D /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		320BC0B90EE31BE6009B9FAA /* myHTTPErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myHTTPErrors.h; sourceTree = "<group>"; };
+		32197A0B0EB6865E0077F189 /* sharedAudioFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sharedAudioFunctions.h; path = Classes/sharedAudioFunctions.h; sourceTree = "<group>"; };
+		32197A0C0EB686730077F189 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioManager.m; path = Classes/AudioManager.m; sourceTree = "<group>"; };
+		32197A0D0EB686730077F189 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioManager.h; path = Classes/AudioManager.h; sourceTree = "<group>"; };
+		32197A290EB687630077F189 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		32318B110EC7B48600109044 /* TRAccelerometerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAccelerometerDelegate.h; sourceTree = "<group>"; };
+		32318B120EC7B48600109044 /* TRAccelerometerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAccelerometerDelegate.m; sourceTree = "<group>"; };
+		32321AEF0EDEF3A000B28FC6 /* ConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionController.h; sourceTree = "<group>"; };
+		32321AF00EDEF3A000B28FC6 /* ConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionController.m; sourceTree = "<group>"; };
+		32348A540EED818F00D38AC7 /* TRSlopeInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRSlopeInfoCell.h; sourceTree = "<group>"; };
+		32348A550EED818F00D38AC7 /* TRSlopeInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRSlopeInfoCell.m; sourceTree = "<group>"; };
+		32348AE60EEDBB6200D38AC7 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag.png; path = ranking_images/resized/flag.png; sourceTree = "<group>"; };
+		32348AE70EEDBB6200D38AC7 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = friends.png; path = ranking_images/resized/friends.png; sourceTree = "<group>"; };
+		32348AE80EEDBB6200D38AC7 /* worldicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = worldicon.png; path = ranking_images/resized/worldicon.png; sourceTree = "<group>"; };
+		325CF41A0EF4929B00E227FA /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
+		326077490EF0A3D9004D6A77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		32624B980ED5A8D2004A0E60 /* countries.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries.txt; sourceTree = "<group>"; };
+		326606490EE4B0DD00E2D9F4 /* scoresController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scoresController.h; sourceTree = "<group>"; };
+		3266064A0EE4B0DD00E2D9F4 /* scoresController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scoresController.m; sourceTree = "<group>"; };
+		326CA6CB0EFE9FF400981DD1 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/how_to_play.html; sourceTree = "<group>"; };
+		326CA6F30EFEA3B100981DD1 /* html_images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html_images; sourceTree = "<group>"; };
+		326CF6CD0F0EE3AE00A1587D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		32709DE10EBE796A0089B4D5 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayer.h; path = Classes/AudioPlayer.h; sourceTree = "<group>"; };
+		32709DE20EBE796A0089B4D5 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayer.m; path = Classes/AudioPlayer.m; sourceTree = "<group>"; };
+		32767FE20F0065E500A0CD26 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		327BCEB80EC3411800B96C3E /* sharedGeneralFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sharedGeneralFunctions.h; sourceTree = "<group>"; };
+		327BD4C50EC398A600B96C3E /* TRWC-data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "TRWC-data"; path = "../TRWC-data"; sourceTree = SOURCE_ROOT; };
+		32895C710EE9EAF30016BADF /* TRRankingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRankingDelegate.h; sourceTree = "<group>"; };
+		32895C720EE9EAF30016BADF /* TRRankingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRankingDelegate.m; sourceTree = "<group>"; };
+		32A1EB480EB0A4810058A29D /* iphoneglu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphoneglu.h; sourceTree = "<group>"; };
+		32A1EB490EB0A4810058A29D /* iphoneglu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iphoneglu.m; sourceTree = "<group>"; };
+		32A3742E0EC5C58F00142BBA /* libtcl8.6-simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libtcl8.6-simulator.a"; path = "../../tcl8.6a3/install/lib/libtcl8.6-simulator.a"; sourceTree = SOURCE_ROOT; };
+		32A7A72B0EAFE33E006DFEDB /* iphonegl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iphonegl.m; sourceTree = "<group>"; };
+		32B896DC0F0443B200FFE564 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		32B968420EAFB79B007977C1 /* alglib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = alglib.c; path = ../src/alglib.c; sourceTree = SOURCE_ROOT; };
+		32B968430EAFB79B007977C1 /* alglib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = alglib.h; path = ../src/alglib.h; sourceTree = SOURCE_ROOT; };
+		32B968440EAFB79B007977C1 /* audio_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audio_data.h; path = ../src/audio_data.h; sourceTree = SOURCE_ROOT; };
+		32B968450EAFB79B007977C1 /* audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = audio.c; path = ../src/audio.c; sourceTree = SOURCE_ROOT; };
+		32B968460EAFB79B007977C1 /* audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audio.h; path = ../src/audio.h; sourceTree = SOURCE_ROOT; };
+		32B968470EAFB79B007977C1 /* button.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = button.c; path = ../src/button.c; sourceTree = SOURCE_ROOT; };
+		32B968480EAFB79B007977C1 /* button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = button.h; path = ../src/button.h; sourceTree = SOURCE_ROOT; };
+		32B968490EAFB79B007977C1 /* course_load.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = course_load.c; path = ../src/course_load.c; sourceTree = SOURCE_ROOT; };
+		32B9684A0EAFB79B007977C1 /* course_load.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = course_load.h; path = ../src/course_load.h; sourceTree = SOURCE_ROOT; };
+		32B9684B0EAFB79B007977C1 /* course_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = course_mgr.c; path = ../src/course_mgr.c; sourceTree = SOURCE_ROOT; };
+		32B9684C0EAFB79B007977C1 /* course_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = course_mgr.h; path = ../src/course_mgr.h; sourceTree = SOURCE_ROOT; };
+		32B9684D0EAFB79B007977C1 /* course_quad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = course_quad.cpp; path = ../src/course_quad.cpp; sourceTree = SOURCE_ROOT; };
+		32B9684E0EAFB79B007977C1 /* course_quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = course_quad.h; path = ../src/course_quad.h; sourceTree = SOURCE_ROOT; };
+		32B9684F0EAFB79B007977C1 /* course_render.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = course_render.c; path = ../src/course_render.c; sourceTree = SOURCE_ROOT; };
+		32B968500EAFB79B007977C1 /* course_render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = course_render.h; path = ../src/course_render.h; sourceTree = SOURCE_ROOT; };
+		32B968510EAFB79B007977C1 /* credits.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = credits.c; path = ../src/credits.c; sourceTree = SOURCE_ROOT; };
+		32B968520EAFB79B007977C1 /* credits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = credits.h; path = ../src/credits.h; sourceTree = SOURCE_ROOT; };
+		32B968530EAFB79B007977C1 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = debug.c; path = ../src/debug.c; sourceTree = SOURCE_ROOT; };
+		32B968540EAFB79B007977C1 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = debug.h; path = ../src/debug.h; sourceTree = SOURCE_ROOT; };
+		32B968550EAFB79B007977C1 /* error_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = error_util.c; path = ../src/error_util.c; sourceTree = SOURCE_ROOT; };
+		32B968560EAFB79B007977C1 /* error_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = error_util.h; path = ../src/error_util.h; sourceTree = SOURCE_ROOT; };
+		32B968570EAFB79B007977C1 /* event_select.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = event_select.c; path = ../src/event_select.c; sourceTree = SOURCE_ROOT; };
+		32B968580EAFB79B007977C1 /* event_select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = event_select.h; path = ../src/event_select.h; sourceTree = SOURCE_ROOT; };
+		32B968590EAFB79B007977C1 /* file_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = file_util.c; path = ../src/file_util.c; sourceTree = SOURCE_ROOT; };
+		32B9685A0EAFB79B007977C1 /* file_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = file_util.h; path = ../src/file_util.h; sourceTree = SOURCE_ROOT; };
+		32B9685B0EAFB79B007977C1 /* fog.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fog.c; path = ../src/fog.c; sourceTree = SOURCE_ROOT; };
+		32B9685C0EAFB79B007977C1 /* fog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fog.h; path = ../src/fog.h; sourceTree = SOURCE_ROOT; };
+		32B9685D0EAFB79B007977C1 /* fonts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fonts.c; path = ../src/fonts.c; sourceTree = SOURCE_ROOT; };
+		32B9685E0EAFB79B007977C1 /* fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fonts.h; path = ../src/fonts.h; sourceTree = SOURCE_ROOT; };
+		32B9685F0EAFB79B007977C1 /* fps.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fps.c; path = ../src/fps.c; sourceTree = SOURCE_ROOT; };
+		32B968600EAFB79B007977C1 /* fps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fps.h; path = ../src/fps.h; sourceTree = SOURCE_ROOT; };
+		32B968610EAFB79B007977C1 /* game_config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = game_config.c; path = ../src/game_config.c; sourceTree = SOURCE_ROOT; };
+		32B968620EAFB79B007977C1 /* game_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = game_config.h; path = ../src/game_config.h; sourceTree = SOURCE_ROOT; };
+		32B968630EAFB79B007977C1 /* game_logic_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = game_logic_util.c; path = ../src/game_logic_util.c; sourceTree = SOURCE_ROOT; };
+		32B968640EAFB79B007977C1 /* game_logic_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = game_logic_util.h; path = ../src/game_logic_util.h; sourceTree = SOURCE_ROOT; };
+		32B968650EAFB79B007977C1 /* game_over.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = game_over.c; path = ../src/game_over.c; sourceTree = SOURCE_ROOT; };
+		32B968660EAFB79B007977C1 /* game_over.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = game_over.h; path = ../src/game_over.h; sourceTree = SOURCE_ROOT; };
+		32B968670EAFB79B007977C1 /* game_type_select.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = game_type_select.c; path = ../src/game_type_select.c; sourceTree = SOURCE_ROOT; };
+		32B968680EAFB79B007977C1 /* game_type_select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = game_type_select.h; path = ../src/game_type_select.h; sourceTree = SOURCE_ROOT; };
+		32B968690EAFB79B007977C1 /* gauss.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gauss.c; path = ../src/gauss.c; sourceTree = SOURCE_ROOT; };
+		32B9686A0EAFB79B007977C1 /* gauss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gauss.h; path = ../src/gauss.h; sourceTree = SOURCE_ROOT; };
+		32B9686B0EAFB79B007977C1 /* gl_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gl_util.c; path = ../src/gl_util.c; sourceTree = SOURCE_ROOT; };
+		32B9686C0EAFB79B007977C1 /* gl_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gl_util.h; path = ../src/gl_util.h; sourceTree = SOURCE_ROOT; };
+		32B9686D0EAFB79B007977C1 /* hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hash.c; path = ../src/hash.c; sourceTree = SOURCE_ROOT; };
+		32B9686E0EAFB79B007977C1 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hash.h; path = ../src/hash.h; sourceTree = SOURCE_ROOT; };
+		32B9686F0EAFB79B007977C1 /* hier_cb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hier_cb.c; path = ../src/hier_cb.c; sourceTree = SOURCE_ROOT; };
+		32B968700EAFB79B007977C1 /* hier_cb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hier_cb.h; path = ../src/hier_cb.h; sourceTree = SOURCE_ROOT; };
+		32B968710EAFB79B007977C1 /* hier_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hier_util.c; path = ../src/hier_util.c; sourceTree = SOURCE_ROOT; };
+		32B968720EAFB79B007977C1 /* hier_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hier_util.h; path = ../src/hier_util.h; sourceTree = SOURCE_ROOT; };
+		32B968730EAFB79B007977C1 /* hier.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hier.c; path = ../src/hier.c; sourceTree = SOURCE_ROOT; };
+		32B968740EAFB79B007977C1 /* hier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hier.h; path = ../src/hier.h; sourceTree = SOURCE_ROOT; };
+		32B968750EAFB79B007977C1 /* hud.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hud.c; path = ../src/hud.c; sourceTree = SOURCE_ROOT; };
+		32B968760EAFB79B007977C1 /* hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hud.h; path = ../src/hud.h; sourceTree = SOURCE_ROOT; };
+		32B968770EAFB79B007977C1 /* image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = image.c; path = ../src/image.c; sourceTree = SOURCE_ROOT; };
+		32B968780EAFB79B007977C1 /* image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = image.h; path = ../src/image.h; sourceTree = SOURCE_ROOT; };
+		32B968790EAFB79B007977C1 /* intro.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = intro.c; path = ../src/intro.c; sourceTree = SOURCE_ROOT; };
+		32B9687A0EAFB79B007977C1 /* intro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = intro.h; path = ../src/intro.h; sourceTree = SOURCE_ROOT; };
+		32B9687B0EAFB79B007977C1 /* joystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = joystick.c; path = ../src/joystick.c; sourceTree = SOURCE_ROOT; };
+		32B9687C0EAFB79B007977C1 /* joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = joystick.h; path = ../src/joystick.h; sourceTree = SOURCE_ROOT; };
+		32B9687D0EAFB79B007977C1 /* keyboard_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = keyboard_util.c; path = ../src/keyboard_util.c; sourceTree = SOURCE_ROOT; };
+		32B9687E0EAFB79B007977C1 /* keyboard_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = keyboard_util.h; path = ../src/keyboard_util.h; sourceTree = SOURCE_ROOT; };
+		32B9687F0EAFB79B007977C1 /* keyboard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = keyboard.c; path = ../src/keyboard.c; sourceTree = SOURCE_ROOT; };
+		32B968800EAFB79B007977C1 /* keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = keyboard.h; path = ../src/keyboard.h; sourceTree = SOURCE_ROOT; };
+		32B968810EAFB79B007977C1 /* keyframe.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = keyframe.c; path = ../src/keyframe.c; sourceTree = SOURCE_ROOT; };
+		32B968820EAFB79B007977C1 /* keyframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = keyframe.h; path = ../src/keyframe.h; sourceTree = SOURCE_ROOT; };
+		32B968830EAFB79B007977C1 /* lights.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lights.c; path = ../src/lights.c; sourceTree = SOURCE_ROOT; };
+		32B968840EAFB79B007977C1 /* lights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lights.h; path = ../src/lights.h; sourceTree = SOURCE_ROOT; };
+		32B968850EAFB79B007977C1 /* list.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = list.c; path = ../src/list.c; sourceTree = SOURCE_ROOT; };
+		32B968860EAFB79B007977C1 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = list.h; path = ../src/list.h; sourceTree = SOURCE_ROOT; };
+		32B968870EAFB79B007977C1 /* listbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = listbox.c; path = ../src/listbox.c; sourceTree = SOURCE_ROOT; };
+		32B968880EAFB79B007977C1 /* listbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = listbox.h; path = ../src/listbox.h; sourceTree = SOURCE_ROOT; };
+		32B968890EAFB79B007977C1 /* loading.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = loading.c; path = ../src/loading.c; sourceTree = SOURCE_ROOT; };
+		32B9688A0EAFB79B007977C1 /* loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = loading.h; path = ../src/loading.h; sourceTree = SOURCE_ROOT; };
+		32B9688B0EAFB79B007977C1 /* loop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = loop.c; path = ../src/loop.c; sourceTree = SOURCE_ROOT; };
+		32B9688C0EAFB79B007977C1 /* loop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = loop.h; path = ../src/loop.h; sourceTree = SOURCE_ROOT; };
+		32B9688D0EAFB79B007977C1 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = ../src/main.c; sourceTree = SOURCE_ROOT; };
+		32B968910EAFB79B007977C1 /* mirror_course.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mirror_course.c; path = ../src/mirror_course.c; sourceTree = SOURCE_ROOT; };
+		32B968920EAFB79B007977C1 /* mirror_course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mirror_course.h; path = ../src/mirror_course.h; sourceTree = SOURCE_ROOT; };
+		32B968930EAFB79B007977C1 /* multiplayer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = multiplayer.c; path = ../src/multiplayer.c; sourceTree = SOURCE_ROOT; };
+		32B968940EAFB79B007977C1 /* multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = multiplayer.h; path = ../src/multiplayer.h; sourceTree = SOURCE_ROOT; };
+		32B968950EAFB79B007977C1 /* nmrcl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = nmrcl.c; path = ../src/nmrcl.c; sourceTree = SOURCE_ROOT; };
+		32B968960EAFB79B007977C1 /* nmrcl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nmrcl.h; path = ../src/nmrcl.h; sourceTree = SOURCE_ROOT; };
+		32B968970EAFB79B007977C1 /* os_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = os_util.c; path = ../src/os_util.c; sourceTree = SOURCE_ROOT; };
+		32B968980EAFB79B007977C1 /* os_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = os_util.h; path = ../src/os_util.h; sourceTree = SOURCE_ROOT; };
+		32B968990EAFB79B007977C1 /* part_sys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = part_sys.c; path = ../src/part_sys.c; sourceTree = SOURCE_ROOT; };
+		32B9689A0EAFB79B007977C1 /* part_sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = part_sys.h; path = ../src/part_sys.h; sourceTree = SOURCE_ROOT; };
+		32B9689B0EAFB79B007977C1 /* paused.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = paused.c; path = ../src/paused.c; sourceTree = SOURCE_ROOT; };
+		32B9689C0EAFB79B007977C1 /* paused.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = paused.h; path = ../src/paused.h; sourceTree = SOURCE_ROOT; };
+		32B9689D0EAFB79B007977C1 /* phys_sim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = phys_sim.c; path = ../src/phys_sim.c; sourceTree = SOURCE_ROOT; };
+		32B9689E0EAFB79B007977C1 /* phys_sim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = phys_sim.h; path = ../src/phys_sim.h; sourceTree = SOURCE_ROOT; };
+		32B9689F0EAFB79B007977C1 /* pic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pic.c; path = ../src/pic.c; sourceTree = SOURCE_ROOT; };
+		32B968A00EAFB79B007977C1 /* pic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pic.h; path = ../src/pic.h; sourceTree = SOURCE_ROOT; };
+		32B968A10EAFB79B007977C1 /* preview.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = preview.c; path = ../src/preview.c; sourceTree = SOURCE_ROOT; };
+		32B968A20EAFB79B007977C1 /* preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = preview.h; path = ../src/preview.h; sourceTree = SOURCE_ROOT; };
+		32B968A30EAFB79B007977C1 /* quadgeom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = quadgeom.cpp; path = ../src/quadgeom.cpp; sourceTree = SOURCE_ROOT; };
+		32B968A40EAFB79B007977C1 /* quadgeom.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = quadgeom.hpp; path = ../src/quadgeom.hpp; sourceTree = SOURCE_ROOT; };
+		32B968A50EAFB79B007977C1 /* quadtree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = quadtree.cpp; path = ../src/quadtree.cpp; sourceTree = SOURCE_ROOT; };
+		32B968A60EAFB79B007977C1 /* quadtree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = quadtree.hpp; path = ../src/quadtree.hpp; sourceTree = SOURCE_ROOT; };
+		32B968A70EAFB79B007977C1 /* race_select.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = race_select.c; path = ../src/race_select.c; sourceTree = SOURCE_ROOT; };
+		32B968A80EAFB79B007977C1 /* race_select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = race_select.h; path = ../src/race_select.h; sourceTree = SOURCE_ROOT; };
+		32B968A90EAFB79B007977C1 /* racing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = racing.c; path = ../src/racing.c; sourceTree = SOURCE_ROOT; };
+		32B968AA0EAFB79B007977C1 /* racing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = racing.h; path = ../src/racing.h; sourceTree = SOURCE_ROOT; };
+		32B968AB0EAFB79B007977C1 /* render_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = render_util.c; path = ../src/render_util.c; sourceTree = SOURCE_ROOT; };
+		32B968AC0EAFB79B007977C1 /* render_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = render_util.h; path = ../src/render_util.h; sourceTree = SOURCE_ROOT; };
+		32B968AD0EAFB79B007977C1 /* reset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = reset.c; path = ../src/reset.c; sourceTree = SOURCE_ROOT; };
+		32B968AE0EAFB79B007977C1 /* reset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = reset.h; path = ../src/reset.h; sourceTree = SOURCE_ROOT; };
+		32B968AF0EAFB79B007977C1 /* save.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = save.c; path = ../src/save.c; sourceTree = SOURCE_ROOT; };
+		32B968B00EAFB79B007977C1 /* save.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = save.h; path = ../src/save.h; sourceTree = SOURCE_ROOT; };
+		32B968B10EAFB79B007977C1 /* screenshot.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = screenshot.c; path = ../src/screenshot.c; sourceTree = SOURCE_ROOT; };
+		32B968B20EAFB79B007977C1 /* screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = screenshot.h; path = ../src/screenshot.h; sourceTree = SOURCE_ROOT; };
+		32B968B30EAFB79B007977C1 /* splash_screen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = splash_screen.c; path = ../src/splash_screen.c; sourceTree = SOURCE_ROOT; };
+		32B968B40EAFB79B007977C1 /* splash_screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = splash_screen.h; path = ../src/splash_screen.h; sourceTree = SOURCE_ROOT; };
+		32B968B50EAFB79B007977C1 /* ssbutton.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ssbutton.c; path = ../src/ssbutton.c; sourceTree = SOURCE_ROOT; };
+		32B968B60EAFB79B007977C1 /* ssbutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ssbutton.h; path = ../src/ssbutton.h; sourceTree = SOURCE_ROOT; };
+		32B968B70EAFB79B007977C1 /* string_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = string_util.c; path = ../src/string_util.c; sourceTree = SOURCE_ROOT; };
+		32B968B80EAFB79B007977C1 /* string_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = string_util.h; path = ../src/string_util.h; sourceTree = SOURCE_ROOT; };
+		32B968B90EAFB79B007977C1 /* tcl_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tcl_util.c; path = ../src/tcl_util.c; sourceTree = SOURCE_ROOT; };
+		32B968BA0EAFB79B007977C1 /* tcl_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tcl_util.h; path = ../src/tcl_util.h; sourceTree = SOURCE_ROOT; };
+		32B968BB0EAFB79B007977C1 /* tex_font_metrics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tex_font_metrics.c; path = ../src/tex_font_metrics.c; sourceTree = SOURCE_ROOT; };
+		32B968BC0EAFB79B007977C1 /* tex_font_metrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tex_font_metrics.h; path = ../src/tex_font_metrics.h; sourceTree = SOURCE_ROOT; };
+		32B968BD0EAFB79B007977C1 /* textarea.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = textarea.c; path = ../src/textarea.c; sourceTree = SOURCE_ROOT; };
+		32B968BE0EAFB79B007977C1 /* textarea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = textarea.h; path = ../src/textarea.h; sourceTree = SOURCE_ROOT; };
+		32B968BF0EAFB79B007977C1 /* textures.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = textures.c; path = ../src/textures.c; sourceTree = SOURCE_ROOT; };
+		32B968C00EAFB79B007977C1 /* textures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = textures.h; path = ../src/textures.h; sourceTree = SOURCE_ROOT; };
+		32B968C10EAFB79B007977C1 /* track_marks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = track_marks.c; path = ../src/track_marks.c; sourceTree = SOURCE_ROOT; };
+		32B968C20EAFB79B007977C1 /* track_marks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = track_marks.h; path = ../src/track_marks.h; sourceTree = SOURCE_ROOT; };
+		32B968C30EAFB79B007977C1 /* tux_shadow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tux_shadow.c; path = ../src/tux_shadow.c; sourceTree = SOURCE_ROOT; };
+		32B968C40EAFB79B007977C1 /* tux_shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tux_shadow.h; path = ../src/tux_shadow.h; sourceTree = SOURCE_ROOT; };
+		32B968C50EAFB79B007977C1 /* tux_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tux_types.h; path = ../src/tux_types.h; sourceTree = SOURCE_ROOT; };
+		32B968C60EAFB79B007977C1 /* tux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tux.c; path = ../src/tux.c; sourceTree = SOURCE_ROOT; };
+		32B968C70EAFB79B007977C1 /* tux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tux.h; path = ../src/tux.h; sourceTree = SOURCE_ROOT; };
+		32B968C90EAFB79B007977C1 /* tuxracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tuxracer.h; path = ../src/tuxracer.h; sourceTree = SOURCE_ROOT; };
+		32B968CA0EAFB79B007977C1 /* ui_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ui_mgr.c; path = ../src/ui_mgr.c; sourceTree = SOURCE_ROOT; };
+		32B968CB0EAFB79B007977C1 /* ui_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ui_mgr.h; path = ../src/ui_mgr.h; sourceTree = SOURCE_ROOT; };
+		32B968CC0EAFB79B007977C1 /* ui_snow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ui_snow.c; path = ../src/ui_snow.c; sourceTree = SOURCE_ROOT; };
+		32B968CD0EAFB79B007977C1 /* ui_snow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ui_snow.h; path = ../src/ui_snow.h; sourceTree = SOURCE_ROOT; };
+		32B968CE0EAFB79C007977C1 /* ui_theme.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ui_theme.c; path = ../src/ui_theme.c; sourceTree = SOURCE_ROOT; };
+		32B968CF0EAFB79C007977C1 /* ui_theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ui_theme.h; path = ../src/ui_theme.h; sourceTree = SOURCE_ROOT; };
+		32B968D00EAFB79C007977C1 /* view.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = view.c; path = ../src/view.c; sourceTree = SOURCE_ROOT; };
+		32B968D10EAFB79C007977C1 /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = view.h; path = ../src/view.h; sourceTree = SOURCE_ROOT; };
+		32B968D20EAFB79C007977C1 /* viewfrustum.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = viewfrustum.c; path = ../src/viewfrustum.c; sourceTree = SOURCE_ROOT; };
+		32B968D30EAFB79C007977C1 /* viewfrustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = viewfrustum.h; path = ../src/viewfrustum.h; sourceTree = SOURCE_ROOT; };
+		32B968D40EAFB79C007977C1 /* winsys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = winsys.c; path = ../src/winsys.c; sourceTree = SOURCE_ROOT; };
+		32B968D50EAFB79C007977C1 /* winsys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winsys.h; path = ../src/winsys.h; sourceTree = SOURCE_ROOT; };
+		32B968D60EAFB79C007977C1 /* audio_data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = audio_data.c; path = ../src/audio_data.c; sourceTree = SOURCE_ROOT; };
+		32B9697A0EAFC2F4007977C1 /* touchwinsys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = touchwinsys.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* tuxracer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuxracer_Prefix.pch; sourceTree = "<group>"; };
+		32D2637B0EC0EE8A008554EF /* TransitionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionView.h; sourceTree = "<group>"; };
+		32D2637C0EC0EE8A008554EF /* TransitionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionView.m; sourceTree = "<group>"; };
+		32E10AF30ED46F3A002BF1CB /* prefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefsController.h; sourceTree = "<group>"; };
+		32E10AF40ED46F3A002BF1CB /* prefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = prefsController.m; sourceTree = "<group>"; };
+		32E37FDE0EFC058200B1BCC3 /* timeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timeicon.png; path = ranking_images/timeicon.png; sourceTree = "<group>"; };
+		32E37FDF0EFC058200B1BCC3 /* herringicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = herringicon.png; path = ranking_images/herringicon.png; sourceTree = "<group>"; };
+		32E37FE00EFC058200B1BCC3 /* calculatriceicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calculatriceicon.png; path = ranking_images/calculatriceicon.png; sourceTree = "<group>"; };
+		32E3814A0EFC51A000B1BCC3 /* friendsBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = friendsBig.png; path = ranking_images/friendsBig.png; sourceTree = "<group>"; };
+		32E3814B0EFC51A000B1BCC3 /* flagBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flagBig.png; path = ranking_images/flagBig.png; sourceTree = "<group>"; };
+		32E3814C0EFC51A000B1BCC3 /* worldiconBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = worldiconBig.png; path = ranking_images/worldiconBig.png; sourceTree = "<group>"; };
+		32FC97E00EEAC90700AAB40E /* TRRankingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRankingTableViewCell.h; sourceTree = "<group>"; };
+		32FC97E10EEAC90700AAB40E /* TRRankingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRankingTableViewCell.m; sourceTree = "<group>"; };
+		32FC98F40EEB0CA200AAB40E /* TRFriendsManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRFriendsManagerDelegate.h; sourceTree = "<group>"; };
+		32FC98F50EEB0CA200AAB40E /* TRFriendsManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRFriendsManagerDelegate.m; sourceTree = "<group>"; };
+		32FDB0250EC504D600A3A34A /* libtcl8.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtcl8.6.a; path = "../../tcl8.6a3/install-iphone/libtcl8.6.a"; sourceTree = SOURCE_ROOT; };
+		631350140F0E734000E94AF7 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = French; path = French.lproj/how_to_play.html; sourceTree = "<group>"; };
+		631350150F0E734600E94AF7 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Spanish; path = Spanish.lproj/how_to_play.html; sourceTree = "<group>"; };
+		637210FB0F0F91B90004A0B5 /* TRDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDebug.h; sourceTree = "<group>"; };
+		637B9CC00EE1BA5900605E02 /* Tux Rider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tux Rider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		637B9CC20EE1BA5900605E02 /* tuxracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tuxracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63894B7B0EAFDFAD00A575FF /* iphonegl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphonegl.h; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
+				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
+				32197A2A0EB687630077F189 /* AudioToolbox.framework in Frameworks */,
+				32FDB0260EC504D600A3A34A /* libtcl8.6.a in Frameworks */,
+				3260774B0EF0A3D9004D6A77 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32A374080EC5C29600142BBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A374090EC5C29600142BBA /* Foundation.framework in Frameworks */,
+				32A3740A0EC5C29600142BBA /* UIKit.framework in Frameworks */,
+				32A3740B0EC5C29600142BBA /* OpenGLES.framework in Frameworks */,
+				32A3740C0EC5C29600142BBA /* QuartzCore.framework in Frameworks */,
+				32A3740D0EC5C29600142BBA /* AudioToolbox.framework in Frameworks */,
+				32A3742F0EC5C58F00142BBA /* libtcl8.6-simulator.a in Frameworks */,
+				3260774A0EF0A3D9004D6A77 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				32B9697A0EAFC2F4007977C1 /* touchwinsys.m */,
+				28FD14FC0DC6FC130079059D /* EAGLView.h */,
+				28FD14FD0DC6FC130079059D /* EAGLView.m */,
+				1D3623240D0F684500981E51 /* TRAppDelegate.h */,
+				1D3623250D0F684500981E51 /* TRAppDelegate.m */,
+				32318B110EC7B48600109044 /* TRAccelerometerDelegate.h */,
+				32318B120EC7B48600109044 /* TRAccelerometerDelegate.m */,
+				63894B7B0EAFDFAD00A575FF /* iphonegl.h */,
+				32A7A72B0EAFE33E006DFEDB /* iphonegl.m */,
+				32A1EB480EB0A4810058A29D /* iphoneglu.h */,
+				32A1EB490EB0A4810058A29D /* iphoneglu.m */,
+				32D2637B0EC0EE8A008554EF /* TransitionView.h */,
+				32D2637C0EC0EE8A008554EF /* TransitionView.m */,
+				327BCEB80EC3411800B96C3E /* sharedGeneralFunctions.h */,
+				326605580EE4952600E2D9F4 /* scores */,
+				32321B1F0EDF5D2E00B28FC6 /* preferences */,
+				32197A010EB6860A0077F189 /* AudioClasses */,
+				320BC0B90EE31BE6009B9FAA /* myHTTPErrors.h */,
+				637210FB0F0F91B90004A0B5 /* TRDebug.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				637B9CC00EE1BA5900605E02 /* Tux Rider.app */,
+				637B9CC20EE1BA5900605E02 /* tuxracer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				32B969240EAFB7BE007977C1 /* src */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* tuxracer_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32348AF00EEDBB6700D38AC7 /* rankingImages */,
+				327BD4C50EC398A600B96C3E /* TRWC-data */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				326CF6CD0F0EE3AE00A1587D /* Default.png */,
+				32624B980ED5A8D2004A0E60 /* countries.txt */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				32B896DC0F0443B200FFE564 /* Entitlements.plist */,
+				32767FE20F0065E500A0CD26 /* icon.png */,
+				325CF41A0EF4929B00E227FA /* license.html */,
+				631350110F0E733400E94AF7 /* how_to_play.html */,
+				326CA6F30EFEA3B100981DD1 /* html_images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32A374180EC5C33400142BBA /* Simulator */,
+				32A374170EC5C32100142BBA /* device */,
+				32197A290EB687630077F189 /* AudioToolbox.framework */,
+				28FD15070DC6FC5B0079059D /* QuartzCore.framework */,
+				326077490EF0A3D9004D6A77 /* CoreGraphics.framework */,
+				28FD14FF0DC6FC520079059D /* OpenGLES.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32197A010EB6860A0077F189 /* AudioClasses */ = {
+			isa = PBXGroup;
+			children = (
+				32197A0B0EB6865E0077F189 /* sharedAudioFunctions.h */,
+				32197A0D0EB686730077F189 /* AudioManager.h */,
+				32197A0C0EB686730077F189 /* AudioManager.m */,
+				32709DE10EBE796A0089B4D5 /* AudioPlayer.h */,
+				32709DE20EBE796A0089B4D5 /* AudioPlayer.m */,
+			);
+			name = AudioClasses;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		32321B1F0EDF5D2E00B28FC6 /* preferences */ = {
+			isa = PBXGroup;
+			children = (
+				32E10AF30ED46F3A002BF1CB /* prefsController.h */,
+				32E10AF40ED46F3A002BF1CB /* prefsController.m */,
+				32321AEF0EDEF3A000B28FC6 /* ConnectionController.h */,
+				32321AF00EDEF3A000B28FC6 /* ConnectionController.m */,
+				32FC98F40EEB0CA200AAB40E /* TRFriendsManagerDelegate.h */,
+				32FC98F50EEB0CA200AAB40E /* TRFriendsManagerDelegate.m */,
+			);
+			name = preferences;
+			sourceTree = "<group>";
+		};
+		32348AF00EEDBB6700D38AC7 /* rankingImages */ = {
+			isa = PBXGroup;
+			children = (
+				32E3814A0EFC51A000B1BCC3 /* friendsBig.png */,
+				32E3814B0EFC51A000B1BCC3 /* flagBig.png */,
+				32E3814C0EFC51A000B1BCC3 /* worldiconBig.png */,
+				32E37FDE0EFC058200B1BCC3 /* timeicon.png */,
+				32E37FDF0EFC058200B1BCC3 /* herringicon.png */,
+				32E37FE00EFC058200B1BCC3 /* calculatriceicon.png */,
+				32348AE60EEDBB6200D38AC7 /* flag.png */,
+				32348AE70EEDBB6200D38AC7 /* friends.png */,
+				32348AE80EEDBB6200D38AC7 /* worldicon.png */,
+			);
+			name = rankingImages;
+			sourceTree = "<group>";
+		};
+		326605580EE4952600E2D9F4 /* scores */ = {
+			isa = PBXGroup;
+			children = (
+				326606490EE4B0DD00E2D9F4 /* scoresController.h */,
+				3266064A0EE4B0DD00E2D9F4 /* scoresController.m */,
+				32895C710EE9EAF30016BADF /* TRRankingDelegate.h */,
+				32895C720EE9EAF30016BADF /* TRRankingDelegate.m */,
+				32FC97E00EEAC90700AAB40E /* TRRankingTableViewCell.h */,
+				32FC97E10EEAC90700AAB40E /* TRRankingTableViewCell.m */,
+				32348A540EED818F00D38AC7 /* TRSlopeInfoCell.h */,
+				32348A550EED818F00D38AC7 /* TRSlopeInfoCell.m */,
+			);
+			name = scores;
+			sourceTree = "<group>";
+		};
+		32A374170EC5C32100142BBA /* device */ = {
+			isa = PBXGroup;
+			children = (
+				32FDB0250EC504D600A3A34A /* libtcl8.6.a */,
+			);
+			name = device;
+			sourceTree = "<group>";
+		};
+		32A374180EC5C33400142BBA /* Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				32A3742E0EC5C58F00142BBA /* libtcl8.6-simulator.a */,
+			);
+			name = Simulator;
+			sourceTree = "<group>";
+		};
+		32B969240EAFB7BE007977C1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				32B968420EAFB79B007977C1 /* alglib.c */,
+				32B968430EAFB79B007977C1 /* alglib.h */,
+				32B968440EAFB79B007977C1 /* audio_data.h */,
+				32B968450EAFB79B007977C1 /* audio.c */,
+				32B968460EAFB79B007977C1 /* audio.h */,
+				32B968470EAFB79B007977C1 /* button.c */,
+				32B968480EAFB79B007977C1 /* button.h */,
+				32B968490EAFB79B007977C1 /* course_load.c */,
+				32B9684A0EAFB79B007977C1 /* course_load.h */,
+				32B9684B0EAFB79B007977C1 /* course_mgr.c */,
+				32B9684C0EAFB79B007977C1 /* course_mgr.h */,
+				32B9684D0EAFB79B007977C1 /* course_quad.cpp */,
+				32B9684E0EAFB79B007977C1 /* course_quad.h */,
+				32B9684F0EAFB79B007977C1 /* course_render.c */,
+				32B968500EAFB79B007977C1 /* course_render.h */,
+				32B968510EAFB79B007977C1 /* credits.c */,
+				32B968520EAFB79B007977C1 /* credits.h */,
+				32B968530EAFB79B007977C1 /* debug.c */,
+				32B968540EAFB79B007977C1 /* debug.h */,
+				32B968550EAFB79B007977C1 /* error_util.c */,
+				32B968560EAFB79B007977C1 /* error_util.h */,
+				32B968570EAFB79B007977C1 /* event_select.c */,
+				32B968580EAFB79B007977C1 /* event_select.h */,
+				32B968590EAFB79B007977C1 /* file_util.c */,
+				32B9685A0EAFB79B007977C1 /* file_util.h */,
+				32B9685B0EAFB79B007977C1 /* fog.c */,
+				32B9685C0EAFB79B007977C1 /* fog.h */,
+				32B9685D0EAFB79B007977C1 /* fonts.c */,
+				32B9685E0EAFB79B007977C1 /* fonts.h */,
+				32B9685F0EAFB79B007977C1 /* fps.c */,
+				32B968600EAFB79B007977C1 /* fps.h */,
+				32B968610EAFB79B007977C1 /* game_config.c */,
+				32B968620EAFB79B007977C1 /* game_config.h */,
+				32B968630EAFB79B007977C1 /* game_logic_util.c */,
+				32B968640EAFB79B007977C1 /* game_logic_util.h */,
+				32B968650EAFB79B007977C1 /* game_over.c */,
+				32B968660EAFB79B007977C1 /* game_over.h */,
+				32B968670EAFB79B007977C1 /* game_type_select.c */,
+				32B968680EAFB79B007977C1 /* game_type_select.h */,
+				32B968690EAFB79B007977C1 /* gauss.c */,
+				32B9686A0EAFB79B007977C1 /* gauss.h */,
+				32B9686B0EAFB79B007977C1 /* gl_util.c */,
+				32B9686C0EAFB79B007977C1 /* gl_util.h */,
+				32B9686D0EAFB79B007977C1 /* hash.c */,
+				32B9686E0EAFB79B007977C1 /* hash.h */,
+				32B9686F0EAFB79B007977C1 /* hier_cb.c */,
+				32B968700EAFB79B007977C1 /* hier_cb.h */,
+				32B968710EAFB79B007977C1 /* hier_util.c */,
+				32B968720EAFB79B007977C1 /* hier_util.h */,
+				32B968730EAFB79B007977C1 /* hier.c */,
+				32B968740EAFB79B007977C1 /* hier.h */,
+				32B968750EAFB79B007977C1 /* hud.c */,
+				32B968760EAFB79B007977C1 /* hud.h */,
+				32B968770EAFB79B007977C1 /* image.c */,
+				32B968780EAFB79B007977C1 /* image.h */,
+				32B968790EAFB79B007977C1 /* intro.c */,
+				32B9687A0EAFB79B007977C1 /* intro.h */,
+				32B9687B0EAFB79B007977C1 /* joystick.c */,
+				32B9687C0EAFB79B007977C1 /* joystick.h */,
+				32B9687D0EAFB79B007977C1 /* keyboard_util.c */,
+				32B9687E0EAFB79B007977C1 /* keyboard_util.h */,
+				32B9687F0EAFB79B007977C1 /* keyboard.c */,
+				32B968800EAFB79B007977C1 /* keyboard.h */,
+				32B968810EAFB79B007977C1 /* keyframe.c */,
+				32B968820EAFB79B007977C1 /* keyframe.h */,
+				32B968830EAFB79B007977C1 /* lights.c */,
+				32B968840EAFB79B007977C1 /* lights.h */,
+				32B968850EAFB79B007977C1 /* list.c */,
+				32B968860EAFB79B007977C1 /* list.h */,
+				32B968870EAFB79B007977C1 /* listbox.c */,
+				32B968880EAFB79B007977C1 /* listbox.h */,
+				32B968890EAFB79B007977C1 /* loading.c */,
+				32B9688A0EAFB79B007977C1 /* loading.h */,
+				32B9688B0EAFB79B007977C1 /* loop.c */,
+				32B9688C0EAFB79B007977C1 /* loop.h */,
+				32B9688D0EAFB79B007977C1 /* main.c */,
+				32B968910EAFB79B007977C1 /* mirror_course.c */,
+				32B968920EAFB79B007977C1 /* mirror_course.h */,
+				32B968930EAFB79B007977C1 /* multiplayer.c */,
+				32B968940EAFB79B007977C1 /* multiplayer.h */,
+				32B968950EAFB79B007977C1 /* nmrcl.c */,
+				32B968960EAFB79B007977C1 /* nmrcl.h */,
+				32B968970EAFB79B007977C1 /* os_util.c */,
+				32B968980EAFB79B007977C1 /* os_util.h */,
+				32B968990EAFB79B007977C1 /* part_sys.c */,
+				32B9689A0EAFB79B007977C1 /* part_sys.h */,
+				32B9689B0EAFB79B007977C1 /* paused.c */,
+				32B9689C0EAFB79B007977C1 /* paused.h */,
+				32B9689D0EAFB79B007977C1 /* phys_sim.c */,
+				32B9689E0EAFB79B007977C1 /* phys_sim.h */,
+				32B9689F0EAFB79B007977C1 /* pic.c */,
+				32B968A00EAFB79B007977C1 /* pic.h */,
+				32B968A10EAFB79B007977C1 /* preview.c */,
+				32B968A20EAFB79B007977C1 /* preview.h */,
+				32B968A30EAFB79B007977C1 /* quadgeom.cpp */,
+				32B968A40EAFB79B007977C1 /* quadgeom.hpp */,
+				32B968A50EAFB79B007977C1 /* quadtree.cpp */,
+				32B968A60EAFB79B007977C1 /* quadtree.hpp */,
+				32B968A70EAFB79B007977C1 /* race_select.c */,
+				32B968A80EAFB79B007977C1 /* race_select.h */,
+				32B968A90EAFB79B007977C1 /* racing.c */,
+				32B968AA0EAFB79B007977C1 /* racing.h */,
+				32B968AB0EAFB79B007977C1 /* render_util.c */,
+				32B968AC0EAFB79B007977C1 /* render_util.h */,
+				32B968AD0EAFB79B007977C1 /* reset.c */,
+				32B968AE0EAFB79B007977C1 /* reset.h */,
+				32B968AF0EAFB79B007977C1 /* save.c */,
+				32B968B00EAFB79B007977C1 /* save.h */,
+				32B968B10EAFB79B007977C1 /* screenshot.c */,
+				32B968B20EAFB79B007977C1 /* screenshot.h */,
+				32B968B30EAFB79B007977C1 /* splash_screen.c */,
+				32B968B40EAFB79B007977C1 /* splash_screen.h */,
+				32B968B50EAFB79B007977C1 /* ssbutton.c */,
+				32B968B60EAFB79B007977C1 /* ssbutton.h */,
+				32B968B70EAFB79B007977C1 /* string_util.c */,
+				32B968B80EAFB79B007977C1 /* string_util.h */,
+				32B968B90EAFB79B007977C1 /* tcl_util.c */,
+				32B968BA0EAFB79B007977C1 /* tcl_util.h */,
+				32B968BB0EAFB79B007977C1 /* tex_font_metrics.c */,
+				32B968BC0EAFB79B007977C1 /* tex_font_metrics.h */,
+				32B968BD0EAFB79B007977C1 /* textarea.c */,
+				32B968BE0EAFB79B007977C1 /* textarea.h */,
+				32B968BF0EAFB79B007977C1 /* textures.c */,
+				32B968C00EAFB79B007977C1 /* textures.h */,
+				32B968C10EAFB79B007977C1 /* track_marks.c */,
+				32B968C20EAFB79B007977C1 /* track_marks.h */,
+				32B968C30EAFB79B007977C1 /* tux_shadow.c */,
+				32B968C40EAFB79B007977C1 /* tux_shadow.h */,
+				32B968C50EAFB79B007977C1 /* tux_types.h */,
+				32B968C60EAFB79B007977C1 /* tux.c */,
+				32B968C70EAFB79B007977C1 /* tux.h */,
+				32B968C90EAFB79B007977C1 /* tuxracer.h */,
+				32B968CA0EAFB79B007977C1 /* ui_mgr.c */,
+				32B968CB0EAFB79B007977C1 /* ui_mgr.h */,
+				32B968CC0EAFB79B007977C1 /* ui_snow.c */,
+				32B968CD0EAFB79B007977C1 /* ui_snow.h */,
+				32B968CE0EAFB79C007977C1 /* ui_theme.c */,
+				32B968CF0EAFB79C007977C1 /* ui_theme.h */,
+				32B968D00EAFB79C007977C1 /* view.c */,
+				32B968D10EAFB79C007977C1 /* view.h */,
+				32B968D20EAFB79C007977C1 /* viewfrustum.c */,
+				32B968D30EAFB79C007977C1 /* viewfrustum.h */,
+				32B968D40EAFB79C007977C1 /* winsys.c */,
+				32B968D50EAFB79C007977C1 /* winsys.h */,
+				32B968D60EAFB79C007977C1 /* audio_data.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Tux Rider World Challenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Tux Rider World Challenge" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tux Rider World Challenge";
+			productName = tuxracer;
+			productReference = 637B9CC00EE1BA5900605E02 /* Tux Rider.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32A373B10EC5C29600142BBA /* tuxracer Simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32A3740F0EC5C29600142BBA /* Build configuration list for PBXNativeTarget "tuxracer Simulator" */;
+			buildPhases = (
+				32A373B20EC5C29600142BBA /* Resources */,
+				32A373B50EC5C29600142BBA /* Sources */,
+				32A374080EC5C29600142BBA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tuxracer Simulator";
+			productName = tuxracer;
+			productReference = 637B9CC20EE1BA5900605E02 /* tuxracer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "tuxracer" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				Spanish,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Tux Rider World Challenge */,
+				32A373B10EC5C29600142BBA /* tuxracer Simulator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				327BD5970EC398A600B96C3E /* TRWC-data in Resources */,
+				32624B9A0ED5A8D2004A0E60 /* countries.txt in Resources */,
+				32348AEC0EEDBB6200D38AC7 /* flag.png in Resources */,
+				32348AED0EEDBB6200D38AC7 /* friends.png in Resources */,
+				32348AEE0EEDBB6200D38AC7 /* worldicon.png in Resources */,
+				325CF41C0EF4929B00E227FA /* license.html in Resources */,
+				32E37FE40EFC058200B1BCC3 /* timeicon.png in Resources */,
+				32E37FE50EFC058200B1BCC3 /* herringicon.png in Resources */,
+				32E37FE60EFC058200B1BCC3 /* calculatriceicon.png in Resources */,
+				32E381500EFC51A000B1BCC3 /* friendsBig.png in Resources */,
+				32E381510EFC51A000B1BCC3 /* flagBig.png in Resources */,
+				32E381520EFC51A000B1BCC3 /* worldiconBig.png in Resources */,
+				631350120F0E733400E94AF7 /* how_to_play.html in Resources */,
+				326CA6F70EFEA3B100981DD1 /* html_images in Resources */,
+				32767FE40F0065E500A0CD26 /* icon.png in Resources */,
+				32B896DD0F0443B200FFE564 /* Entitlements.plist in Resources */,
+				326CF6CE0F0EE3AE00A1587D /* Default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32A373B20EC5C29600142BBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A373B30EC5C29600142BBA /* MainWindow.xib in Resources */,
+				32A373B40EC5C29600142BBA /* TRWC-data in Resources */,
+				32624B990ED5A8D2004A0E60 /* countries.txt in Resources */,
+				32348AE90EEDBB6200D38AC7 /* flag.png in Resources */,
+				32348AEA0EEDBB6200D38AC7 /* friends.png in Resources */,
+				32348AEB0EEDBB6200D38AC7 /* worldicon.png in Resources */,
+				325CF41B0EF4929B00E227FA /* license.html in Resources */,
+				32E37FE10EFC058200B1BCC3 /* timeicon.png in Resources */,
+				32E37FE20EFC058200B1BCC3 /* herringicon.png in Resources */,
+				32E37FE30EFC058200B1BCC3 /* calculatriceicon.png in Resources */,
+				32E3814D0EFC51A000B1BCC3 /* friendsBig.png in Resources */,
+				32E3814E0EFC51A000B1BCC3 /* flagBig.png in Resources */,
+				32E3814F0EFC51A000B1BCC3 /* worldiconBig.png in Resources */,
+				631350130F0E733400E94AF7 /* how_to_play.html in Resources */,
+				326CA6F60EFEA3B100981DD1 /* html_images in Resources */,
+				32767FE30F0065E500A0CD26 /* icon.png in Resources */,
+				32B896DE0F0443B200FFE564 /* Entitlements.plist in Resources */,
+				326CF6CF0F0EE3AE00A1587D /* Default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* TRAppDelegate.m in Sources */,
+				28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */,
+				32B968D70EAFB79C007977C1 /* alglib.c in Sources */,
+				32B968D80EAFB79C007977C1 /* audio.c in Sources */,
+				32B968D90EAFB79C007977C1 /* button.c in Sources */,
+				32B968DA0EAFB79C007977C1 /* course_load.c in Sources */,
+				32B968DB0EAFB79C007977C1 /* course_mgr.c in Sources */,
+				32B968DC0EAFB79C007977C1 /* course_quad.cpp in Sources */,
+				32B968DD0EAFB79C007977C1 /* course_render.c in Sources */,
+				32B968DE0EAFB79C007977C1 /* credits.c in Sources */,
+				32B968DF0EAFB79C007977C1 /* debug.c in Sources */,
+				32B968E00EAFB79C007977C1 /* error_util.c in Sources */,
+				32B968E10EAFB79C007977C1 /* event_select.c in Sources */,
+				32B968E20EAFB79C007977C1 /* file_util.c in Sources */,
+				32B968E30EAFB79C007977C1 /* fog.c in Sources */,
+				32B968E40EAFB79C007977C1 /* fonts.c in Sources */,
+				32B968E50EAFB79C007977C1 /* fps.c in Sources */,
+				32B968E60EAFB79C007977C1 /* game_config.c in Sources */,
+				32B968E70EAFB79C007977C1 /* game_logic_util.c in Sources */,
+				32B968E80EAFB79C007977C1 /* game_over.c in Sources */,
+				32B968E90EAFB79C007977C1 /* game_type_select.c in Sources */,
+				32B968EA0EAFB79C007977C1 /* gauss.c in Sources */,
+				32B968EB0EAFB79C007977C1 /* gl_util.c in Sources */,
+				32B968EC0EAFB79C007977C1 /* hash.c in Sources */,
+				32B968ED0EAFB79C007977C1 /* hier_cb.c in Sources */,
+				32B968EE0EAFB79C007977C1 /* hier_util.c in Sources */,
+				32B968EF0EAFB79C007977C1 /* hier.c in Sources */,
+				32B968F00EAFB79C007977C1 /* hud.c in Sources */,
+				32B968F10EAFB79C007977C1 /* image.c in Sources */,
+				32B968F20EAFB79C007977C1 /* intro.c in Sources */,
+				32B968F30EAFB79C007977C1 /* joystick.c in Sources */,
+				32B968F40EAFB79C007977C1 /* keyboard_util.c in Sources */,
+				32B968F50EAFB79C007977C1 /* keyboard.c in Sources */,
+				32B968F60EAFB79C007977C1 /* keyframe.c in Sources */,
+				32B968F70EAFB79C007977C1 /* lights.c in Sources */,
+				32B968F80EAFB79C007977C1 /* list.c in Sources */,
+				32B968F90EAFB79C007977C1 /* listbox.c in Sources */,
+				32B968FA0EAFB79C007977C1 /* loading.c in Sources */,
+				32B968FB0EAFB79C007977C1 /* loop.c in Sources */,
+				32B968FC0EAFB79C007977C1 /* main.c in Sources */,
+				32B969000EAFB79C007977C1 /* mirror_course.c in Sources */,
+				32B969010EAFB79C007977C1 /* multiplayer.c in Sources */,
+				32B969020EAFB79C007977C1 /* nmrcl.c in Sources */,
+				32B969030EAFB79C007977C1 /* os_util.c in Sources */,
+				32B969040EAFB79C007977C1 /* part_sys.c in Sources */,
+				32B969050EAFB79C007977C1 /* paused.c in Sources */,
+				32B969060EAFB79C007977C1 /* phys_sim.c in Sources */,
+				32B969070EAFB79C007977C1 /* pic.c in Sources */,
+				32B969080EAFB79C007977C1 /* preview.c in Sources */,
+				32B969090EAFB79C007977C1 /* quadgeom.cpp in Sources */,
+				32B9690A0EAFB79C007977C1 /* quadtree.cpp in Sources */,
+				32B9690B0EAFB79C007977C1 /* race_select.c in Sources */,
+				32B9690C0EAFB79C007977C1 /* racing.c in Sources */,
+				32B9690D0EAFB79C007977C1 /* render_util.c in Sources */,
+				32B9690E0EAFB79C007977C1 /* reset.c in Sources */,
+				32B9690F0EAFB79C007977C1 /* save.c in Sources */,
+				32B969100EAFB79C007977C1 /* screenshot.c in Sources */,
+				32B969110EAFB79C007977C1 /* splash_screen.c in Sources */,
+				32B969120EAFB79C007977C1 /* ssbutton.c in Sources */,
+				32B969130EAFB79C007977C1 /* string_util.c in Sources */,
+				32B969140EAFB79C007977C1 /* tcl_util.c in Sources */,
+				32B969150EAFB79C007977C1 /* tex_font_metrics.c in Sources */,
+				32B969160EAFB79C007977C1 /* textarea.c in Sources */,
+				32B969170EAFB79C007977C1 /* textures.c in Sources */,
+				32B969180EAFB79C007977C1 /* track_marks.c in Sources */,
+				32B969190EAFB79C007977C1 /* tux_shadow.c in Sources */,
+				32B9691A0EAFB79C007977C1 /* tux.c in Sources */,
+				32B9691C0EAFB79C007977C1 /* ui_mgr.c in Sources */,
+				32B9691D0EAFB79C007977C1 /* ui_snow.c in Sources */,
+				32B9691E0EAFB79C007977C1 /* ui_theme.c in Sources */,
+				32B9691F0EAFB79C007977C1 /* view.c in Sources */,
+				32B969200EAFB79C007977C1 /* viewfrustum.c in Sources */,
+				32B969210EAFB79C007977C1 /* winsys.c in Sources */,
+				32B969220EAFB79C007977C1 /* audio_data.c in Sources */,
+				32B9697B0EAFC2F4007977C1 /* touchwinsys.m in Sources */,
+				32A7A72C0EAFE33E006DFEDB /* iphonegl.m in Sources */,
+				32A1EB4A0EB0A4810058A29D /* iphoneglu.m in Sources */,
+				32197A120EB686730077F189 /* AudioManager.m in Sources */,
+				32709DE30EBE796A0089B4D5 /* AudioPlayer.m in Sources */,
+				32D2637D0EC0EE8A008554EF /* TransitionView.m in Sources */,
+				32318B130EC7B48600109044 /* TRAccelerometerDelegate.m in Sources */,
+				32E10AF60ED46F3A002BF1CB /* prefsController.m in Sources */,
+				32321AF20EDEF3A000B28FC6 /* ConnectionController.m in Sources */,
+				3266064C0EE4B0DD00E2D9F4 /* scoresController.m in Sources */,
+				32895C730EE9EAF30016BADF /* TRRankingDelegate.m in Sources */,
+				32FC97E30EEAC90700AAB40E /* TRRankingTableViewCell.m in Sources */,
+				32FC98F70EEB0CA200AAB40E /* TRFriendsManagerDelegate.m in Sources */,
+				32348A570EED818F00D38AC7 /* TRSlopeInfoCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32A373B50EC5C29600142BBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A373B60EC5C29600142BBA /* main.m in Sources */,
+				32A373B70EC5C29600142BBA /* TRAppDelegate.m in Sources */,
+				32A373B80EC5C29600142BBA /* EAGLView.m in Sources */,
+				32A373B90EC5C29600142BBA /* alglib.c in Sources */,
+				32A373BA0EC5C29600142BBA /* audio.c in Sources */,
+				32A373BB0EC5C29600142BBA /* button.c in Sources */,
+				32A373BC0EC5C29600142BBA /* course_load.c in Sources */,
+				32A373BD0EC5C29600142BBA /* course_mgr.c in Sources */,
+				32A373BE0EC5C29600142BBA /* course_quad.cpp in Sources */,
+				32A373BF0EC5C29600142BBA /* course_render.c in Sources */,
+				32A373C00EC5C29600142BBA /* credits.c in Sources */,
+				32A373C10EC5C29600142BBA /* debug.c in Sources */,
+				32A373C20EC5C29600142BBA /* error_util.c in Sources */,
+				32A373C30EC5C29600142BBA /* event_select.c in Sources */,
+				32A373C40EC5C29600142BBA /* file_util.c in Sources */,
+				32A373C50EC5C29600142BBA /* fog.c in Sources */,
+				32A373C60EC5C29600142BBA /* fonts.c in Sources */,
+				32A373C70EC5C29600142BBA /* fps.c in Sources */,
+				32A373C80EC5C29600142BBA /* game_config.c in Sources */,
+				32A373C90EC5C29600142BBA /* game_logic_util.c in Sources */,
+				32A373CA0EC5C29600142BBA /* game_over.c in Sources */,
+				32A373CB0EC5C29600142BBA /* game_type_select.c in Sources */,
+				32A373CC0EC5C29600142BBA /* gauss.c in Sources */,
+				32A373CD0EC5C29600142BBA /* gl_util.c in Sources */,
+				32A373CE0EC5C29600142BBA /* hash.c in Sources */,
+				32A373CF0EC5C29600142BBA /* hier_cb.c in Sources */,
+				32A373D00EC5C29600142BBA /* hier_util.c in Sources */,
+				32A373D10EC5C29600142BBA /* hier.c in Sources */,
+				32A373D20EC5C29600142BBA /* hud.c in Sources */,
+				32A373D30EC5C29600142BBA /* image.c in Sources */,
+				32A373D40EC5C29600142BBA /* intro.c in Sources */,
+				32A373D50EC5C29600142BBA /* joystick.c in Sources */,
+				32A373D60EC5C29600142BBA /* keyboard_util.c in Sources */,
+				32A373D70EC5C29600142BBA /* keyboard.c in Sources */,
+				32A373D80EC5C29600142BBA /* keyframe.c in Sources */,
+				32A373D90EC5C29600142BBA /* lights.c in Sources */,
+				32A373DA0EC5C29600142BBA /* list.c in Sources */,
+				32A373DB0EC5C29600142BBA /* listbox.c in Sources */,
+				32A373DC0EC5C29600142BBA /* loading.c in Sources */,
+				32A373DD0EC5C29600142BBA /* loop.c in Sources */,
+				32A373DE0EC5C29600142BBA /* main.c in Sources */,
+				32A373DF0EC5C29600142BBA /* mirror_course.c in Sources */,
+				32A373E00EC5C29600142BBA /* multiplayer.c in Sources */,
+				32A373E10EC5C29600142BBA /* nmrcl.c in Sources */,
+				32A373E20EC5C29600142BBA /* os_util.c in Sources */,
+				32A373E30EC5C29600142BBA /* part_sys.c in Sources */,
+				32A373E40EC5C29600142BBA /* paused.c in Sources */,
+				32A373E50EC5C29600142BBA /* phys_sim.c in Sources */,
+				32A373E60EC5C29600142BBA /* pic.c in Sources */,
+				32A373E70EC5C29600142BBA /* preview.c in Sources */,
+				32A373E80EC5C29600142BBA /* quadgeom.cpp in Sources */,
+				32A373E90EC5C29600142BBA /* quadtree.cpp in Sources */,
+				32A373EA0EC5C29600142BBA /* race_select.c in Sources */,
+				32A373EB0EC5C29600142BBA /* racing.c in Sources */,
+				32A373EC0EC5C29600142BBA /* render_util.c in Sources */,
+				32A373ED0EC5C29600142BBA /* reset.c in Sources */,
+				32A373EE0EC5C29600142BBA /* save.c in Sources */,
+				32A373EF0EC5C29600142BBA /* screenshot.c in Sources */,
+				32A373F00EC5C29600142BBA /* splash_screen.c in Sources */,
+				32A373F10EC5C29600142BBA /* ssbutton.c in Sources */,
+				32A373F20EC5C29600142BBA /* string_util.c in Sources */,
+				32A373F30EC5C29600142BBA /* tcl_util.c in Sources */,
+				32A373F40EC5C29600142BBA /* tex_font_metrics.c in Sources */,
+				32A373F50EC5C29600142BBA /* textarea.c in Sources */,
+				32A373F60EC5C29600142BBA /* textures.c in Sources */,
+				32A373F70EC5C29600142BBA /* track_marks.c in Sources */,
+				32A373F80EC5C29600142BBA /* tux_shadow.c in Sources */,
+				32A373F90EC5C29600142BBA /* tux.c in Sources */,
+				32A373FA0EC5C29600142BBA /* ui_mgr.c in Sources */,
+				32A373FB0EC5C29600142BBA /* ui_snow.c in Sources */,
+				32A373FC0EC5C29600142BBA /* ui_theme.c in Sources */,
+				32A373FD0EC5C29600142BBA /* view.c in Sources */,
+				32A373FE0EC5C29600142BBA /* viewfrustum.c in Sources */,
+				32A373FF0EC5C29600142BBA /* winsys.c in Sources */,
+				32A374000EC5C29600142BBA /* audio_data.c in Sources */,
+				32A374010EC5C29600142BBA /* touchwinsys.m in Sources */,
+				32A374020EC5C29600142BBA /* iphonegl.m in Sources */,
+				32A374030EC5C29600142BBA /* iphoneglu.m in Sources */,
+				32A374040EC5C29600142BBA /* AudioManager.m in Sources */,
+				32A374060EC5C29600142BBA /* AudioPlayer.m in Sources */,
+				32A374070EC5C29600142BBA /* TransitionView.m in Sources */,
+				32318B140EC7B48600109044 /* TRAccelerometerDelegate.m in Sources */,
+				32E10AF50ED46F3A002BF1CB /* prefsController.m in Sources */,
+				32321AF10EDEF3A000B28FC6 /* ConnectionController.m in Sources */,
+				3266064B0EE4B0DD00E2D9F4 /* scoresController.m in Sources */,
+				32895C740EE9EAF30016BADF /* TRRankingDelegate.m in Sources */,
+				32FC97E20EEAC90700AAB40E /* TRRankingTableViewCell.m in Sources */,
+				32FC98F60EEB0CA200AAB40E /* TRFriendsManagerDelegate.m in Sources */,
+				32348A560EED818F00D38AC7 /* TRSlopeInfoCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		631350110F0E733400E94AF7 /* how_to_play.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				326CA6CB0EFE9FF400981DD1 /* English */,
+				631350140F0E734000E94AF7 /* French */,
+				631350150F0E734600E94AF7 /* Spanish */,
+			);
+			name = how_to_play.html;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: emmanuel de Roux";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: emmanuel de Roux";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../tcl8.6a3/install/include";
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = "../../tcl8.6a3/install-iphone";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Tux Rider";
+				PROVISIONING_PROFILE = "8400C68F-C19F-4913-9384-041E7C438D0B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8400C68F-C19F-4913-9384-041E7C438D0B";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: emmanuel de Roux";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: emmanuel de Roux";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../tcl8.6a3/install/include";
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = "../../tcl8.6a3/install-iphone";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Tux Rider";
+				PROVISIONING_PROFILE = "8400C68F-C19F-4913-9384-041E7C438D0B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8400C68F-C19F-4913-9384-041E7C438D0B";
+			};
+			name = Release;
+		};
+		32A374100EC5C29600142BBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../tcl8.6a3/install/include";
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"../../tcl8.6a3/install-iphone",
+					"\"$(SRCROOT)/../../tcl8.6a3/install/lib\"",
+					"\"$(SRCROOT)/../../tcl-iphone/install/lib\"",
+				);
+				OTHER_CODE_SIGN_FLAGS = "";
+				PRODUCT_NAME = tuxracer;
+				PROVISIONING_PROFILE = DefaultProfileUuid;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = DefaultProfileUuid;
+				SDKROOT = iphonesimulator2.1;
+			};
+			name = Debug;
+		};
+		32A374110EC5C29600142BBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../tcl8.6a3/install/include";
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"../../tcl8.6a3/install-iphone",
+					"\"$(SRCROOT)/../../tcl8.6a3/install/lib\"",
+					"\"$(SRCROOT)/../../tcl-iphone/install/lib\"",
+				);
+				OTHER_CODE_SIGN_FLAGS = "";
+				PRODUCT_NAME = tuxracer;
+				PROVISIONING_PROFILE = DefaultProfileUuid;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = DefaultProfileUuid;
+				SDKROOT = iphonesimulator2.1;
+			};
+			name = Release;
+		};
+		32B896D60F04434900FFE564 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: emmanuel de Roux";
+				DEPLOYMENT_POSTPROCESSING = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 2.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(TUXRIDER_EXTRA_CFLAGS)";
+				PREBINDING = NO;
+				PROVISIONING_PROFILE = "1A9AD09F-5F51-4FED-BC0F-562BEF5C7DF4";
+				SDKROOT = iphoneos2.1;
+				SEPARATE_STRIP = YES;
+				TUXRIDER_BIC_ID = v1.0;
+				TUXRIDER_EXTRA_CFLAGS = "-DTUXRIDER_ROOT_SERVER=@\\\"$(TUXRIDER_ROOT_SERVER)/\\\" -DTUXRIDER_BIC_ID=\\\"$(TUXRIDER_BIC_ID)\\\" -DTUXRIDER_VAR_ID=\\\"$(TUXRIDER_VAR_ID)\\\" -DTUXRIDER_TOC=$(TUXRIDER_TOC)";
+				TUXRIDER_ROOT_SERVER = barlow.server.free.fr;
+				TUXRIDER_TOC = 1;
+				TUXRIDER_VAR_ID = "Tux Rider World Challenge v1.0";
+			};
+			name = Distribution;
+		};
+		32B896D70F04434900FFE564 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: emmanuel de Roux";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: emmanuel de Roux";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../tcl8.6a3/install/include";
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = "../../tcl8.6a3/install-iphone";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Tux Rider";
+				PROVISIONING_PROFILE = "1A9AD09F-5F51-4FED-BC0F-562BEF5C7DF4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A9AD09F-5F51-4FED-BC0F-562BEF5C7DF4";
+			};
+			name = Distribution;
+		};
+		32B896D80F04434900FFE564 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../tcl8.6a3/install/include";
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"../../tcl8.6a3/install-iphone",
+					"\"$(SRCROOT)/../../tcl8.6a3/install/lib\"",
+					"\"$(SRCROOT)/../../tcl-iphone/install/lib\"",
+				);
+				OTHER_CODE_SIGN_FLAGS = "";
+				PRODUCT_NAME = tuxracer;
+				PROVISIONING_PROFILE = DefaultProfileUuid;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = DefaultProfileUuid;
+				SDKROOT = iphonesimulator2.1;
+			};
+			name = Distribution;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEPLOYMENT_POSTPROCESSING = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 2.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"$(TUXRIDER_EXTRA_CFLAGS)",
+					"-DTR_DEBUG_MODE",
+				);
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.1;
+				TUXRIDER_BIC_ID = v1.0;
+				TUXRIDER_EXTRA_CFLAGS = "-DTUXRIDER_ROOT_SERVER=@\\\"$(TUXRIDER_ROOT_SERVER)/\\\" -DTUXRIDER_BIC_ID=\\\"$(TUXRIDER_BIC_ID)\\\" -DTUXRIDER_VAR_ID=\\\"$(TUXRIDER_VAR_ID)\\\" -DTUXRIDER_TOC=$(TUXRIDER_TOC)";
+				TUXRIDER_ROOT_SERVER = barlow.server.free.fr;
+				TUXRIDER_TOC = 1;
+				TUXRIDER_VAR_ID = "Tux Rider World Challenge v1.0";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: emmanuel de Roux";
+				DEPLOYMENT_POSTPROCESSING = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 2.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(TUXRIDER_EXTRA_CFLAGS)";
+				PREBINDING = NO;
+				PROVISIONING_PROFILE = "8400C68F-C19F-4913-9384-041E7C438D0B";
+				SDKROOT = iphoneos2.1;
+				SEPARATE_STRIP = YES;
+				TUXRIDER_BIC_ID = v1.0;
+				TUXRIDER_EXTRA_CFLAGS = "-DTUXRIDER_ROOT_SERVER=@\\\"$(TUXRIDER_ROOT_SERVER)/\\\" -DTUXRIDER_BIC_ID=\\\"$(TUXRIDER_BIC_ID)\\\" -DTUXRIDER_VAR_ID=\\\"$(TUXRIDER_VAR_ID)\\\" -DTUXRIDER_TOC=$(TUXRIDER_TOC)";
+				TUXRIDER_ROOT_SERVER = barlow.server.free.fr;
+				TUXRIDER_TOC = 1;
+				TUXRIDER_VAR_ID = "Tux Rider World Challenge v1.0";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Tux Rider World Challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+				32B896D70F04434900FFE564 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32A3740F0EC5C29600142BBA /* Build configuration list for PBXNativeTarget "tuxracer Simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32A374100EC5C29600142BBA /* Debug */,
+				32A374110EC5C29600142BBA /* Release */,
+				32B896D80F04434900FFE564 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "tuxracer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+				32B896D60F04434900FFE564 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
