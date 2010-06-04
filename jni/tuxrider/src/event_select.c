@@ -185,9 +185,9 @@ static void set_widget_positions_and_draw_decorations()
     
 #ifdef __APPLE__
     /* set the dimensions of the box in which all widgets should fit */
-    box_height = 200;
+    box_height = 200 * mHeight / 320;
     box_width = getparam_x_resolution();
-    box_max_y = h - 150;
+    box_max_y = h - 150  * mHeight / 320;
     
     button_set_position( 
                         back_btn,
@@ -213,13 +213,13 @@ static void set_widget_positions_and_draw_decorations()
     
     listbox_set_position( 
                          event_listbox,
-                         make_point2d( 600,
-                                       600 ) );
+                         make_point2d( 1000,
+                                       1000 ) );
     
     listbox_set_position( 
                          cup_listbox,
-                         make_point2d( box_width/2.0 - 100 ,
-                                       box_height/2.0 + 10) );
+                         make_point2d( box_width/2.0 - 100 * mHeight / 320 ,
+                                       box_height/2.0 + 10 * mHeight / 320) );
     
 #else
     int w = getparam_x_resolution();
@@ -276,8 +276,8 @@ static void set_widget_positions_and_draw_decorations()
         
 #ifdef __APPLE__
         //out of the field of view
-        ll = make_point2d( 0, 600 );
-        ur = make_point2d( 44, 600 + 44 );
+        ll = make_point2d( 0, 1000 );
+        ur = make_point2d( 44, 1000 + 44 );
         tll = make_point2d( 0, 0 );
         tur = make_point2d( 44.0/64.0, 44.0/64.0 );
 #else
@@ -349,8 +349,8 @@ static void set_widget_positions_and_draw_decorations()
         point2d_t ll, ur;
         
 #ifdef __APPLE__
-        ll = make_point2d( 70, box_height/2.0 + 10 );
-        ur = make_point2d( 70 + 44, box_height/2.0 + 10 + 44 );
+        ll = make_point2d( 70 * mHeight / 320, box_height/2.0 + 10 * mHeight / 320 );
+        ur = make_point2d( 70 * mHeight / 320 + 44 * mHeight / 320, box_height/2.0 + 10 * mHeight / 320 + 44 * mHeight / 320 );
         tll = make_point2d( 0, 0 );
         tur = make_point2d( 44.0/64.0, 44.0/64.0 );
 #else
@@ -390,7 +390,7 @@ static void set_widget_positions_and_draw_decorations()
         glPushMatrix();
         {
             glTranslatef( box_width/2.0 - text_width/2.0,
-                         190, 
+                         190 * mHeight / 320, 
                          0 );
             
             draw_string( font, string );
@@ -428,7 +428,7 @@ static void set_widget_positions_and_draw_decorations()
         glPushMatrix();
         {
             glTranslatef( box_width/2.0 - text_width/2.0,
-                         70, 
+                         70 * mHeight / 320, 
                          0 );
             
             draw_string( font, string );
@@ -533,7 +533,7 @@ static void event_select_init(void)
     
     /* back button */
     back_btn = button_create( dummy_pos,
-                             80, 48, 
+                             80 * mHeight / 320, 48 * mHeight / 320, 
                              "button_label", 
                              "Back" );
     button_set_hilit_font_binding( back_btn, "button_label_hilit" );
@@ -542,7 +542,7 @@ static void event_select_init(void)
     
     /* continue button */
     continue_btn = button_create( dummy_pos,
-                                 80, 48,
+                                 80 * mHeight / 320, 48 * mHeight / 320,
                                  "button_label",
                                  "Go" );
     button_set_hilit_font_binding( continue_btn, "button_label_hilit" );
@@ -565,7 +565,7 @@ static void event_select_init(void)
     /* event listbox */
 #ifdef __APPLE__
     event_listbox = listbox_create( dummy_pos,
-                                   300 - 52, 44,
+                                   (300 - 52)  * mHeight / 320, 44 * mHeight / 320,
                                    "listbox_item",
                                    event_list,
                                    event_list_elem_to_string_func );
@@ -591,7 +591,7 @@ static void event_select_init(void)
     
 #ifdef __APPLE__
     cup_listbox = listbox_create( dummy_pos,
-                                 300 - 22, 44,
+                                 (300 - 22) * mHeight / 320, 44 * mHeight / 320,
                                  "listbox_item",
                                  cup_list,
                                  cup_list_elem_to_string_func );

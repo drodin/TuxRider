@@ -149,7 +149,7 @@ bool_t bind_font( char *binding, char *fontname, scalar_t size,
     }
 
     font->node = fontnode;
-    font->size = size * mHeight / 320;
+    font->size = size;
     font->colour = colour;
 
     font->node->ref_count += 1;

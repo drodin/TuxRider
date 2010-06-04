@@ -41,8 +41,8 @@
 #include "ui_snow.h"
 #include "joystick.h"
 
-#define HELP_MAX_Y -140
-#define HELP_MIN_Y 64
+#define HELP_MAX_Y -140 * mHeight / 320
+#define HELP_MIN_Y 64 * mHeight / 320
 
 typedef struct {
     char *binding;
@@ -55,7 +55,6 @@ static help_line_t help_lines[] =
 { "credits_text", "Your goal is to control Tux, riding down a" },
 { "credits_text", "snow slope. Finish the course in minimum" },
 { "credits_text", "time and collect as more fishes as you can." },
-{ "credits_text", "" },
 { "credits_text", "To control Tux paddling, brake and rotation" },
 { "credits_text", "use dpad, trackball or accelerometer." },
 { "credits_text", "To jump use dpad center or push trackball." },
@@ -156,7 +155,7 @@ static void help_init(void)
     winsys_set_motion_func( ui_event_motion_func );
     winsys_set_passive_motion_func( ui_event_motion_func );
     
-    help_y_offset = getparam_y_resolution()-160;
+    help_y_offset = getparam_y_resolution()-160 * mHeight / 320;
     
     play_music( "start_screen" );
 }

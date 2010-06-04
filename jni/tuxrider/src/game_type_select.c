@@ -146,13 +146,13 @@ static void set_widget_positions()
     int button_sep =0;
     int cur_y_pos;
 
-    box_height = 200;
-    box_max_y = h - 150;
+    box_height = 200 * mHeight / 320;
+    box_max_y = h - 150 * mHeight / 320;
 
-    bottom_y = 0.4*h - box_height/2 + 30;
+    bottom_y = 0.4*h - box_height/2 + 30 * mHeight / 320;
 
     if ( bottom_y + box_height > box_max_y ) {
-	bottom_y = box_max_y - box_height + 30;
+	bottom_y = box_max_y - box_height + 30 * mHeight / 320;
     }
 
     top_y = bottom_y + box_height;
@@ -194,7 +194,7 @@ static void game_type_select_init(void)
     winsys_set_passive_motion_func( ui_event_motion_func );
 
     enter_event_btn = button_create( dummy_pos,
-				     300, 40, 
+				     300 * mHeight / 320, 40 * mHeight / 320, 
 				     "button_label", 
 				     "Training" );
     button_set_hilit_font_binding( enter_event_btn, "button_label_hilit" );
@@ -202,7 +202,7 @@ static void game_type_select_init(void)
     button_set_click_event_cb( enter_event_btn, enter_event_click_cb, NULL );
 
     practice_btn = button_create( dummy_pos,
-				  300, 40,
+				  300 * mHeight / 320, 40 * mHeight / 320,
 				  "button_label",
 				  //"World challenge" );
 				  "Challenge" );
@@ -211,7 +211,7 @@ static void game_type_select_init(void)
     button_set_click_event_cb( practice_btn, practice_click_cb, NULL );
 
     preference_btn = button_create( dummy_pos,
-				  300, 40,
+				  300 * mHeight / 320, 40 * mHeight / 320,
 				  "button_label",
 				  "Preference" );
     button_set_hilit_font_binding( preference_btn, "button_label_hilit" );
@@ -219,7 +219,7 @@ static void game_type_select_init(void)
     button_set_click_event_cb( preference_btn, preference_click_cb, NULL );
 
     credits_btn = button_create( dummy_pos,
-				  300, 40,
+				  300 * mHeight / 320, 40 * mHeight / 320,
 				  "button_label",
 				  "Credits" );
     button_set_hilit_font_binding( credits_btn, "button_label_hilit" );
@@ -227,7 +227,7 @@ static void game_type_select_init(void)
     button_set_click_event_cb( credits_btn, credits_click_cb, NULL );
 
     help_btn = button_create( dummy_pos,
-				  300, 40,
+				  300 * mHeight / 320, 40 * mHeight / 320,
 				  "button_label",
 				  "Help" );
     button_set_hilit_font_binding( help_btn, "button_label_hilit" );
@@ -235,7 +235,7 @@ static void game_type_select_init(void)
     button_set_click_event_cb( help_btn, help_click_cb, NULL );
 
     quit_btn = button_create( dummy_pos,
-			      300, 40,
+			      300 * mHeight / 320, 40 * mHeight / 320,
 			      "button_label",
 			      "Quit" );
     button_set_hilit_font_binding( quit_btn, "button_label_hilit" );

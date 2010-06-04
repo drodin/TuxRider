@@ -178,6 +178,8 @@ public class MainActivity extends Activity implements AdListener {
 		if (mMainView.gameMode == NativeLib.RACING) {
 
 			if (y<-kYSensibility) {
+				if (y<-kYMax) mMainView.turnFact = -1.0;
+				else mMainView.turnFact = y/kYMax;
 				if (trackingRight) {
 					mMainView.keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingRight = false;
@@ -186,9 +188,9 @@ public class MainActivity extends Activity implements AdListener {
 					mMainView.keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingLeft = true;
 				}
-				if (y<-kYMax) mMainView.turnFact = -1.0;
-				else mMainView.turnFact = y/kYMax;
 			} else if (y>kYSensibility) {
+				if (y>kYMax) mMainView.turnFact = +1.0;
+				else mMainView.turnFact = y/kYMax;
 				if (trackingLeft) {
 					mMainView.keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingLeft = false;
@@ -197,9 +199,8 @@ public class MainActivity extends Activity implements AdListener {
 					mMainView.keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingRight = true;
 				}
-				if (y>kYMax) mMainView.turnFact = +1.0;
-				else mMainView.turnFact = y/kYMax;
 			} else {
+				mMainView.turnFact = 0.0;
 				if (trackingLeft) {
 					mMainView.keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingLeft = false;
@@ -208,10 +209,9 @@ public class MainActivity extends Activity implements AdListener {
 					mMainView.keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingRight = false;
 				}
-				mMainView.turnFact = 0.0;
 			}
 
-			if (x>kXDown) {
+			if (Math.abs(x)>kXDown) {
 				if (trackingUp) {
 					mMainView.keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingUp = false;
@@ -220,7 +220,7 @@ public class MainActivity extends Activity implements AdListener {
 					mMainView.keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingDown = true;
 				}
-			} else if (x<kXUp) {
+			} else if (Math.abs(x)<kXUp) {
 				if (trackingDown) {
 					mMainView.keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingDown = false;
@@ -349,25 +349,21 @@ public class MainActivity extends Activity implements AdListener {
 		}
 	}
 
-	@Override
 	public void onFailedToReceiveAd(AdView arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void onFailedToReceiveRefreshedAd(AdView arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void onReceiveAd(AdView arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void onReceiveRefreshedAd(AdView arg0) {
 		// TODO Auto-generated method stub
 

@@ -136,10 +136,10 @@ static void draw_preference()
     GLuint texobj;
     
     box_width = getparam_x_resolution();
-    box_height = 310;
-    box_max_y = h - 128;
+    box_height = 310 * mHeight / 320;
+    box_max_y = h - 128 * mHeight / 320;
     x_org = 0;
-    y_org = h/2 - box_height/2 + 30;
+    y_org = h/2 - box_height/2 + 30 * mHeight / 320;
     
     if ( y_org + box_height > box_max_y ) {
         y_org = box_max_y - box_height;
@@ -156,13 +156,13 @@ static void draw_preference()
                                      0 ) );
     listbox_set_position( 
                          sound_listbox,
-                         make_point2d( box_width - 80,
-                                      y_org + 290 ) );
+                         make_point2d( box_width - 140 * mHeight / 320,
+                                      y_org + 290 * mHeight / 320 ) );
 
     listbox_set_position( 
                          video_listbox,
-                         make_point2d( box_width - 80,
-                                      y_org + 190 ) );
+                         make_point2d( box_width - 140 * mHeight / 320,
+                                      y_org + 190 * mHeight / 320 ) );
     
     if ( !get_font_binding( "menu_label", &font ) ) {
         print_warning( IMPORTANT_WARNING,
@@ -174,8 +174,8 @@ static void draw_preference()
         
         glPushMatrix();
         {
-            glTranslatef( x_org + 70,
-                         y_org + 300, 
+            glTranslatef( x_org + 70 * mHeight / 320,
+                         y_org + 300 * mHeight / 320, 
                          0 );
             
             draw_string( font, string );
@@ -186,8 +186,8 @@ static void draw_preference()
         
         glPushMatrix();
         {
-            glTranslatef( x_org + 70,
-                         y_org + 200, 
+            glTranslatef( x_org + 70 * mHeight / 320,
+                         y_org + 200 * mHeight / 320, 
                          0 );
             
             draw_string( font, string );
@@ -239,7 +239,7 @@ static void preference_init(void)
         cur_video = last_video;
 
     chancel_btn = button_create( dummy_pos,
-                             80, 48, 
+                             80 * mHeight / 320, 48 * mHeight / 320, 
                              "button_label", 
                              "Back" );
     button_set_hilit_font_binding( chancel_btn, "button_label_hilit" );
@@ -247,7 +247,7 @@ static void preference_init(void)
     button_set_click_event_cb( chancel_btn, chancel_click_cb, NULL );
     
     save_btn = button_create( dummy_pos,
-                                 80, 48,
+                                 80 * mHeight / 320, 48 * mHeight / 320,
                                  "button_label",
                                  "Save" );
     button_set_hilit_font_binding( save_btn, "button_label_hilit" );
@@ -256,7 +256,7 @@ static void preference_init(void)
     button_set_click_event_cb( save_btn, save_click_cb, NULL );
 
     sound_listbox = listbox_create( dummy_pos,
-                                   60, 44,
+                                   120 * mHeight / 320, 44 * mHeight / 320,
                                    "listbox_item",
                                    sound_list,
                                    sound_list_elem_to_string_func );
@@ -272,7 +272,7 @@ static void preference_init(void)
 
     
     video_listbox = listbox_create( dummy_pos,
-                                 60, 44,
+                                 120 * mHeight / 320, 44 * mHeight / 320,
                                  "listbox_item",
                                  video_list,
                                  video_list_elem_to_string_func );

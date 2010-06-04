@@ -41,14 +41,14 @@
 
 #ifdef __APPLE__
 //If FPS are activated, set SCORE_X_OFFSET to 130.0
-#define SCORE_X_OFFSET 130.0
+#define SCORE_X_OFFSET 130.0 * mHeight / 320
 #define SCORE_Y_OFFSET 12.0
 #define TRICKS_X_OFFSET 130.0
 #define TRICKS_Y_OFFSET 5.0
 #endif
 
 #define HERRING_ICON_IMG_SIZE 64.0
-#define HERRING_ICON_X_OFFSET 170.0
+#define HERRING_ICON_X_OFFSET 170.0 * mHeight / 320
 #define HERRING_ICON_Y_OFFSET 30.0
 #define HERRING_COUNT_Y_OFFSET 5.0
 
@@ -458,7 +458,8 @@ void draw_gauge( scalar_t speed, scalar_t energy )
 	return;
     }
 
-    binding = "speed_digits";
+    //binding = "speed_digits";
+    binding = "herring_count";    
     if ( !get_font_binding( binding, & speed_font ) ) {
 	print_warning( IMPORTANT_WARNING,
 		       "Couldn't get font for binding %s", speed_font );

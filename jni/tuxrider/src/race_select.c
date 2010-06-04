@@ -542,8 +542,8 @@ void draw_status_msg( int x_org, int y_org, int box_width, int box_height )
     } else {
         glPushMatrix();
         {
-            glTranslatef( x_org + 160,
-                         y_org + 50+yTranslation,
+            glTranslatef( x_org + 160 * mHeight / 320,
+                         y_org + 50 * mHeight / 320+yTranslation * mHeight / 320,
                          0 );
             
             bind_font_texture( label_font );
@@ -560,8 +560,8 @@ void draw_status_msg( int x_org, int y_org, int box_width, int box_height )
                 
                 get_time_components( time, &minutes, &seconds, &hundredths );
                 
-                glTranslatef( x_org + 160,
-                             y_org + 34+yTranslation,
+                glTranslatef( x_org + 160 * mHeight / 320,
+                             y_org + 34 * mHeight / 320+yTranslation * mHeight / 320,
                              0 );
                 
                 
@@ -614,13 +614,13 @@ static void set_widget_positions_and_draw_decorations()
     /* set the dimensions of the box in which all widgets should fit */
 #ifdef __APPLE__
     box_width = w;
-    box_height = 200;
-    box_max_y = h - 128;
-    x_org = 10;
-    y_org = box_height/2;
+    box_height = 200 * mHeight / 320;
+    box_max_y = h - 128 * mHeight / 320;
+    x_org = 10 * mHeight / 320;
+    y_org = box_height/2 * mHeight / 320;
     
     if ( y_org + box_height > box_max_y ) {
-        y_org = box_max_y - box_height + 50;
+        y_org = box_max_y - box_height + 50 * mHeight / 320;
     }
     
     button_set_position( 
@@ -635,18 +635,18 @@ static void set_widget_positions_and_draw_decorations()
     
     listbox_set_position(
                          race_listbox,
-                         make_point2d( box_width - 300 - 10,
-                                       box_height/2.0+30 ) );
+                         make_point2d( box_width - 300 * mHeight / 320 - 10 * mHeight / 320,
+                                       box_height/2.0+30 * mHeight / 320 ) );
 #ifdef __APPLE__    
     textarea_set_position( 
                           desc_ta,
-                          make_point2d( 600,
-                                        600 ) );
+                          make_point2d( 1000,
+                                        1000 ) );
 #else
     textarea_set_position( 
                           desc_ta,
                           make_point2d( x_org,
-                                       y_org + 66 ) );
+                                       y_org + 66 * mHeight / 320 ) );
 #endif
     
     if ( g_game.practicing || 
@@ -742,8 +742,8 @@ static void set_widget_positions_and_draw_decorations()
             glPushMatrix();
             {
 #ifdef __APPLE__
-                glTranslatef( 10,
-                             60,
+                glTranslatef( 10 * mHeight / 320,
+                             60 * mHeight / 320,
                              0 );
 #else
                 glTranslatef( x_org + box_width - 4*36 + 4,
@@ -778,16 +778,16 @@ static void set_widget_positions_and_draw_decorations()
                         glVertex2f( 0, 0 );
                         
                         glTexCoord2f( ur.x, ll.y );
-                        glVertex2f( 32, 0 );
+                        glVertex2f( 32 * mHeight / 320, 0 );
                         
                         glTexCoord2f( ur.x, ur.y );
-                        glVertex2f( 32, 32 );
+                        glVertex2f( 32 * mHeight / 320, 32 * mHeight / 320 );
                         
                         glTexCoord2f( ll.x, ur.y );
-                        glVertex2f( 0, 32 );
+                        glVertex2f( 0, 32 * mHeight / 320 );
                     }
                     glEnd();
-                    glTranslatef( 36, 0, 0 );
+                    glTranslatef( 36 * mHeight / 320, 0, 0 );
                 }
             }
             glPopMatrix();
@@ -849,14 +849,14 @@ static void set_widget_positions_and_draw_decorations()
         glColor4f( 0.0, 0.0, 0.0, 0.3 );
         
 #ifdef __APPLE__
-        float margin = 4.f;
-        float yoffset = 26 + 30;
+        float margin = 4.f * mHeight / 320;
+        float yoffset = 26 * mHeight / 320 + 30 * mHeight / 320;
         glBegin( GL_QUADS );
         {
             glVertex2f( x_org, y_org + yoffset );
-            glVertex2f( x_org + 140, y_org + yoffset );
-            glVertex2f( x_org + 140, y_org + yoffset+107 );
-            glVertex2f( x_org, y_org + yoffset+107 );
+            glVertex2f( x_org + 140 * mHeight / 320, y_org + yoffset );
+            glVertex2f( x_org + 140 * mHeight / 320, y_org + yoffset+107 * mHeight / 320 );
+            glVertex2f( x_org, y_org + yoffset+107 * mHeight / 320 );
         }
         glEnd();
 #else
@@ -888,13 +888,13 @@ static void set_widget_positions_and_draw_decorations()
             glVertex2f( x_org + margin, y_org + yoffset+margin );
             
             glTexCoord2d( 1, 0);
-            glVertex2f( x_org + 140 - margin, y_org + yoffset+margin );
+            glVertex2f( x_org + 140 * mHeight / 320 - margin, y_org + yoffset+margin );
             
             glTexCoord2d( 1, 1);
-            glVertex2f( x_org + 140 - margin, y_org + yoffset+margin+99 );
+            glVertex2f( x_org + 140 * mHeight / 320 - margin, y_org + yoffset+margin+99 * mHeight / 320 );
             
             glTexCoord2d( 0, 1);
-            glVertex2f( x_org + margin, y_org + yoffset+margin+99 );
+            glVertex2f( x_org + margin, y_org + yoffset+margin+99 * mHeight / 320 );
         }
         glEnd();
         
@@ -1029,7 +1029,7 @@ static void set_widget_positions_and_draw_decorations()
         }
         
         back_btn = button_create( dummy_pos,
-                                 80, 48, 
+                                 80 * mHeight / 320, 48 * mHeight / 320, 
                                  "button_label", 
                                  "Back" );
         button_set_hilit_font_binding( back_btn, "button_label_hilit" );
@@ -1037,7 +1037,7 @@ static void set_widget_positions_and_draw_decorations()
         button_set_click_event_cb( back_btn, back_click_cb, NULL );
         
         start_btn = button_create( dummy_pos,
-                                  80, 48,
+                                  80 * mHeight / 320, 48 * mHeight / 320,
                                   "button_label",
                                   "Race" );
         button_set_hilit_font_binding( start_btn, "button_label_hilit" );
@@ -1047,7 +1047,7 @@ static void set_widget_positions_and_draw_decorations()
         
 #ifdef __APPLE__
         race_listbox = listbox_create( dummy_pos,
-                                      300, 44,
+                                      300 * mHeight / 320, 44 * mHeight / 320,
                                       "course_name_label",
                                       race_list,
                                       conv_func );

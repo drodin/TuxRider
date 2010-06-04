@@ -212,7 +212,6 @@ public class MainView extends GLSurfaceView {
 
 	public class MainRenderer implements GLSurfaceView.Renderer {
 
-		@Override
 		public void onDrawFrame(GL10 gl) {
 
 			if (trackballUsed)
@@ -233,7 +232,6 @@ public class MainView extends GLSurfaceView {
 
 			if (gameMode!=NativeLib.NO_MODE && gameMode!= prevMode) {
 				post(new Runnable() {					
-					@Override
 					public void run() {
 						mMainActivity.setOverlayView(gameMode);
 					}
@@ -249,7 +247,6 @@ public class MainView extends GLSurfaceView {
 
 		}
 
-		@Override
 		public void onSurfaceChanged(GL10 gl, int width, int height) {
 
 			if (mMainActivity.firstRun) {
@@ -262,7 +259,6 @@ public class MainView extends GLSurfaceView {
 
 		}
 
-		@Override
 		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		}
 

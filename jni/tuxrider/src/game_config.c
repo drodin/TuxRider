@@ -499,7 +499,7 @@ void init_game_configuration()
 	);
 
     INIT_PARAM_INT( 
-	mipmap_type, 0,
+	mipmap_type, 1,
 	"# [EXPERT] Allows you to control which type of texture\n"
 	"# interpolation/mipmapping is used when rendering textures.  The\n"
 	"# values correspond to the following OpenGL settings:\n"

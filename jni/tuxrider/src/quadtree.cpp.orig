@@ -43,9 +43,6 @@
 VNCArray[j*STRIDE_GL_ARRAY+STRIDE_GL_ARRAY-4+(ch)]
 
 
-int quadsquare::RowSize;
-int quadsquare::NumRows;
-
 //
 // quadsquare functions.
 //
@@ -56,84 +53,6 @@ GLuint *quadsquare::VertexArrayIndices = (GLuint*) NULL;
 GLuint quadsquare::VertexArrayCounter;
 GLuint quadsquare::VertexArrayMinIdx;
 GLuint quadsquare::VertexArrayMaxIdx;
-
-// Archiving
-struct archived_fields {
-    VertInfo	Vertex[5];	// center, e, n, w, s
-    float	Error[6];	// e, s, children: ne, nw, sw, se
-    float	MinY, MaxY;	// Bounds for frustum culling and error testing.
-    unsigned char	EnabledFlags;	// bits 0-7: e, n, w, s, ne, nw, sw, se
-    unsigned char	SubEnabledCount[2];	// e, s enabled reference counts.
-    bool	Static;
-    bool	Dirty;	// Set when vertex data has changed, but error/enabled data has not been recalculated.
-
-    bool ForceEastVert;
-    bool ForceSouthVert;
-    size_t child_size[4];
-};
-
-void
-quadsquare::rootinit(void)
-{
-    print_debug( DEBUG_QUADTREE, "initializing root node" );
-    
-    // Initialize texture data
-    if (!get_texture_binding("snow", &(TexId[Snow]))) {
-        TexId[Snow] = 0;
-    }
-    if (!get_texture_binding("ice", &TexId[Ice])) {
-        TexId[Ice] = 0;
-    }
-    if (!get_texture_binding("rock", &TexId[Rock])) {
-        TexId[Rock] = 0;
-    }
-    if ( !get_texture_binding( "terrain_envmap", &EnvmapTexId ) ) {
-        EnvmapTexId = 0;
-    }
-    
-    Terrain = get_course_terrain_data();
-}
-
-quadsquare::quadsquare(quadcornerdata* pcd, void * serialized_rep, size_t size)
-// Constructor.
-{
-    if(pcd) pcd->Square = this;
-
-    struct archived_fields * fields = (struct archived_fields *)serialized_rep;
-    int	i;
-    for (i = 0; i < 5; i++) {
-		Vertex[i] = fields->Vertex[i];
-    }
-    for (i = 0; i < 6; i++) {
-		Error[i] = fields->Error[i];
-    }
-    MinY = fields->MinY;
-    MaxY = fields->MaxY;
-    EnabledFlags = fields->EnabledFlags;
-    SubEnabledCount[0] = fields->SubEnabledCount[0];
-    SubEnabledCount[1] = fields->SubEnabledCount[1];
-    Static = fields->Static;
-    Dirty = fields->Dirty;
-    ForceEastVert = fields->ForceEastVert;
-    ForceSouthVert = fields->ForceSouthVert;
-    
-    uint8_t * children = (uint8_t *)serialized_rep + sizeof(struct archived_fields);
-
-    if ( pcd && pcd->Parent == NULL ) {
-        rootinit();
-    }
-
-    for (i = 0; i < 4; i++) {
-        if(fields->child_size[i]) {
-            Child[i] = new quadsquare(NULL, (void *)children, fields->child_size[i]);
-            children += fields->child_size[i];
-        }
-        else
-            Child[i] = NULL;
-    }
-
-
-}
 
 quadsquare::quadsquare(quadcornerdata* pcd)
 // Constructor.
@@ -179,62 +98,28 @@ quadsquare::quadsquare(quadcornerdata* pcd)
 		if (y < MinY) MinY = y;
 		if (y > MaxY) MaxY = y;
     }
-
+	
     if ( pcd->Parent == NULL ) {
-        rootinit();
+		print_debug( DEBUG_QUADTREE, "initializing root node" );
+		
+		// Initialize texture data
+		if (!get_texture_binding("snow", &(TexId[Snow]))) {
+			TexId[Snow] = 0;
+		}
+		if (!get_texture_binding("ice", &TexId[Ice])) {
+			TexId[Ice] = 0;
+		}
+		if (!get_texture_binding("rock", &TexId[Rock])) {
+			TexId[Rock] = 0;
+		}
+		if ( !get_texture_binding( "terrain_envmap", &EnvmapTexId ) ) {
+			EnvmapTexId = 0;
+		}
+		
+		Terrain = get_course_terrain_data();
     }
-
 }
 
-
-void *	quadsquare::GetSerializedRepresentation(size_t * out_size)
-{
-    struct archived_fields fields;
-    void * child[4];
-    size_t total_child_size = 0;
-    int i;
-
-    for (i = 0; i < 5; i++) {
-		fields.Vertex[i] = Vertex[i];
-    }
-    for (i = 0; i < 6; i++) {
-		fields.Error[i] = Error[i];
-    }
-    fields.MinY = MinY;
-    fields.MaxY = MaxY;
-    fields.EnabledFlags = EnabledFlags;
-    fields.SubEnabledCount[0] = SubEnabledCount[0];
-    fields.SubEnabledCount[1] = SubEnabledCount[1];
-    fields.Static = Static;
-    fields.Dirty = Dirty;
-    fields.ForceEastVert = ForceEastVert;
-    fields.ForceSouthVert = ForceSouthVert;
-
-    for(i = 0; i < 4; i++) {
-        if (Child[i]) {
-            child[i] = Child[i]->GetSerializedRepresentation(&fields.child_size[i]);
-            total_child_size += fields.child_size[i];
-        }
-        else {
-            child[i] = NULL;
-            fields.child_size[i] = 0;
-        }
-    }
-
-
-    void * ret = malloc(total_child_size + sizeof(fields));
-    memcpy(ret, &fields, sizeof(fields));
-    int size = sizeof(fields);
-    for(i = 0; i < 4; i++) {
-        if(child[i]) {
-            memcpy((uint8_t *)ret+size, child[i], fields.child_size[i]);
-            free(child[i]);
-            size += fields.child_size[i];
-        }
-    }
-    *out_size = size;
-    return ret;
-}
 
 quadsquare::~quadsquare()
 // Destructor.
@@ -1179,9 +1064,7 @@ void	quadsquare::Render(const quadcornerdata& cd, GLubyte *vnc_array)
     /* Save fog state */
     fog_on = is_fog_on();
 	
-
-    glEnableClientState( GL_COLOR_ARRAY );
-
+	
     /*
      * Draw the "normal" blended triangles ( <= 2 terrains textures )
      */
@@ -1206,6 +1089,7 @@ void	quadsquare::Render(const quadcornerdata& cd, GLubyte *vnc_array)
 			
 			glEnableClientState( GL_COLOR_ARRAY );
 		}
+		
     }
 	
     /*
@@ -1265,6 +1149,7 @@ void	quadsquare::Render(const quadcornerdata& cd, GLubyte *vnc_array)
 				DrawTris();
 			}
 			
+			
 			/* Render Ice with environment map */
 			if ( getparam_terrain_envmap() ) {
 				glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
@@ -1279,8 +1164,7 @@ void	quadsquare::Render(const quadcornerdata& cd, GLubyte *vnc_array)
 			}
 		}
     }
-    glDisableClientState( GL_COLOR_ARRAY );
-
+	
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 }
 
@@ -1583,12 +1467,10 @@ void	quadsquare::SetupCornerData(quadcornerdata* q, const quadcornerdata& cd, in
     }	
 }
 
-void	quadsquare::AddHeightMap(const quadcornerdata& cd, const HeightMapInfo& hm)
-{
-    AddHeightMap(cd, hm, false); 
-}
+int quadsquare::RowSize;
+int quadsquare::NumRows;
 
-void	quadsquare::AddHeightMap(const quadcornerdata& cd, const HeightMapInfo& hm, bool serialized)
+void	quadsquare::AddHeightMap(const quadcornerdata& cd, const HeightMapInfo& hm)
 // Sets the height of all samples within the specified rectangular
 // region using the given array of floats.  Extends the tree to the
 // level of detail defined by (1 << hm.Scale) as necessary.
@@ -1607,10 +1489,6 @@ void	quadsquare::AddHeightMap(const quadcornerdata& cd, const HeightMapInfo& hm,
 		VertexArrayIndices = new GLuint[6 * RowSize * NumRows];
     }
 	
-    if ( serialized ) {
-        return;
-    }
-    
     // If block is outside rectangle, then don't bother.
     int	BlockSize = 2 << cd.Level;
     if (cd.xorg > hm.XOrigin + ((hm.XSize + 2) << hm.Scale) ||

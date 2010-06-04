@@ -98,14 +98,9 @@ struct quadsquare {
 
 // public:
     quadsquare(quadcornerdata* pcd);
-    quadsquare(quadcornerdata* pcd, void * serialized_rep, size_t size);
     ~quadsquare();
 
-    void rootinit(void);
-
-    void *	GetSerializedRepresentation(size_t * out_size);
     void	AddHeightMap(const quadcornerdata& cd, const HeightMapInfo& hm);
-    void	AddHeightMap(const quadcornerdata& cd, const HeightMapInfo& hm, bool serialized);
     void	StaticCullData(const quadcornerdata& cd, float ThresholdDetail);	
     float	RecomputeError(const quadcornerdata& cd);
     int	CountNodes();
@@ -117,8 +112,7 @@ struct quadsquare {
 
     void	SetScale(double x, double z);
     void	SetTerrain(terrain_t *terrain);
-
-
+	
 private:
     void	EnableEdgeVertex(int index, bool IncrementCount, const quadcornerdata& cd);
     quadsquare*	EnableDescendant(int count, int stack[], const quadcornerdata& cd);
