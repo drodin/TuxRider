@@ -41,8 +41,8 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
-import android.view.WindowManager;
 import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -60,6 +60,8 @@ public class MainActivity extends Activity implements AdListener {
 	public static NativeLib mNativeLib;
 	
 	private static SharedPreferences settings = null;
+	
+	private float dScale = 1.0f; 
 
 	private static RelativeLayout mRelativeLayout = null;
 	private static FrameLayout mFrameLayout = null;
@@ -107,6 +109,8 @@ public class MainActivity extends Activity implements AdListener {
 		if(mSensors.size() > 0) { 
 			mSensor = mSensors.get(0); 
 		}
+
+		dScale = getApplicationContext().getResources().getDisplayMetrics().density;
 
 		mRelativeLayout = new RelativeLayout(getApplicationContext());
 		mFrameLayout = new FrameLayout(getApplicationContext());
@@ -286,7 +290,7 @@ public class MainActivity extends Activity implements AdListener {
 				mOverlayView.removeAllViews();
 
 				mOverlayView.addView(mAdView,
-						new LayoutParams(320, 48));
+						new LayoutParams((int) (320*dScale+0.5f), (int) (48*dScale+0.5f)));
 			}
 			if (gameMode != NativeLib.SPLASH)
 				mOverlayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.transparent));

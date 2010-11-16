@@ -572,7 +572,7 @@ static void event_select_init(void)
     
 #else
     event_listbox = listbox_create( dummy_pos,
-                                   300 - 52, 44,
+                                   (300 - 52) * mHeight / 320, 44 * mHeight /320,
                                    "listbox_item",
                                    event_list,
                                    event_list_elem_to_string_func );
@@ -599,7 +599,7 @@ static void event_select_init(void)
     
 #else
     cup_listbox = listbox_create( dummy_pos,
-                                 460 - 52, 44,
+                                 (460 - 52) * mHeight / 320, 44 * mHeight / 320,
                                  "listbox_item",
                                  cup_list,
                                  cup_list_elem_to_string_func );
@@ -694,7 +694,7 @@ START_KEYBOARD_CB( event_select_key_cb )
         }
     } else {
         switch (key) {
-            case 13: /* Enter */
+            case '0': /* Enter */
             case 'e':
                 if ( continue_btn ) {
                     button_simulate_mouse_click( continue_btn );

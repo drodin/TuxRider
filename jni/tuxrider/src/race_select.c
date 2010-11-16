@@ -1054,7 +1054,7 @@ static void set_widget_positions_and_draw_decorations()
         
 #else
         race_listbox = listbox_create( dummy_pos,
-                                      460, 44,
+                                      460 * mHeight / 320, 44 * mHeight / 320,
                                       "listbox_item",
                                       race_list,
                                       conv_func );
@@ -1402,7 +1402,7 @@ static void set_widget_positions_and_draw_decorations()
             key = (int) tolower( (char) key );
             
             switch (key) {
-                case 13: /* Enter */
+                case '0': /* Enter */
                 case 'e':
                     if ( start_btn ) {
                         button_simulate_mouse_click( start_btn );

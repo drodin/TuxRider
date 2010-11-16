@@ -354,7 +354,7 @@ START_KEYBOARD_CB( preference_key_cb )
         }
     } else {
         switch (key) {
-            case 13: /* Enter */
+            case '0': /* Enter */
             case 'e':
                 if ( save_btn ) {
                     button_simulate_mouse_click( save_btn );
