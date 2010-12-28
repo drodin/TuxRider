@@ -45,7 +45,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.admob.android.ads.AdListener;
 import com.admob.android.ads.AdManager;
@@ -63,7 +62,6 @@ public class MainActivity extends Activity implements AdListener {
 	
 	private float dScale = 1.0f; 
 
-	private static RelativeLayout mRelativeLayout = null;
 	private static FrameLayout mFrameLayout = null;
 
 	private static MainView mMainView = null;
@@ -112,7 +110,6 @@ public class MainActivity extends Activity implements AdListener {
 
 		dScale = getApplicationContext().getResources().getDisplayMetrics().density;
 
-		mRelativeLayout = new RelativeLayout(getApplicationContext());
 		mFrameLayout = new FrameLayout(getApplicationContext());
 
 		mMainView = new MainView(getApplicationContext());
@@ -129,10 +126,8 @@ public class MainActivity extends Activity implements AdListener {
 				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 		mFrameLayout.addView(mOverlayView,
 				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		mRelativeLayout.addView(mFrameLayout,
-				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
-		setContentView(mRelativeLayout,
+		setContentView(mFrameLayout,
 				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
 		mMainView.requestFocus();

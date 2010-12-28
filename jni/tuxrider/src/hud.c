@@ -41,14 +41,14 @@
 
 #ifdef __APPLE__
 //If FPS are activated, set SCORE_X_OFFSET to 130.0
-#define SCORE_X_OFFSET 130.0 * mHeight / 320
+#define SCORE_X_OFFSET 130.0
 #define SCORE_Y_OFFSET 12.0
 #define TRICKS_X_OFFSET 130.0
 #define TRICKS_Y_OFFSET 5.0
 #endif
 
 #define HERRING_ICON_IMG_SIZE 64.0
-#define HERRING_ICON_X_OFFSET 170.0 * mHeight / 320
+#define HERRING_ICON_X_OFFSET 106.0
 #define HERRING_ICON_Y_OFFSET 30.0
 #define HERRING_COUNT_Y_OFFSET 5.0
 
@@ -233,7 +233,7 @@ static void draw_herring_count( int herring_count )
 
     glPushMatrix();
     {
-	glTranslatef( getparam_x_resolution() - HERRING_ICON_X_OFFSET,
+	glTranslatef( getparam_x_resolution() - HERRING_ICON_WIDTH - HERRING_ICON_X_OFFSET * mHeight/320,
 		      getparam_y_resolution() - HERRING_ICON_Y_OFFSET - asc, 
 		      0 );
 
@@ -333,7 +333,7 @@ static void draw_score( player_data_t *plyr )
     
     glPushMatrix();
     {
-        glTranslatef( SCORE_X_OFFSET,
+        glTranslatef( SCORE_X_OFFSET * mHeight / 320,
                      SCORE_Y_OFFSET,
                      0 );
         draw_string( font, string );

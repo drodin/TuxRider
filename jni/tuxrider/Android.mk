@@ -4,14 +4,17 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := tuxrider
 
+LOCAL_C_INCLUDES := \
+    $(LOCAL_PATH)/src \
+    $(LOCAL_PATH)/android \
+    $(LOCAL_PATH)/../tcl8.6a3/generic \
+
 LOCAL_CFLAGS := \
     -D__APPLE__ \
     -DLIB_CLASS=\"com/drodin/tuxrider/NativeLib\" \
     -DDATA_DIR=\"/sdcard/com.drodin.tuxrider/\" \
-    -I$(LOCAL_PATH)/src \
-    -I$(LOCAL_PATH)/android \
-    -I$(LOCAL_PATH)/../tcl8.6a3/generic \
-    --include $(LOCAL_PATH)/android/android.h
+	--include C:/android/workspace/tuxrider/jni/tuxrider/android/android.h \
+#	--include $(LOCAL_PATH)/android/android.h \
 
 SDL_SRCS := \
 	src/*.c \

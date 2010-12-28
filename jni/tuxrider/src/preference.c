@@ -239,17 +239,17 @@ static void preference_init(void)
         cur_video = last_video;
 
     chancel_btn = button_create( dummy_pos,
-                             80 * mHeight / 320, 48 * mHeight / 320, 
+                             80 * mWidth / 480, 48 * mHeight / 320, 
                              "button_label", 
-                             "Back" );
+                             (mWidth>320)?"Back":"<< " );
     button_set_hilit_font_binding( chancel_btn, "button_label_hilit" );
     button_set_visible( chancel_btn, True );
     button_set_click_event_cb( chancel_btn, chancel_click_cb, NULL );
     
     save_btn = button_create( dummy_pos,
-                                 80 * mHeight / 320, 48 * mHeight / 320,
+                                 80 * mWidth / 480, 48 * mHeight / 320,
                                  "button_label",
-                                 "Save" );
+                                 (mWidth>320)?"Save":" >>" );
     button_set_hilit_font_binding( save_btn, "button_label_hilit" );
     button_set_disabled_font_binding( save_btn, "button_label_disabled" );
     button_set_visible( save_btn, True );

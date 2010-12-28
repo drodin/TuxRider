@@ -533,18 +533,18 @@ static void event_select_init(void)
     
     /* back button */
     back_btn = button_create( dummy_pos,
-                             80 * mHeight / 320, 48 * mHeight / 320, 
+                             80 * mWidth / 480, 48 * mHeight / 320, 
                              "button_label", 
-                             "Back" );
+                             (mWidth>320)?"Back":"<< " );
     button_set_hilit_font_binding( back_btn, "button_label_hilit" );
     button_set_visible( back_btn, True );
     button_set_click_event_cb( back_btn, back_click_cb, NULL );
     
     /* continue button */
     continue_btn = button_create( dummy_pos,
-                                 80 * mHeight / 320, 48 * mHeight / 320,
+                                 80 * mWidth / 480, 48 * mHeight / 320,
                                  "button_label",
-                                 "Go" );
+                                 (mWidth>320)?"Go":" >>" );
     button_set_hilit_font_binding( continue_btn, "button_label_hilit" );
     button_set_disabled_font_binding( continue_btn, "button_label_disabled" );
     button_set_visible( continue_btn, True );

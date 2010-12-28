@@ -344,7 +344,7 @@ listbox_t* listbox_create( point2d_t pos, scalar_t w, scalar_t h,
     listbox->up_button = button_create( 
 	make_point2d( 0, 0 ), /* position will be set later */
 	DEFAULT_ARROW_BUTTON_WIDTH,
-	DEFAULT_ARROW_BUTTON_HEIGHT,
+	(mWidth>320)?DEFAULT_ARROW_BUTTON_HEIGHT:DEFAULT_ARROW_BUTTON_HEIGHT/2,
 	NULL,
 	NULL );
 
@@ -378,7 +378,7 @@ listbox_t* listbox_create( point2d_t pos, scalar_t w, scalar_t h,
     listbox->down_button = button_create( 
 	make_point2d( 0, 0 ), /* position will be set later */
 	DEFAULT_ARROW_BUTTON_WIDTH,
-	DEFAULT_ARROW_BUTTON_HEIGHT,
+	(mWidth>320)?DEFAULT_ARROW_BUTTON_HEIGHT:DEFAULT_ARROW_BUTTON_HEIGHT/2,
 	NULL,
 	NULL );
 

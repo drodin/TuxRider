@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.drodin.tuxrider" android:versionCode="6"
-	android:versionName="1.0.4 beta">
+	android:installLocation="preferExternal"
+	package="com.drodin.tuxrider" android:versionCode="7"
+	android:versionName="1.0.5 beta">
 	<supports-screens android:anyDensity="true"
 		android:smallScreens="true" android:normalScreens="true"
 		android:largeScreens="true" />
 	<application android:icon="@drawable/icon" android:label="@string/app_name"
-		android:debuggable="true">
+		android:debuggable="false">
 		<activity android:name=".MainActivity" android:label="@string/app_name"
 			android:launchMode="singleTask" android:multiprocess="false"
 			android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation"

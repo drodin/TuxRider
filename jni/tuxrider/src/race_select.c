@@ -543,7 +543,7 @@ void draw_status_msg( int x_org, int y_org, int box_width, int box_height )
         glPushMatrix();
         {
             glTranslatef( x_org + 160 * mHeight / 320,
-                         y_org + 50 * mHeight / 320+yTranslation * mHeight / 320,
+                         y_org + 60 * mHeight / 320+yTranslation * mHeight / 320,
                          0 );
             
             bind_font_texture( label_font );
@@ -561,7 +561,7 @@ void draw_status_msg( int x_org, int y_org, int box_width, int box_height )
                 get_time_components( time, &minutes, &seconds, &hundredths );
                 
                 glTranslatef( x_org + 160 * mHeight / 320,
-                             y_org + 34 * mHeight / 320+yTranslation * mHeight / 320,
+                             y_org + 44 * mHeight / 320+yTranslation * mHeight / 320,
                              0 );
                 
                 
@@ -579,9 +579,16 @@ void draw_status_msg( int x_org, int y_org, int box_width, int box_height )
                 sprintf( buff, "%03d", herring ); 
                 bind_font_texture( font );
                 draw_string( font, buff );
+            }
+            glPopMatrix();
+            glPushMatrix();
+            {                
+                glTranslatef( x_org + 160 * mHeight / 320,
+                             y_org + 28 * mHeight / 320+yTranslation * mHeight / 320,
+                             0 );
                 
                 bind_font_texture( label_font );
-                draw_string( label_font, "     Score: " );
+                draw_string( label_font, "Score: " );
                 
                 sprintf( buff, "%06d", score );
                 bind_font_texture( font );
@@ -635,8 +642,8 @@ static void set_widget_positions_and_draw_decorations()
     
     listbox_set_position(
                          race_listbox,
-                         make_point2d( box_width - 300 * mHeight / 320 - 10 * mHeight / 320,
-                                       box_height/2.0+30 * mHeight / 320 ) );
+                         make_point2d( 160 * mHeight / 320,
+                                       box_height/2.0+40 * mHeight / 320 ) );
 #ifdef __APPLE__    
     textarea_set_position( 
                           desc_ta,
@@ -1029,17 +1036,17 @@ static void set_widget_positions_and_draw_decorations()
         }
         
         back_btn = button_create( dummy_pos,
-                                 80 * mHeight / 320, 48 * mHeight / 320, 
+                                 80 * mWidth / 480, 48 * mHeight / 320, 
                                  "button_label", 
-                                 "Back" );
+                                 (mWidth>320)?"Back":"<< " );
         button_set_hilit_font_binding( back_btn, "button_label_hilit" );
         button_set_visible( back_btn, True );
         button_set_click_event_cb( back_btn, back_click_cb, NULL );
         
         start_btn = button_create( dummy_pos,
-                                  80 * mHeight / 320, 48 * mHeight / 320,
+                                  80 * mWidth / 480, 48 * mHeight / 320,
                                   "button_label",
-                                  "Race" );
+                                  (mWidth>320)?"Race":" >>" );
         button_set_hilit_font_binding( start_btn, "button_label_hilit" );
         button_set_disabled_font_binding( start_btn, "button_label_disabled" );
         button_set_visible( start_btn, True );
@@ -1047,7 +1054,7 @@ static void set_widget_positions_and_draw_decorations()
         
 #ifdef __APPLE__
         race_listbox = listbox_create( dummy_pos,
-                                      300 * mHeight / 320, 44 * mHeight / 320,
+                                      mWidth - 170 * mHeight / 320, 44 * mHeight / 320,
                                       "course_name_label",
                                       race_list,
                                       conv_func );
