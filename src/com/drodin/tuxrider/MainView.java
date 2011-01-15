@@ -90,18 +90,18 @@ public class MainView extends GLSurfaceView {
 					NativeLib.WSK_PRESSED:NativeLib.WSK_RELEASED;
 
 			switch (keyCode) {
-			case KeyEvent.KEYCODE_DPAD_UP:
+			case KeyEvent.KEYCODE_DPAD_LEFT:
 				keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, keyReleased);
 				turnFact = -1.0;
 				return true;
-			case KeyEvent.KEYCODE_DPAD_DOWN:
+			case KeyEvent.KEYCODE_DPAD_RIGHT:
 				keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, keyReleased);
 				turnFact = 1.0;
 				return true;
-			case KeyEvent.KEYCODE_DPAD_RIGHT:
+			case KeyEvent.KEYCODE_DPAD_UP:
 				keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, keyReleased);
 				return true;
-			case KeyEvent.KEYCODE_DPAD_LEFT:
+			case KeyEvent.KEYCODE_DPAD_DOWN:
 				keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, keyReleased);
 				return true;
 			case KeyEvent.KEYCODE_DPAD_CENTER:
@@ -127,7 +127,7 @@ public class MainView extends GLSurfaceView {
 	public boolean onTrackballEvent (MotionEvent event) {
 		if (event.getAction() == MotionEvent.ACTION_MOVE) {
 
-			if (mMainActivity.mSensor != null && gameMode == NativeLib.RACING)
+			if (mMainActivity.mSensor != null)
 				return true;
 
 			trackballUsed = true;
@@ -135,7 +135,7 @@ public class MainView extends GLSurfaceView {
 			float x = event.getX()*event.getXPrecision();
 			float y = event.getY()*event.getYPrecision();
 
-			if (y<0) {
+			if (x<0) {
 				if (trackingRight) {
 					keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingRight = false;
@@ -144,8 +144,8 @@ public class MainView extends GLSurfaceView {
 					keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingLeft = true;
 				}
-				turnFact=(y<-1)?-1:y;
-			} else if (y>0) {
+				turnFact=(x<-1)?-1:x;
+			} else if (x>0) {
 				if (trackingLeft) {
 					keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingLeft = false;
@@ -154,10 +154,10 @@ public class MainView extends GLSurfaceView {
 					keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingRight = true;
 				}
-				turnFact=(y>1)?1:y;
+				turnFact=(x>1)?1:x;
 			} 
 
-			if (x<0) {
+			if (y>0) {
 				if (trackingUp) {
 					keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingUp = false;
@@ -166,7 +166,7 @@ public class MainView extends GLSurfaceView {
 					keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingDown = true;
 				}
-			} else if (x>0) {
+			} else if (y<0) {
 				if (trackingDown) {
 					keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingDown = false;

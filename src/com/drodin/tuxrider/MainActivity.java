@@ -33,6 +33,7 @@ import java.util.zip.ZipInputStream;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -57,10 +58,14 @@ public class MainActivity extends Activity implements AdListener {
 	public static MainActivity currentInstance = null;
 
 	public static NativeLib mNativeLib;
-	
+
 	private static SharedPreferences settings = null;
-	
-	private float dScale = 1.0f; 
+
+	private float dScale = 1.0f;
+
+	private int dWidth, dHeight;
+
+	private boolean dRotate = false;
 
 	private static FrameLayout mFrameLayout = null;
 
@@ -72,16 +77,18 @@ public class MainActivity extends Activity implements AdListener {
 	public List<Sensor> mSensors = null; 
 	public Sensor mSensor = null;
 
+	private int accSamples = 4;
+	private int accCounter = accSamples;
+	private float accValueX = 0;
+	private float accValueY = 0; 
 	private final float kYMax = 4.5f;
 	private final float kYSensibility = 1f;
-	private final float kXDown = 6f;
-	private final float kXUp = 4.5f;
-	//private final float kAccelerationThreshold = 15.0f;
+	private final float kXDown = 8f;
+	private final float kXUp = 7f;
 	private boolean trackingLeft = false;
 	private boolean trackingRight = false;
 	private boolean trackingUp = false;
 	private boolean trackingDown = false;
-	//private boolean shaking = false;
 
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -95,8 +102,15 @@ public class MainActivity extends Activity implements AdListener {
 
 		AdManager.setTestDevices(new String[] {AdManager.TEST_EMULATOR});
 
+		dWidth = getWindowManager().getDefaultDisplay().getWidth();
+		dHeight = getWindowManager().getDefaultDisplay().getHeight();
+		if (dHeight>dWidth) {
+			dRotate = true;
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		}
+
 		mNativeLib = new NativeLib(getApplicationContext());
-		
+
 		settings = PreferenceManager.getDefaultSharedPreferences(this);
 		NativeLib.soundEnabled = settings.getInt("soundEnabled", 1);
 		NativeLib.videoQuality = settings.getInt("videoQuality", 1);
@@ -104,7 +118,7 @@ public class MainActivity extends Activity implements AdListener {
 
 		mSensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE); 
 		mSensors = mSensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER); 
-		if(mSensors.size() > 0) { 
+		if(mSensors !=null && mSensors.size() > 0) { 
 			mSensor = mSensors.get(0); 
 		}
 
@@ -131,7 +145,7 @@ public class MainActivity extends Activity implements AdListener {
 				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
 		mMainView.requestFocus();
-		
+
 	}
 
 	@Override
@@ -139,7 +153,7 @@ public class MainActivity extends Activity implements AdListener {
 		super.onResume();
 		if (mMainView != null)
 			mMainView.onResume();
-		mSensorManager.registerListener(mSensorListener, mSensor, SensorManager.SENSOR_DELAY_GAME);
+		mSensorManager.registerListener(mSensorListener, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
 	}
 
 	@Override
@@ -159,10 +173,10 @@ public class MainActivity extends Activity implements AdListener {
 		editor.putInt("videoQuality", NativeLib.videoQuality);
 		editor.putInt("viewMode", NativeLib.viewMode);
 		editor.commit();
-		
+
 		NativeLib.OnStopMusic();
 		NativeLib.UnloadSounds();
-		
+
 		mSensorManager.unregisterListener(mSensorListener); 
 
 		System.exit(0);
@@ -172,13 +186,13 @@ public class MainActivity extends Activity implements AdListener {
 		this.onDestroy();
 	}
 
-	private void updateTV(float x, float y, float z) {
+	private void updateTV(float x, float y) {
 
 		if (mMainView.gameMode == NativeLib.RACING) {
 
-			if (y<-kYSensibility) {
-				if (y<-kYMax) mMainView.turnFact = -1.0;
-				else mMainView.turnFact = y/kYMax;
+			if (x<-kYSensibility) {
+				if (x<-kYMax) mMainView.turnFact = -1.0;
+				else mMainView.turnFact = x/kYMax;
 				if (trackingRight) {
 					mMainView.keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingRight = false;
@@ -187,9 +201,9 @@ public class MainActivity extends Activity implements AdListener {
 					mMainView.keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingLeft = true;
 				}
-			} else if (y>kYSensibility) {
-				if (y>kYMax) mMainView.turnFact = +1.0;
-				else mMainView.turnFact = y/kYMax;
+			} else if (x>kYSensibility) {
+				if (x>kYMax) mMainView.turnFact = +1.0;
+				else mMainView.turnFact = x/kYMax;
 				if (trackingLeft) {
 					mMainView.keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingLeft = false;
@@ -210,7 +224,7 @@ public class MainActivity extends Activity implements AdListener {
 				}
 			}
 
-			if (Math.abs(x)>kXDown) {
+			if (Math.abs(y)>kXDown) {
 				if (trackingUp) {
 					mMainView.keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingUp = false;
@@ -219,7 +233,7 @@ public class MainActivity extends Activity implements AdListener {
 					mMainView.keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingDown = true;
 				}
-			} else if (Math.abs(x)<kXUp) {
+			} else if (Math.abs(y)<kXUp) {
 				if (trackingDown) {
 					mMainView.keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingDown = false;
@@ -239,32 +253,24 @@ public class MainActivity extends Activity implements AdListener {
 				}
 			}
 
-			/*
-			if ((Math.abs(z) > kAccelerationThreshold 
-					|| Math.abs(y) > kAccelerationThreshold 
-					|| Math.abs(x) > kAccelerationThreshold)
-					&& !shaking) {
-				shaking = true;
-				mMainView.keyboardFunction(NativeLib.WSK_JUMP, NativeLib.WSK_NONSPECIAL, NativeLib.WSK_PRESSED);
-			}
-			if ((Math.abs(z) < kAccelerationThreshold 
-					|| Math.abs(y) > kAccelerationThreshold 
-					|| Math.abs(x) > kAccelerationThreshold) 
-					&& shaking) {
-				shaking=false;
-				mMainView.keyboardFunction(NativeLib.WSK_JUMP, NativeLib.WSK_NONSPECIAL, NativeLib.WSK_RELEASED);
-			}
-			 */
-
 		}
 
 	} 
 
 	private final SensorEventListener mSensorListener = new SensorEventListener() { 
 		public void onSensorChanged(SensorEvent event) { 
-			updateTV(event.values[0], 
-					event.values[1], 
-					event.values[2]); 
+			accCounter--;
+			accValueX += event.values[0];
+			accValueY += event.values[1];
+
+			if (accCounter==0) {
+				if (dRotate)
+					updateTV(accValueY/accSamples, accValueX/accSamples);
+				else
+					updateTV(accValueX/accSamples, accValueY/accSamples);
+				accValueX = accValueY = 0;
+				accCounter = accSamples;
+			}
 		} 
 
 		public void onAccuracyChanged(Sensor sensor, int accuracy) {} 
@@ -312,7 +318,7 @@ public class MainActivity extends Activity implements AdListener {
 			File fdir = new File( dir );
 			if (!fdir.exists())
 				fdir.mkdirs();
-			
+
 			ZipInputStream zs = new ZipInputStream(mAssetManager.open("files.zip", AssetManager.ACCESS_BUFFER));
 
 			ZipEntry item;

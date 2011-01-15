@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	android:installLocation="preferExternal"
-	package="com.drodin.tuxrider" android:versionCode="7"
-	android:versionName="1.0.5 beta">
+	package="com.drodin.tuxrider" android:versionCode="8"
+	android:versionName="1.0.6 beta">
 	<supports-screens android:anyDensity="true"
 		android:smallScreens="true" android:normalScreens="true"
 		android:largeScreens="true" />
@@ -10,7 +10,7 @@
 		android:debuggable="false">
 		<activity android:name=".MainActivity" android:label="@string/app_name"
 			android:launchMode="singleTask" android:multiprocess="false"
-			android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation"
+			android:screenOrientation="nosensor" android:configChanges="keyboardHidden|orientation"
 			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@style/Theme">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
