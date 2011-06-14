@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	android:installLocation="preferExternal"
-	package="com.drodin.tuxrider" android:versionCode="8"
-	android:versionName="1.0.6 beta">
+	package="com.drodin.tuxrider" android:versionCode="9"
+	android:versionName="1.0.7 beta">
 	<supports-screens android:anyDensity="true"
 		android:smallScreens="true" android:normalScreens="true"
 		android:largeScreens="true" />
@@ -20,7 +20,7 @@
 		<activity android:name="com.admob.android.ads.AdMobActivity"
 			android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
 			android:configChanges="orientation|keyboard|keyboardHidden" />
-		<meta-data android:value="a14bd820c6e3b14" android:name="ADMOB_PUBLISHER_ID" />
+		<meta-data android:value="a14d3678cfc9fb7" android:name="ADMOB_PUBLISHER_ID" />
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
 

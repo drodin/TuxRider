@@ -81,10 +81,10 @@ public class MainActivity extends Activity implements AdListener {
 	private int accCounter = accSamples;
 	private float accValueX = 0;
 	private float accValueY = 0; 
-	private final float kYMax = 4.5f;
-	private final float kYSensibility = 1f;
-	private final float kXDown = 8f;
-	private final float kXUp = 7f;
+	private final float kXMax = 4.5f;
+	private final float kXSensibility = 1f;
+	private final float kYDown = 8f;
+	private final float kYUp = 7f;
 	private boolean trackingLeft = false;
 	private boolean trackingRight = false;
 	private boolean trackingUp = false;
@@ -190,9 +190,9 @@ public class MainActivity extends Activity implements AdListener {
 
 		if (mMainView.gameMode == NativeLib.RACING) {
 
-			if (x<-kYSensibility) {
-				if (x<-kYMax) mMainView.turnFact = -1.0;
-				else mMainView.turnFact = x/kYMax;
+			if (x>kXSensibility) {
+				if (x>kXMax) mMainView.turnFact = -1.0;
+				else mMainView.turnFact = -x/kXMax;
 				if (trackingRight) {
 					mMainView.keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingRight = false;
@@ -201,9 +201,9 @@ public class MainActivity extends Activity implements AdListener {
 					mMainView.keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingLeft = true;
 				}
-			} else if (x>kYSensibility) {
-				if (x>kYMax) mMainView.turnFact = +1.0;
-				else mMainView.turnFact = x/kYMax;
+			} else if (x<-kXSensibility) {
+				if (x<-kXMax) mMainView.turnFact = +1.0;
+				else mMainView.turnFact = -x/kXMax;
 				if (trackingLeft) {
 					mMainView.keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingLeft = false;
@@ -224,7 +224,7 @@ public class MainActivity extends Activity implements AdListener {
 				}
 			}
 
-			if (Math.abs(y)>kXDown) {
+			if (Math.abs(y)>kYDown) {
 				if (trackingUp) {
 					mMainView.keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingUp = false;
@@ -233,7 +233,7 @@ public class MainActivity extends Activity implements AdListener {
 					mMainView.keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
 					trackingDown = true;
 				}
-			} else if (Math.abs(y)<kXUp) {
+			} else if (Math.abs(y)<kYUp) {
 				if (trackingDown) {
 					mMainView.keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
 					trackingDown = false;
@@ -265,7 +265,7 @@ public class MainActivity extends Activity implements AdListener {
 
 			if (accCounter==0) {
 				if (dRotate)
-					updateTV(accValueY/accSamples, accValueX/accSamples);
+					updateTV(-accValueY/accSamples, accValueX/accSamples);
 				else
 					updateTV(accValueX/accSamples, accValueY/accSamples);
 				accValueX = accValueY = 0;
