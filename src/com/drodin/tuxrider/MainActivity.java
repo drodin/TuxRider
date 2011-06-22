@@ -24,6 +24,7 @@
 
 package com.drodin.tuxrider;
 
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
@@ -47,11 +48,9 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.admob.android.ads.AdListener;
-import com.admob.android.ads.AdManager;
-import com.admob.android.ads.AdView;
+import com.google.ads.*;
 
-public class MainActivity extends Activity implements AdListener {
+public class MainActivity extends Activity {
 
 	public boolean firstRun = true;
 
@@ -99,8 +98,6 @@ public class MainActivity extends Activity implements AdListener {
 		getWindow().setFlags(
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-		AdManager.setTestDevices(new String[] {AdManager.TEST_EMULATOR});
 
 		dWidth = getWindowManager().getDefaultDisplay().getWidth();
 		dHeight = getWindowManager().getDefaultDisplay().getHeight();
@@ -151,17 +148,17 @@ public class MainActivity extends Activity implements AdListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if (mMainView != null)
-			mMainView.onResume();
+		//if (mMainView != null)
+		//	mMainView.onResume();
 		mSensorManager.registerListener(mSensorListener, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		if (mMainView != null)
-			mMainView.onPause();
-		this.onDestroy();
+		//if (mMainView != null)
+		//	mMainView.onPause();
+		//this.onDestroy();
 	}
 
 	@Override
@@ -285,13 +282,17 @@ public class MainActivity extends Activity implements AdListener {
 		case NativeLib.PREFERENCE:
 		case NativeLib.LOADING:
 			if (mAdView == null) {
-				mAdView = new AdView(this);
-				mAdView.setAdListener(this);
+				mAdView = new AdView(this, AdSize.BANNER, "a14d3678cfc9fb7");
 
 				mOverlayView.removeAllViews();
 
 				mOverlayView.addView(mAdView,
-						new LayoutParams((int) (320*dScale+0.5f), (int) (48*dScale+0.5f)));
+						new LayoutParams((int) (320*dScale+0.5f), (int) (50*dScale+0.5f)));
+				
+				AdRequest adRequest = new AdRequest();
+				adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
+
+				mAdView.loadAd(adRequest);
 			}
 			if (gameMode != NativeLib.SPLASH)
 				mOverlayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.transparent));
@@ -307,9 +308,8 @@ public class MainActivity extends Activity implements AdListener {
 			break;
 		}
 	}
-
+	
 	public void InstallFiles() {
-
 		final AssetManager mAssetManager = getApplication().getResources().getAssets();
 
 		try {
@@ -352,26 +352,6 @@ public class MainActivity extends Activity implements AdListener {
 		{
 			//noop
 		}
-	}
-
-	public void onFailedToReceiveAd(AdView arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void onFailedToReceiveRefreshedAd(AdView arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void onReceiveAd(AdView arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void onReceiveRefreshedAd(AdView arg0) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

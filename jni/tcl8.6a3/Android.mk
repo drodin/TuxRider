@@ -4,7 +4,7 @@ GENERIC_DIR := generic
 TOMMATH_DIR := libtommath
 UNIX_DIR := unix
 
-PKG_DIR := /data/data
+PKG_DIR := data
 
 include $(CLEAR_VARS)
 

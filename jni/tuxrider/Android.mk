@@ -12,9 +12,8 @@ LOCAL_C_INCLUDES := \
 LOCAL_CFLAGS := \
     -D__APPLE__ \
     -DLIB_CLASS=\"com/drodin/tuxrider/NativeLib\" \
-    -DDATA_DIR=\"/sdcard/com.drodin.tuxrider/\" \
-	--include C:/android/workspace/tuxrider/jni/tuxrider/android/android.h \
-#	--include $(LOCAL_PATH)/android/android.h \
+    -DDATA_DIR=\"\\/sdcard\\/com.drodin.tuxrider\\/\" \
+	--include $(LOCAL_PATH)/android/android.h \
 
 SDL_SRCS := \
 	src/*.c \
