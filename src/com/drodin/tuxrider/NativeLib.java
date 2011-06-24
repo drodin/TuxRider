@@ -85,9 +85,6 @@ public class NativeLib {
 	private static MainAudioManager mAudioMgr;
 	public NativeLib(Context context) {
 		mAudioMgr = MainAudioManager.getInstance(context);
-	}
-	
-	public static void PreloadSounds() {
 		try {
 			if ( mAudioMgr != null)
 				mAudioMgr.preloadSounds();

@@ -25,17 +25,12 @@
 package com.drodin.tuxrider;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.AssetManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -48,11 +43,11 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.google.ads.*;
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
 
 public class MainActivity extends Activity {
-
-	public boolean firstRun = true;
 
 	public static MainActivity currentInstance = null;
 
@@ -148,17 +143,17 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		//if (mMainView != null)
-		//	mMainView.onResume();
+		if (mMainView != null)
+			mMainView.onResume();
 		mSensorManager.registerListener(mSensorListener, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		//if (mMainView != null)
-		//	mMainView.onPause();
-		//this.onDestroy();
+		if (mMainView != null)
+			mMainView.onPause();
+		this.onDestroy();
 	}
 
 	@Override
@@ -309,49 +304,4 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	public void InstallFiles() {
-		final AssetManager mAssetManager = getApplication().getResources().getAssets();
-
-		try {
-			String dir = NativeLib.DATA_DIR + "/";
-
-			File fdir = new File( dir );
-			if (!fdir.exists())
-				fdir.mkdirs();
-
-			ZipInputStream zs = new ZipInputStream(mAssetManager.open("files.zip", AssetManager.ACCESS_BUFFER));
-
-			ZipEntry item;
-			while( (item = zs.getNextEntry())!=null ) {
-
-				if( item.isDirectory() ) {
-					File newdir = new File( dir + item.getName() );
-					if (!newdir.exists())
-						newdir.mkdir();
-				}
-				else {
-					File newfile = new File( dir + item.getName() );
-					long filesize = item.getSize();
-					if (newfile.exists() && newfile.length() == filesize)
-						continue;
-					byte[] tempdata = new byte[(int)filesize];
-					int offset = 0;
-					while (offset<filesize)
-						offset += zs.read(tempdata, offset, (int)filesize-offset);
-					zs.closeEntry();
-					newfile.createNewFile();
-					FileOutputStream fo = new FileOutputStream(newfile);
-					fo.write(tempdata);
-					fo.close();
-				}
-			}
-
-			zs.close();   
-		}
-		catch(Exception e)
-		{
-			//noop
-		}
-	}
-
 }

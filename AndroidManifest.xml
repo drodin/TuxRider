@@ -7,7 +7,7 @@
 		android:largeScreens="true" />
 	<application android:icon="@drawable/icon" android:label="@string/app_name"
 		android:debuggable="false">
-		<activity android:name=".MainActivity" android:launchMode="singleTask"
+		<activity android:name=".Installer" android:launchMode="singleTask"
 			android:multiprocess="false" android:screenOrientation="nosensor"
 			android:configChanges="keyboardHidden|orientation"
 			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@style/Theme">
@@ -15,6 +15,11 @@
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
+		</activity>
+		<activity android:name=".MainActivity" android:launchMode="singleTask"
+			android:multiprocess="false" android:screenOrientation="nosensor"
+			android:configChanges="keyboardHidden|orientation"
+			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@style/Theme">
 		</activity>
 		<activity android:name="com.google.ads.AdActivity"
 			android:configChanges="keyboard|keyboardHidden|orientation" />

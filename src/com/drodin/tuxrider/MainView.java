@@ -248,15 +248,7 @@ public class MainView extends GLSurfaceView {
 		}
 
 		public void onSurfaceChanged(GL10 gl, int width, int height) {
-
-			if (mMainActivity.firstRun) {
-				mMainActivity.InstallFiles();
-				NativeLib.PreloadSounds();
-				mMainActivity.firstRun=false;
-			}
-
 			NativeLib.resize(width, height);
-
 		}
 
 		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
