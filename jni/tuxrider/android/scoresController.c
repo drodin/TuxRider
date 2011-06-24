@@ -6,7 +6,7 @@
 //  Copyright 2008 école Centrale de Lyon. All rights reserved.
 //
 
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 
 //static scoresController* sharedScoresController=nil;
 

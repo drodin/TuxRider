@@ -23,9 +23,9 @@
 #include "game_config.h"
 
 
-#import "course_mgr.h"
-#import "multiplayer.h"
-#import "game_logic_util.h"
+#include "course_mgr.h"
+#include "multiplayer.h"
+#include "game_logic_util.h"
 
 #define STANDARD_RECORD_SIZE 512
 

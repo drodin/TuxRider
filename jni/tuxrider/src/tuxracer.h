@@ -118,8 +118,8 @@
 
 /* OpenGL */
 #ifdef __APPLE__
-#import <GLES/gl.h>
-#import <GLES/glext.h>
+#include <GLES/gl.h>
+#include <GLES/glext.h>
 #include "androidgl.h"
 #else
 #include <GL/gl.h>

@@ -39,7 +39,7 @@
 #include "ui_mgr.h"
 #include "joystick.h"
 #include "part_sys.h"
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 #include "game_over.h"
 
 #define NEXT_MODE RACE_SELECT

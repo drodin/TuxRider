@@ -6,7 +6,7 @@
 //  Copyright école Centrale de Lyon 2008. All rights reserved.
 //
 
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 
 const char* getRessourcePath() {
 	return DATA_DIR;

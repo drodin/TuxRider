@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 
 public class Installer extends Activity {
 
-	private static LinearLayout mOverlayView = null;
+	private static LinearLayout mView = null;
 
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -29,21 +29,21 @@ public class Installer extends Activity {
 		if (getWindowManager().getDefaultDisplay().getHeight()>getWindowManager().getDefaultDisplay().getWidth())
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-		mOverlayView = new LinearLayout(getApplicationContext());
-		mOverlayView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		mOverlayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.splash));
+		mView = new LinearLayout(getApplicationContext());
+		mView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+		mView.setBackgroundDrawable(getResources().getDrawable(R.drawable.splash));
 
-		setContentView(mOverlayView,
+		setContentView(mView,
 				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 		
 		new Thread(new Runnable() {
             public void run() {
             	InstallFiles();
             	startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            	finish();
+        		finish();
             }
         }).start();
-
+		
 	}
 	
 	

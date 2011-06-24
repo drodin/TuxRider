@@ -82,7 +82,7 @@
 #endif
 
 #ifdef __APPLE__
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 #endif
 
 /* Identifies the parameter type */

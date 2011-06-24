@@ -8,7 +8,7 @@
 
 #include "tuxracer.h"
 #include "winsys.h"
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 #include "touchwinsys.h"
 
 winsys_display_func_t display_func = NULL;

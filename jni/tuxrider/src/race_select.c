@@ -40,7 +40,7 @@
 #include "ui_snow.h"
 #include "joystick.h"
 #ifdef __APPLE__
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 #endif
 
 static textarea_t *desc_ta = NULL;

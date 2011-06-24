@@ -8,10 +8,8 @@
 
 /*************************************************************/
 
-#import "tuxracer.h"
-#import "androidgl.h"
-#import <assert.h>
-#import <stdbool.h>
+#include <assert.h>
+#include <stdbool.h>
 
 /* Extensions */
 #define GLU_EXT_object_space_tess          1

@@ -162,7 +162,7 @@ static void continue_click_cb( button_t *button, void *userdata )
 
 /*
 #ifdef __APPLE__
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 static void howToPlay_click_cb( button_t *button, void *userdata )
 {
     check_assertion( userdata == NULL, "userdata is not null" );

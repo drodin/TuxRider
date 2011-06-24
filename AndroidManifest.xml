@@ -7,7 +7,7 @@
 		android:largeScreens="true" />
 	<application android:icon="@drawable/icon" android:label="@string/app_name"
 		android:debuggable="false">
-		<activity android:name=".Installer" android:launchMode="singleTask"
+		<activity android:name=".Installer"
 			android:multiprocess="false" android:screenOrientation="nosensor"
 			android:configChanges="keyboardHidden|orientation"
 			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@style/Theme">

@@ -38,10 +38,10 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import com.google.ads.AdRequest;
 import com.google.ads.AdSize;
@@ -55,8 +55,6 @@ public class MainActivity extends Activity {
 
 	private static SharedPreferences settings = null;
 
-	private float dScale = 1.0f;
-
 	private int dWidth, dHeight;
 
 	private boolean dRotate = false;
@@ -64,7 +62,6 @@ public class MainActivity extends Activity {
 	private static FrameLayout mFrameLayout = null;
 
 	private static MainView mMainView = null;
-	private static LinearLayout mOverlayView = null;
 	private static AdView mAdView = null;
 
 	public SensorManager mSensorManager = null; 
@@ -114,23 +111,23 @@ public class MainActivity extends Activity {
 			mSensor = mSensors.get(0); 
 		}
 
-		dScale = getApplicationContext().getResources().getDisplayMetrics().density;
-
 		mFrameLayout = new FrameLayout(getApplicationContext());
 
 		mMainView = new MainView(getApplicationContext());
 
-		mOverlayView = new LinearLayout(getApplicationContext());
-		mOverlayView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		mOverlayView.setFocusable(false);
-		mOverlayView.setFocusableInTouchMode(false);
-		mOverlayView.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
+		mAdView = new AdView(this, AdSize.BANNER, "a14d3678cfc9fb7");
+		
+		AdRequest adRequest = new AdRequest();
+		adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
+
+		mAdView.loadAd(adRequest);
+		mAdView.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
 
 		setOverlayView(mMainView.gameMode);
 
 		mFrameLayout.addView(mMainView,
 				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		mFrameLayout.addView(mOverlayView,
+		mFrameLayout.addView(mAdView,
 				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
 		setContentView(mFrameLayout,
@@ -143,33 +140,35 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+
+		mSensorManager.registerListener(mSensorListener, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
+		
 		if (mMainView != null)
 			mMainView.onResume();
-		mSensorManager.registerListener(mSensorListener, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
+		
+		NativeLib.OnStopMusic();
+		mSensorManager.unregisterListener(mSensorListener); 
+
 		if (mMainView != null)
 			mMainView.onPause();
-		this.onDestroy();
+		
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putInt("soundEnabled", NativeLib.soundEnabled);
+		editor.putInt("videoQuality", NativeLib.videoQuality);
+		editor.putInt("viewMode", NativeLib.viewMode);
+		editor.commit();
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 
-		SharedPreferences.Editor editor = settings.edit();
-		editor.putInt("soundEnabled", NativeLib.soundEnabled);
-		editor.putInt("videoQuality", NativeLib.videoQuality);
-		editor.putInt("viewMode", NativeLib.viewMode);
-		editor.commit();
-
-		NativeLib.OnStopMusic();
 		NativeLib.UnloadSounds();
-
-		mSensorManager.unregisterListener(mSensorListener); 
 
 		System.exit(0);
 	}
@@ -180,7 +179,7 @@ public class MainActivity extends Activity {
 
 	private void updateTV(float x, float y) {
 
-		if (mMainView.gameMode == NativeLib.RACING) {
+		if (mMainView != null && mMainView.gameMode == NativeLib.RACING) {
 
 			if (x>kXSensibility) {
 				if (x>kXMax) mMainView.turnFact = -1.0;
@@ -276,30 +275,14 @@ public class MainActivity extends Activity {
 		case NativeLib.RACE_SELECT:
 		case NativeLib.PREFERENCE:
 		case NativeLib.LOADING:
-			if (mAdView == null) {
-				mAdView = new AdView(this, AdSize.BANNER, "a14d3678cfc9fb7");
-
-				mOverlayView.removeAllViews();
-
-				mOverlayView.addView(mAdView,
-						new LayoutParams((int) (320*dScale+0.5f), (int) (50*dScale+0.5f)));
-				
-				AdRequest adRequest = new AdRequest();
-				adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
-
-				mAdView.loadAd(adRequest);
+			if (mAdView != null) {
+				mAdView.setVisibility(View.VISIBLE);
 			}
-			if (gameMode != NativeLib.SPLASH)
-				mOverlayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.transparent));
-			else
-				mOverlayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.splash));
 			break;
 		default:
-			mOverlayView.removeAllViews();
 			if (mAdView != null) {
-				mAdView = null;
+				mAdView.setVisibility(View.INVISIBLE);
 			}
-			mOverlayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.transparent));
 			break;
 		}
 	}

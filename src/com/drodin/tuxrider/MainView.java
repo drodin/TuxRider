@@ -30,11 +30,10 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
-import android.opengl.GLSurfaceView;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
-public class MainView extends GLSurfaceView {
+public class MainView extends MyGLSurfaceView {
 
 	public int gameMode = 0;
 	public int prevMode = 0;
@@ -67,7 +66,7 @@ public class MainView extends GLSurfaceView {
 		setFocusableInTouchMode(true);
 
 		setRenderer(new MainRenderer());
-		setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+		setRenderMode(MyGLSurfaceView.RENDERMODE_WHEN_DIRTY);
 	}
 
 	@Override
@@ -210,7 +209,7 @@ public class MainView extends GLSurfaceView {
 
 	}
 
-	public class MainRenderer implements GLSurfaceView.Renderer {
+	public class MainRenderer implements MyGLSurfaceView.Renderer {
 
 		public void onDrawFrame(GL10 gl) {
 

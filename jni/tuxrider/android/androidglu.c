@@ -6,7 +6,7 @@
 //  Copyright 2008 école Centrale de Lyon. All rights reserved.
 //
 
-#import "androidglu.h"
+#include "tuxracer.h"
 
 static GLboolean legalFormat(GLenum format);
 static GLboolean legalType(GLenum);

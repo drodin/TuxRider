@@ -1,7 +1,6 @@
-#import "tuxracer.h"
-#import "androidgl.h"
-#import <assert.h>
-#import <stdbool.h>
+#include "tuxracer.h"
+#include <assert.h>
+#include <stdbool.h>
 
 #undef glBegin
 #undef glEnd

@@ -5,7 +5,7 @@
  */
 
 
-#import "androidglu.h"
+#include "androidglu.h"
 
 #ifdef __cplusplus
 extern "C" {

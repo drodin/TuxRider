@@ -29,7 +29,7 @@
 #include "nmrcl.h"
 #include "audio.h"
 #include "loop.h"
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 #include <stdio.h>
 #include <stdlib.h>
 

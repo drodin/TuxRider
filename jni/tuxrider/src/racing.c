@@ -38,7 +38,7 @@
 #include "track_marks.h"
 #include "hud.h"
 #include "joystick.h"
-#import "sharedGeneralFunctions.h"
+#include "sharedGeneralFunctions.h"
 
 /* Time constant for automatic steering centering (s) */
 #define TURN_DECAY_TIME_CONSTANT 0.5
