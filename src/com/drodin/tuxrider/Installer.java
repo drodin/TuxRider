@@ -27,7 +27,7 @@ public class Installer extends Activity {
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 		if (getWindowManager().getDefaultDisplay().getHeight()>getWindowManager().getDefaultDisplay().getWidth())
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 		mView = new LinearLayout(getApplicationContext());
 		mView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));

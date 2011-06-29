@@ -113,7 +113,7 @@ public class MainView extends MyGLSurfaceView {
 			case KeyEvent.KEYCODE_CAMERA:
 			case KeyEvent.KEYCODE_MENU:
 				//if (gameMode == NativeLib.RACING)
-					keyboardFunction(NativeLib.WSK_VIEW, NativeLib.WSK_NONSPECIAL, keyReleased);
+				keyboardFunction(NativeLib.WSK_VIEW, NativeLib.WSK_NONSPECIAL, keyReleased);
 				return true;
 			default:
 				return false;

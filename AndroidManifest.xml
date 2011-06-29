@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	android:installLocation="preferExternal" package="com.drodin.tuxrider"
-	android:versionCode="10" android:versionName="1.0.8 beta">
+	android:versionCode="11" android:versionName="1.0.9 beta">
 	<supports-screens android:anyDensity="true"
 		android:smallScreens="true" android:normalScreens="true"
 		android:largeScreens="true" />
 	<application android:icon="@drawable/icon" android:label="@string/app_name"
 		android:debuggable="false">
 		<activity android:name=".Installer"
-			android:multiprocess="false" android:screenOrientation="nosensor"
+			android:multiprocess="false" android:screenOrientation="landscape"
 			android:configChanges="keyboardHidden|orientation"
 			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@style/Theme">
 			<intent-filter>
@@ -17,7 +17,7 @@
 			</intent-filter>
 		</activity>
 		<activity android:name=".MainActivity" android:launchMode="singleTask"
-			android:multiprocess="false" android:screenOrientation="nosensor"
+			android:multiprocess="false" android:screenOrientation="landscape"
 			android:configChanges="keyboardHidden|orientation"
 			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@style/Theme">
 		</activity>

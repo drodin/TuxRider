@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
 		dHeight = getWindowManager().getDefaultDisplay().getHeight();
 		if (dHeight>dWidth) {
 			dRotate = true;
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		}
 
 		mNativeLib = new NativeLib(getApplicationContext());
@@ -116,7 +116,7 @@ public class MainActivity extends Activity {
 		mMainView = new MainView(getApplicationContext());
 
 		mAdView = new AdView(this, AdSize.BANNER, "a14d3678cfc9fb7");
-		
+
 		AdRequest adRequest = new AdRequest();
 		adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
 
@@ -142,7 +142,7 @@ public class MainActivity extends Activity {
 		super.onResume();
 
 		mSensorManager.registerListener(mSensorListener, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
-		
+
 		if (mMainView != null)
 			mMainView.onResume();
 	}
@@ -150,13 +150,13 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		
+
 		NativeLib.OnStopMusic();
 		mSensorManager.unregisterListener(mSensorListener); 
 
 		if (mMainView != null)
 			mMainView.onPause();
-		
+
 		SharedPreferences.Editor editor = settings.edit();
 		editor.putInt("soundEnabled", NativeLib.soundEnabled);
 		editor.putInt("videoQuality", NativeLib.videoQuality);
@@ -256,9 +256,9 @@ public class MainActivity extends Activity {
 
 			if (accCounter==0) {
 				if (dRotate)
-					updateTV(-accValueY/accSamples, accValueX/accSamples);
-				else
 					updateTV(accValueX/accSamples, accValueY/accSamples);
+				else
+					updateTV(-accValueY/accSamples, accValueX/accSamples);
 				accValueX = accValueY = 0;
 				accCounter = accSamples;
 			}
@@ -286,5 +286,5 @@ public class MainActivity extends Activity {
 			break;
 		}
 	}
-	
+
 }
