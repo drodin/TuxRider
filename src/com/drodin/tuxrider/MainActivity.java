@@ -38,14 +38,15 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.google.ads.AdRequest;
-import com.google.ads.AdSize;
-import com.google.ads.AdView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends Activity {
 
@@ -115,26 +116,21 @@ public class MainActivity extends Activity {
 
 		mMainView = new MainView(getApplicationContext());
 
-		mAdView = new AdView(this, AdSize.BANNER, "a14d3678cfc9fb7");
-
-		AdRequest adRequest = new AdRequest();
-		adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
-
-		mAdView.loadAd(adRequest);
-		mAdView.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
-
-		setOverlayView(mMainView.gameMode);
+		mAdView = new AdView(this);
+		mAdView.setAdUnitId("a14d3678cfc9fb7");
+		mAdView.setAdSize(AdSize.BANNER);
+		mAdView.setBackgroundColor(Color.TRANSPARENT);
+		mAdView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
 
 		mFrameLayout.addView(mMainView,
-				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+				new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		mFrameLayout.addView(mAdView,
-				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+				new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM));
 
 		setContentView(mFrameLayout,
-				new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+				new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 
 		mMainView.requestFocus();
-
 	}
 
 	@Override
