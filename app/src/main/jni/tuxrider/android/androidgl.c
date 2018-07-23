@@ -1,6 +1,7 @@
 #include "tuxracer.h"
 #include <assert.h>
 #include <stdbool.h>
+#include <strings.h>
 
 #undef glBegin
 #undef glEnd

@@ -98,7 +98,9 @@ resize(JNIEnv *env, jobject thiz, jint width, jint height) {
     mWidth = width;
     mHeight = height;
 
-    nclass = (*cenv)->FindClass(cenv, classPathName);
+    jclass lclass = (*cenv)->FindClass(cenv, classPathName);
+    nclass =  (jclass)((*cenv)->NewGlobalRef(cenv, lclass));
+
     OnStartMusic = (*cenv)->GetStaticMethodID(cenv, nclass, "OnStartMusic", "(Ljava/lang/String;I)V");
     OnStopMusic = (*cenv)->GetStaticMethodID(cenv, nclass, "OnStopMusic", "()V");
     OnStartSound = (*cenv)->GetStaticMethodID(cenv, nclass, "OnStartSound", "(Ljava/lang/String;I)V");
@@ -169,30 +171,6 @@ static JNINativeMethod methods[] = {
     {"render", "(IIDIZZ)I", (void*)render },
 };
 
-static int registerNativeMethods(JNIEnv* env, const char* className, JNINativeMethod* gMethods, int numMethods)
-{
-    jclass clazz;
-
-    clazz = (*env)->FindClass(env, className);
-    if (clazz == NULL) {
-        return JNI_FALSE;
-    }
-    if ((*env)->RegisterNatives(env, clazz, gMethods, numMethods) < 0) {
-        return JNI_FALSE;
-    }
-
-    return JNI_TRUE;
-}
-
-static int registerNatives(JNIEnv* env)
-{
-  if (!registerNativeMethods(env, classPathName, methods, sizeof(methods) / sizeof(methods[0]))) {
-    return JNI_FALSE;
-  }
-
-  return JNI_TRUE;
-}
-
 typedef union {
     JNIEnv* env;
     void* venv;
@@ -203,23 +181,21 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved)
     JNIEnv* env = NULL;
     UnionJNIEnvToVoid uenv;
     uenv.venv = NULL;
-    jint result = -1;
+    jint version = JNI_VERSION_1_4;
 
-    if ((*vm)->GetEnv(vm, &uenv.venv, JNI_VERSION_1_4) != JNI_OK) {
-        goto fail;
-    }
+    if ((*vm)->GetEnv(vm, &uenv.venv, version) != JNI_OK)
+        return JNI_ERR;
+
     env = uenv.env;
-
     assert(env != NULL);
 
-    if (!registerNatives(env)) {
-        goto fail;
-    }
+    jclass clazz = (*env)->FindClass(env, classPathName);
+    if (clazz == NULL)
+        return JNI_ERR;
 
-    result = JNI_VERSION_1_4;
+    if ((*env)->RegisterNatives(env, clazz, methods, sizeof(methods) / sizeof(methods[0])) < 0)
+        return JNI_ERR;
 
-fail:
-    return result;
-
+    return version;
 }
 
