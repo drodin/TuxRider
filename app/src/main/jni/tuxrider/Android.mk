@@ -13,7 +13,6 @@ LOCAL_CFLAGS := \
     -D__APPLE__ \
     -DTUXRACER_NO_ASSERT \
     -DLIB_CLASS=\"com/drodin/tuxrider/NativeLib\" \
-    -DDATA_DIR=\"\\/sdcard\\/com.drodin.tuxrider\\/\" \
 	--include $(LOCAL_PATH)/android/android.h \
 
 SDL_SRCS := \

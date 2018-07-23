@@ -30,6 +30,7 @@
 extern JNIEnv* cenv;
 extern jclass nclass;
 extern jmethodID OnStartMusic, OnStopMusic, OnStartSound, OnVolumeSound, OnStopSound;
+extern const char* dataDir;
 
 extern int forceExit;
 

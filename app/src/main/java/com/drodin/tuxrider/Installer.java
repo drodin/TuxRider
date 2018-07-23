@@ -54,8 +54,11 @@ public class Installer extends Activity {
 			String dir = NativeLib.DATA_DIR + "/";
 
 			File fdir = new File( dir );
-			if (!fdir.exists())
-				fdir.mkdirs();
+			if (!fdir.exists()) {
+				//fdir.mkdirs();
+				NativeLib.DATA_DIR = getApplicationContext().getFilesDir().getAbsolutePath();
+				dir = NativeLib.DATA_DIR + "/";
+			}
 
 			ZipInputStream zs = new ZipInputStream(mAssetManager.open("files.zip", AssetManager.ACCESS_BUFFER));
 

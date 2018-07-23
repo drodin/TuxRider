@@ -7,13 +7,14 @@
 //
 
 #include "sharedGeneralFunctions.h"
+#include "android.h"
 
 const char* getRessourcePath() {
-	return DATA_DIR;
+	return dataDir;
 }
 
 const char* getConfigPath() {
-	return DATA_DIR;
+	return dataDir;
 }
 
 void turnScreenToLandscape() {

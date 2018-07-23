@@ -28,6 +28,7 @@
 #include <assert.h>
 #include <dlfcn.h>
 
+#include "android.h"
 #include "winsys.h"
 #include "touchwinsys.h"
 
@@ -52,10 +53,12 @@ int orientation = 0;
 JNIEnv* cenv = NULL;
 jclass nclass;
 jmethodID OnStartMusic, OnStopMusic, OnStartSound, OnVolumeSound, OnStopSound;
-jfieldID soundEnabled, videoQuality, viewMode;
+jfieldID soundEnabled, videoQuality, viewMode, dataDirID;
 
 int mWidth = 0;
 int mHeight = 0;
+
+const char *dataDir = NULL;
 
 extern int libtuxracer_main( int argc, char **argv );
 
@@ -115,6 +118,10 @@ resize(JNIEnv *env, jobject thiz, jint width, jint height) {
 
     viewMode = (*cenv)->GetStaticFieldID(cenv, nclass, "viewMode", "I");
     int vim = (*cenv)->GetStaticIntField(cenv, nclass, viewMode);
+
+    dataDirID = (*cenv)->GetStaticFieldID(env, nclass, "DATA_DIR", "Ljava/lang/String;");
+    jstring jstr = (*cenv)->GetStaticObjectField(env, nclass, dataDirID);
+    dataDir = (*cenv)->GetStringUTFChars(env, jstr, NULL);
 
     if (!initDone) {
         libtuxracer_main(0, NULL);
