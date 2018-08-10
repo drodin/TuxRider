@@ -8,6 +8,13 @@ android {
         applicationId "com.drodin.tuxrider"
         minSdkVersion 14
         targetSdkVersion 28
+        externalNativeBuild {
+            cmake {
+                arguments   '-DANDROID_STL=c++_static',
+                            '-DANDROID_STUDIO=1',
+                            '-DCMAKE_VERBOSE_MAKEFILE=1'
+            }
+        }
     }
 
     buildTypes {
@@ -18,8 +25,8 @@ android {
     }
 
     externalNativeBuild {
-        ndkBuild {
-            path 'src/main/jni/Android.mk'
+        cmake {
+            path "CMakeLists.txt"
         }
     }
 }
