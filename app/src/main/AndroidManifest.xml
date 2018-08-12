@@ -8,11 +8,11 @@
 	<supports-screens android:anyDensity="true"
 		android:smallScreens="true" android:normalScreens="true"
 		android:largeScreens="true" />
-	<application android:icon="@drawable/icon" android:label="@string/app_name" android:allowBackup="true">
+	<application android:icon="@drawable/icon" android:label="Tux Rider" android:allowBackup="true">
 		<activity android:name=".Installer"
 			android:multiprocess="false" android:screenOrientation="landscape"
 			android:configChanges="keyboardHidden|orientation"
-			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@style/Theme">
+			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -21,7 +21,7 @@
 		<activity android:name=".MainActivity" android:launchMode="singleTask"
 			android:multiprocess="false" android:screenOrientation="landscape"
 			android:configChanges="keyboardHidden|orientation"
-			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@style/Theme">
+			android:windowSoftInputMode="stateAlwaysHidden" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
 		</activity>
 		<activity
             android:name="com.google.android.gms.ads.AdActivity"
@@ -29,4 +29,4 @@
 		<meta-data android:name="com.google.android.gms.version"
 			android:value="@integer/google_play_services_version" />
 	</application>
-</manifest> 
+</manifest>
