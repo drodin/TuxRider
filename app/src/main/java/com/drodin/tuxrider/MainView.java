@@ -59,6 +59,7 @@ public class MainView extends GLSurfaceView {
 		setFocusableInTouchMode(true);
 
 		setRenderer(new MainRenderer());
+		setPreserveEGLContextOnPause(true);
 		setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 	}
 

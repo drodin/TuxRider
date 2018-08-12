@@ -37,7 +37,7 @@ public class MainAudioManager {
 
 	private static Context mContext;
 
-	private volatile HashMap<String, AudioClip> mSounds = new HashMap<String, AudioClip>();
+	private volatile HashMap<String, AudioClip> mSounds = new HashMap<>();
 
 	private AudioClip music;
 
@@ -98,6 +98,12 @@ public class MainAudioManager {
 	public synchronized void stopSound( String key ) { 
 		if ( mSounds.containsKey(key)) {
 			mSounds.get(key).stop();
+		}
+	}
+
+	public synchronized void stopAllSounds() {
+		for (AudioClip mSnd : mSounds.values()) {
+			mSnd.stop();
 		}
 	}
 

@@ -56,11 +56,7 @@ public class MainActivity extends Activity {
 
 	private static SharedPreferences settings = null;
 
-	private int dWidth, dHeight;
-
 	private boolean dRotate = false;
-
-	private static FrameLayout mFrameLayout = null;
 
 	private static MainView mMainView = null;
 	private static AdView mAdView = null;
@@ -92,9 +88,9 @@ public class MainActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-		dWidth = getWindowManager().getDefaultDisplay().getWidth();
-		dHeight = getWindowManager().getDefaultDisplay().getHeight();
-		if (dHeight>dWidth) {
+		int dWidth = getWindowManager().getDefaultDisplay().getWidth();
+		int dHeight = getWindowManager().getDefaultDisplay().getHeight();
+		if (dHeight > dWidth) {
 			dRotate = true;
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		}
@@ -112,7 +108,7 @@ public class MainActivity extends Activity {
 			mSensor = mSensors.get(0); 
 		}
 
-		mFrameLayout = new FrameLayout(getApplicationContext());
+		FrameLayout mFrameLayout = new FrameLayout(getApplicationContext());
 
 		mMainView = new MainView(getApplicationContext());
 
@@ -148,6 +144,11 @@ public class MainActivity extends Activity {
 		super.onPause();
 
 		NativeLib.OnStopMusic();
+		NativeLib.OnStopAllSounds();
+
+		if (mMainView.gameMode == NativeLib.RACING)
+			mMainView.keyboardFunction(NativeLib.WSK_PAUSE, NativeLib.WSK_NONSPECIAL, NativeLib.WSK_PRESSED);
+
 		mSensorManager.unregisterListener(mSensorListener); 
 
 		if (mMainView != null)

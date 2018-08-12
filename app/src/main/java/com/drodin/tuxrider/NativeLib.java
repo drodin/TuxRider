@@ -51,6 +51,7 @@ public class NativeLib {
 	public static final int WSK_JUMP = 'e';
 	public static final int WSK_QUIT = 'q';
 	public static final int WSK_VIEW = '0';
+	public static final int WSK_PAUSE = 'p';
 
 	public static final boolean WSK_PRESSED = false;
 	public static final boolean WSK_RELEASED = true;
@@ -109,6 +110,13 @@ public class NativeLib {
 		try {
 			if ( mAudioMgr != null)
 				mAudioMgr.stopSound(name);
+		} catch (Exception e) { }
+	}
+
+	public static void OnStopAllSounds() {
+		try {
+			if ( mAudioMgr != null)
+				mAudioMgr.stopAllSounds();
 		} catch (Exception e) { }
 	}
 
