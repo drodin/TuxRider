@@ -44,15 +44,7 @@ public class MainView extends GLSurfaceView {
 	private volatile int touchX = -1;
 	private volatile int touchY = -1;
 
-	private boolean trackballUsed = false;
-	private int trackballSkipCycles = 10;
-	private int trackballSkipped = 0;
-	private boolean trackingLeft = false;
-	private boolean trackingRight = false;
-	private boolean trackingUp = false;
-	private boolean trackingDown = false;
-
-	private ArrayList<KeyState> keyQueue = new ArrayList<KeyState>();
+	private ArrayList<KeyState> keyQueue = new ArrayList<>();
 
 	public volatile double turnFact;
 
@@ -61,7 +53,7 @@ public class MainView extends GLSurfaceView {
 
 		mMainActivity = MainActivity.currentInstance;
 
-		setId((int)Math.random()*100);
+		setId((int)(Math.random()*100));
 
 		setFocusable(true);
 		setFocusableInTouchMode(true);
@@ -75,7 +67,7 @@ public class MainView extends GLSurfaceView {
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			touchX = Math.round(event.getX());
 			touchY = Math.round(event.getY());
-			if (gameMode==NativeLib.RACING)
+			if (gameMode == NativeLib.RACING)
 				keyboardFunction(NativeLib.WSK_JUMP, NativeLib.WSK_NONSPECIAL, NativeLib.WSK_PRESSED);
 		} else if (event.getAction() == MotionEvent.ACTION_UP && gameMode == NativeLib.RACING)
 			keyboardFunction(NativeLib.WSK_JUMP, NativeLib.WSK_NONSPECIAL, NativeLib.WSK_RELEASED);
@@ -90,31 +82,14 @@ public class MainView extends GLSurfaceView {
 					NativeLib.WSK_PRESSED:NativeLib.WSK_RELEASED;
 
 			switch (keyCode) {
-			case KeyEvent.KEYCODE_DPAD_LEFT:
-				keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, keyReleased);
-				turnFact = -1.0;
-				return true;
-			case KeyEvent.KEYCODE_DPAD_RIGHT:
-				keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, keyReleased);
-				turnFact = 1.0;
-				return true;
-			case KeyEvent.KEYCODE_DPAD_UP:
-				keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, keyReleased);
-				return true;
-			case KeyEvent.KEYCODE_DPAD_DOWN:
-				keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, keyReleased);
-				return true;
-			case KeyEvent.KEYCODE_DPAD_CENTER:
-				keyboardFunction(NativeLib.WSK_JUMP, NativeLib.WSK_NONSPECIAL, keyReleased);
-				return true;
 			case KeyEvent.KEYCODE_BACK:
 				keyboardFunction(NativeLib.WSK_QUIT, NativeLib.WSK_NONSPECIAL, keyReleased);
 				return true;
 			case KeyEvent.KEYCODE_FOCUS:
 			case KeyEvent.KEYCODE_CAMERA:
 			case KeyEvent.KEYCODE_MENU:
-				//if (gameMode == NativeLib.RACING)
-				keyboardFunction(NativeLib.WSK_VIEW, NativeLib.WSK_NONSPECIAL, keyReleased);
+				if (gameMode == NativeLib.RACING)
+					keyboardFunction(NativeLib.WSK_VIEW, NativeLib.WSK_NONSPECIAL, keyReleased);
 				return true;
 			default:
 				return false;
@@ -123,105 +98,18 @@ public class MainView extends GLSurfaceView {
 			return true;
 	}
 
-	@Override
-	public boolean onTrackballEvent (MotionEvent event) {
-		if (event.getAction() == MotionEvent.ACTION_MOVE) {
-
-			if (mMainActivity.mSensor != null)
-				return true;
-
-			trackballUsed = true;
-
-			float x = event.getX()*event.getXPrecision();
-			float y = event.getY()*event.getYPrecision();
-
-			if (x<0) {
-				if (trackingRight) {
-					keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
-					trackingRight = false;
-				}
-				if (!trackingLeft) {
-					keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
-					trackingLeft = true;
-				}
-				turnFact=(x<-1)?-1:x;
-			} else if (x>0) {
-				if (trackingLeft) {
-					keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
-					trackingLeft = false;
-				}
-				if(!trackingRight) {
-					keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
-					trackingRight = true;
-				}
-				turnFact=(x>1)?1:x;
-			} 
-
-			if (y>0) {
-				if (trackingUp) {
-					keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
-					trackingUp = false;
-				}
-				if (!trackingDown) {
-					keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
-					trackingDown = true;
-				}
-			} else if (y<0) {
-				if (trackingDown) {
-					keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
-					trackingDown = false;
-				}
-				if(!trackingUp) {
-					keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, NativeLib.WSK_PRESSED);
-					trackingUp = true;
-				}
-			}
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	private void finishTrackballEvents() {
-		if (trackballSkipped > trackballSkipCycles) {
-			if (trackingRight) {
-				keyboardFunction(NativeLib.WSK_RIGHT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
-				trackingRight = false;
-			}
-			if (trackingLeft) {
-				keyboardFunction(NativeLib.WSK_LEFT, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
-				trackingLeft = false;
-			}
-			if (trackingUp) {
-				keyboardFunction(NativeLib.WSK_UP, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
-				trackingUp = false;
-			}
-			if (trackingDown) {
-				keyboardFunction(NativeLib.WSK_DOWN, NativeLib.WSK_SPECIAL, NativeLib.WSK_RELEASED);
-				trackingDown = false;
-			}
-			trackballSkipped=0;
-		}
-		trackballSkipped++;
-	}
-
 	public void keyboardFunction(int key, boolean special, boolean state) {
 		keyQueue.add(new KeyState(key, special, state));
-
 	}
 
 	public class MainRenderer implements GLSurfaceView.Renderer {
 
 		public void onDrawFrame(GL10 gl) {
-
-			if (trackballUsed)
-				finishTrackballEvents();
-
 			int keyCode = -1;
 			boolean keySpecial = false;
 			boolean keyReleased = false;
 
-			if (keyQueue.size()!=0) {
+			if (keyQueue.size() !=0 ) {
 				KeyState keyState = keyQueue.remove(0);
 				keyCode = keyState.keyCode;
 				keySpecial = keyState.keySpecial;
@@ -230,7 +118,7 @@ public class MainView extends GLSurfaceView {
 
 			gameMode = NativeLib.render(touchX, touchY, turnFact, keyCode, keySpecial, keyReleased);
 
-			if (gameMode!=NativeLib.NO_MODE && gameMode!= prevMode) {
+			if (gameMode != NativeLib.NO_MODE && gameMode != prevMode) {
 				post(new Runnable() {					
 					public void run() {
 						mMainActivity.setOverlayView(gameMode);
@@ -239,7 +127,7 @@ public class MainView extends GLSurfaceView {
 				prevMode = gameMode;
 			}
 
-			if (gameMode!=NativeLib.NO_MODE) {
+			if (gameMode != NativeLib.NO_MODE) {
 				requestRender();
 			} else {
 				mMainActivity.requestExit();
@@ -257,11 +145,11 @@ public class MainView extends GLSurfaceView {
 	}
 
 	public class KeyState {
-		public int keyCode;
-		public boolean keySpecial;
-		public boolean keyReleased;
+		int keyCode;
+		boolean keySpecial;
+		boolean keyReleased;
 
-		public KeyState(int keyCode2, boolean keySpecial2, boolean keyReleased2) {
+		KeyState(int keyCode2, boolean keySpecial2, boolean keyReleased2) {
 			keyCode = keyCode2;
 			keySpecial = keySpecial2;
 			keyReleased = keyReleased2;
