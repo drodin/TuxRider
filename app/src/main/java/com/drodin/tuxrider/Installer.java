@@ -2,8 +2,9 @@ package com.drodin.tuxrider;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,9 +16,6 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 public class Installer extends Activity {
-
-	private static LinearLayout mView = null;
-
 	@Override
 	protected void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
@@ -29,7 +27,7 @@ public class Installer extends Activity {
 		if (getWindowManager().getDefaultDisplay().getHeight()>getWindowManager().getDefaultDisplay().getWidth())
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-		mView = new LinearLayout(getApplicationContext());
+		LinearLayout mView = new LinearLayout(getApplicationContext());
 		mView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 		mView.setBackgroundDrawable(getResources().getDrawable(R.drawable.splash));
 
@@ -51,48 +49,61 @@ public class Installer extends Activity {
 		final AssetManager mAssetManager = getApplication().getResources().getAssets();
 
 		try {
-			String dir = NativeLib.DATA_DIR + "/";
-
-			File fdir = new File( dir );
-			if (!fdir.exists()) {
-				//fdir.mkdirs();
+			if (!(new File(NativeLib.DATA_DIR).exists()))
 				NativeLib.DATA_DIR = getApplicationContext().getFilesDir().getAbsolutePath();
-				dir = NativeLib.DATA_DIR + "/";
-			}
 
-			ZipInputStream zs = new ZipInputStream(mAssetManager.open("files.zip", AssetManager.ACCESS_BUFFER));
-
-			ZipEntry item;
-			while( (item = zs.getNextEntry())!=null ) {
-
-				if( item.isDirectory() ) {
-					File newdir = new File( dir + item.getName() );
-					if (!newdir.exists())
-						newdir.mkdir();
-				}
-				else {
-					File newfile = new File( dir + item.getName() );
-					long filesize = item.getSize();
-					if (newfile.exists() && newfile.length() == filesize)
-						continue;
-					byte[] tempdata = new byte[(int)filesize];
-					int offset = 0;
-					while (offset<filesize)
-						offset += zs.read(tempdata, offset, (int)filesize-offset);
-					zs.closeEntry();
-					newfile.createNewFile();
-					FileOutputStream fo = new FileOutputStream(newfile);
-					fo.write(tempdata);
-					fo.close();
-				}
-			}
-
-			zs.close();   
+			copyAssetFolder(mAssetManager, "files", NativeLib.DATA_DIR);
 		}
-		catch(Exception e)
-		{
-			//noop
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 
+	private static boolean copyAssetFolder(AssetManager assetManager, String fromAssetPath, String toPath) {
+		try {
+			String[] files = assetManager.list(fromAssetPath);
+			if (files.length == 0)
+				copyAsset(assetManager, fromAssetPath, toPath);
+			else {
+				new File(toPath).mkdirs();
+				for (String file : files)
+					copyAssetFolder(assetManager, fromAssetPath + "/" + file, toPath + "/" + file);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	private static boolean copyAsset(AssetManager assetManager, String fromAssetPath, String toPath) {
+		InputStream in;
+		OutputStream out;
+
+		try {
+			in = assetManager.open(fromAssetPath);
+			File toFile = new File(toPath);
+
+			if (toFile.exists() && toFile.length() == in.available()) //not for big files
+				return true;
+
+			out = new FileOutputStream(toFile);
+			copyFile(in, out);
+			in.close();
+			out.flush();
+			out.close();
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	private static void copyFile(InputStream in, OutputStream out) throws IOException {
+		byte[] buffer = new byte[1024];
+		int read;
+		while((read = in.read(buffer)) != -1){
+			out.write(buffer, 0, read);
+		}
+	}
 }
