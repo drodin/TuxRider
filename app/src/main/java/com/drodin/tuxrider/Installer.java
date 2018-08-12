@@ -8,7 +8,6 @@ import java.io.OutputStream;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.ViewGroup.LayoutParams;
@@ -23,9 +22,6 @@ public class Installer extends Activity {
 		getWindow().setFlags(
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-		if (getWindowManager().getDefaultDisplay().getHeight()>getWindowManager().getDefaultDisplay().getWidth())
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 		LinearLayout mView = new LinearLayout(getApplicationContext());
 		mView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));

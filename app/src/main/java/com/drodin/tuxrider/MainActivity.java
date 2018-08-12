@@ -30,7 +30,6 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -55,8 +54,6 @@ public class MainActivity extends Activity {
 	public static NativeLib mNativeLib;
 
 	private static SharedPreferences settings = null;
-
-	private boolean dRotate = false;
 
 	private static MainView mMainView = null;
 	private static AdView mAdView = null;
@@ -87,13 +84,6 @@ public class MainActivity extends Activity {
 		getWindow().setFlags(
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-		int dWidth = getWindowManager().getDefaultDisplay().getWidth();
-		int dHeight = getWindowManager().getDefaultDisplay().getHeight();
-		if (dHeight > dWidth) {
-			dRotate = true;
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-		}
 
 		mNativeLib = new NativeLib(getApplicationContext());
 
@@ -252,10 +242,7 @@ public class MainActivity extends Activity {
 			accValueY += event.values[1];
 
 			if (accCounter==0) {
-				if (dRotate)
-					updateTV(accValueX/accSamples, accValueY/accSamples);
-				else
-					updateTV(-accValueY/accSamples, accValueX/accSamples);
+				updateTV(-accValueY/accSamples, accValueX/accSamples);
 				accValueX = accValueY = 0;
 				accCounter = accSamples;
 			}
