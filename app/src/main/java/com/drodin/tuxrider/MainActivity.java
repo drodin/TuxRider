@@ -104,6 +104,7 @@ public class MainActivity extends Activity {
 		mAppView = new ImageButton(this);
 		mAppView.setBackgroundColor(Color.TRANSPARENT);
 		mAppView.setImageResource(R.drawable.icon); //TODO: set proper image
+		mAppView.setVisibility(View.INVISIBLE);
 		mAppView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

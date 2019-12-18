@@ -51,14 +51,10 @@ typedef struct {
 
 static help_line_t help_lines[] = 
 {
-{ "credits_h2", "How to play:" },
-{ "credits_text", "Your goal is to control Tux,riding down a" },
-{ "credits_text", "snow slope. Finish the course in minimum" },
-{ "credits_text", "time, collect as much fishes as you can." },
-{ "credits_text", "To control Tux speed, brake and rotation" },
-{ "credits_text", "use dpad, trackball or accelerometer." },
-{ "credits_text", "To jump push trackball or tap screen." },
-{ "credits_text", "To switch view use camera or menu key." },
+{ "credits_h2", "Privacy Policy:" },
+{ "credits_text", "We don't collect any personal data from our apps." },
+{ "credits_text", "If you have any questions please don't hesitate to" },
+{ "credits_text", "contact us: tuxrider@drodin.com" },
 };
 
 static scalar_t help_y_offset;

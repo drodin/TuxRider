@@ -229,7 +229,7 @@ static void game_type_select_init(void)
     help_btn = button_create( dummy_pos,
 				  300 * mHeight / 320, 40 * mHeight / 320,
 				  "button_label",
-				  "Help" );
+				  "Privacy Policy" );
     button_set_hilit_font_binding( help_btn, "button_label_hilit" );
     button_set_visible( help_btn, True );
     button_set_click_event_cb( help_btn, help_click_cb, NULL );
