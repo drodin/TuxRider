@@ -29,11 +29,13 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
@@ -42,10 +44,7 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
 
@@ -56,7 +55,7 @@ public class MainActivity extends Activity {
 	private static SharedPreferences settings = null;
 
 	private static MainView mMainView = null;
-	private static AdView mAdView = null;
+	private ImageButton mAppView = null;
 
 	public SensorManager mSensorManager = null; 
 	public List<Sensor> mSensors = null; 
@@ -102,15 +101,20 @@ public class MainActivity extends Activity {
 
 		mMainView = new MainView(getApplicationContext());
 
-		mAdView = new AdView(this);
-		mAdView.setAdUnitId("a14d3678cfc9fb7");
-		mAdView.setAdSize(AdSize.BANNER);
-		mAdView.setBackgroundColor(Color.TRANSPARENT);
-		mAdView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
+		mAppView = new ImageButton(this);
+		mAppView.setBackgroundColor(Color.TRANSPARENT);
+		mAppView.setImageResource(R.drawable.icon); //TODO: set proper image
+		mAppView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent playMarket = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.drodin.tuxrider"));
+				startActivity(playMarket);
+			}
+		});
 
 		mFrameLayout.addView(mMainView,
 				new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-		mFrameLayout.addView(mAdView,
+		mFrameLayout.addView(mAppView,
 				new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM));
 
 		setContentView(mFrameLayout,
@@ -259,13 +263,14 @@ public class MainActivity extends Activity {
 		case NativeLib.RACE_SELECT:
 		case NativeLib.PREFERENCE:
 		case NativeLib.LOADING:
-			if (mAdView != null) {
-				mAdView.setVisibility(View.VISIBLE);
+			//TODO: remove
+			/*if (mAppView != null) {
+				mAppView.setVisibility(View.VISIBLE);
 			}
-			break;
+			break;*/
 		default:
-			if (mAdView != null) {
-				mAdView.setVisibility(View.INVISIBLE);
+			if (mAppView != null) {
+				mAppView.setVisibility(View.INVISIBLE);
 			}
 			break;
 		}
