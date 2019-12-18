@@ -33,7 +33,7 @@ public class NativeLib {
 		System.loadLibrary("tuxrider");
 	}
 
-	public static String DATA_DIR = "/sdcard/com.drodin.tuxrider";
+	public static String DATA_DIR = null;
 
 	public static final String [] sound_names = new String[] {
 		"rock_sound",

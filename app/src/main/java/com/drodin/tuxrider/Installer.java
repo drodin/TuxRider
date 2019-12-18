@@ -45,8 +45,7 @@ public class Installer extends Activity {
 		final AssetManager mAssetManager = getApplication().getResources().getAssets();
 
 		try {
-			if (!(new File(NativeLib.DATA_DIR).exists()))
-				NativeLib.DATA_DIR = getApplicationContext().getFilesDir().getAbsolutePath();
+			NativeLib.DATA_DIR = getApplicationContext().getFilesDir().getAbsolutePath();
 
 			copyAssetFolder(mAssetManager, "files", NativeLib.DATA_DIR);
 		}
